@@ -6,7 +6,7 @@
     "plugin:flowtype/recommended"
   ],
   "plugins": [
-    "babel", "flowtype"
+    "babel", "flowtype", "import"
   ],
   "env"     : {
     "browser" : true
