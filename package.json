@@ -1,14 +1,13 @@
 {
-  "private": true,
-  "name": "babel-starter-kit",
-  "version": "0.0.0",
-  "description": "A project template for authoring and publishing JavaScript libraries",
-  "homepage": "https://www.kriasoft.com/babel-starter-kit/",
-  "repository": "kriasoft/babel-starter-kit",
-  "author": "Kriasoft <hello@kriasoft.com> (https://www.kriasoft.com)",
+  "name": "k2-react-components",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "repository": "k2data/k2-react-components",
+  "author": "k2data <partner@k2data.com.cn> (https://www.k2data.com.cn)",
   "contributors": [
-    "Konstantin Tarkus <hello@tarkus.me>",
-    "Vladimir Kutepov <frenzzy.man@gmail.com>"
+    "",
+    ""
   ],
   "license": "MIT",
   "keywords": [],
