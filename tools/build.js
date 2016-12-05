@@ -50,7 +50,8 @@ function rollupBuild (format, moduleName, entry, dest) {
 }
 
 let promises = []
-for (const format of ['es', 'cjs', 'umd']) {
+// for (const format of ['es', 'cjs', 'umd']) {
+for (const format of ['es', 'cjs']) {
   // rollupBuild(format, 'k2_react_components',
   //   'src/index.js', `dist/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
   componentDirs.map((dir) => {
