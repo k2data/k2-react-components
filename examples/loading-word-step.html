@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>k2 react components</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../src/components/LoadingWordStep/LoadingWordStep.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" style="height: 100%"></div>
+
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script src="../dist/LoadingWordStep/index.umd.js"></script>
+  <script type="text/babel">
+    ReactDOM.render(
+      <LoadingWordStep />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+</html>

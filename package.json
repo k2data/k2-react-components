@@ -17,10 +17,18 @@
   "babel": {
     "presets": [
       "latest",
-      "stage-0"
+      "stage-0",
+      "react"
     ],
     "plugins": [
-      "transform-runtime"
+      "transform-runtime",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": "css"
+        }
+      ]
     ]
   },
   "eslintConfig": {
@@ -28,18 +36,24 @@
     "extends": "airbnb-base"
   },
   "dependencies": {
-    "babel-runtime": "^6.11.6"
+    "antd": "^2.3.1",
+    "babel-runtime": "^6.11.6",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
+    "babel-plugin-import": "^1.0.1",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
+    "cssnano": "^3.8.1",
     "del": "^2.2.2",
     "eslint": "^3.8.0",
     "eslint-config-airbnb-base": "^8.0.0",
@@ -55,6 +69,7 @@
     "mocha": "^3.1.2",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-postcss": "^0.2.0",
     "sinon": "^2.0.0-pre.3"
   },
   "scripts": {

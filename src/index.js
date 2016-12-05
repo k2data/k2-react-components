@@ -8,3 +8,4 @@
  */
 
 export Greeting from './Greeting.js'
+export Loading from './components/Loading/index.js'
