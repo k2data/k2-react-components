@@ -26,7 +26,7 @@ const componentDirs = fs.readdirSync(componentsPath).filter((file) => {
 let promise = Promise.resolve()
 
 // Clean up the output directory
-promise = promise.then(() => del(['dist/*']))
+promise = promise.then(() => del(['lib/*']))
 
 // Compile source code into a distributable format with Babel
 
@@ -53,10 +53,10 @@ let promises = []
 // for (const format of ['es', 'cjs', 'umd']) {
 for (const format of ['es', 'cjs']) {
   // rollupBuild(format, 'k2_react_components',
-  //   'src/index.js', `dist/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
+  //   'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
   componentDirs.map((dir) => {
     promises.push(rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
-      `dist/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`))
+      `lib/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`))
   })
 }
 
@@ -68,10 +68,10 @@ function buildCss () {
     postcss([ require('autoprefixer'), require('cssnano') ])
       .process(fs.readFileSync(`${componentsPath}/${dir}/${dir}.css`, 'utf-8'), {
         from: `${componentsPath}/${dir}/${dir}.css`,
-        to: `dist/${dir}/index.css` })
+        to: `lib/${dir}/index.css` })
       .then(function (result) {
-        fs.writeFileSync(`./dist/${dir}/index.css`, result.css)
-        if (result.map) fs.writeFileSync(`dist/${dir}/index.css.map`, result.map)
+        fs.writeFileSync(`./lib/${dir}/index.css`, result.css)
+        if (result.map) fs.writeFileSync(`lib/${dir}/index.css.map`, result.map)
       })
       .catch((e) => {
         console.error(e)
@@ -86,8 +86,8 @@ promise = Promise.all(promises).then(() => {
   delete pkg.scripts
   delete pkg.eslintConfig
   delete pkg.babel
-  fs.writeFileSync('dist/package.json', JSON.stringify(pkg, null, '  '), 'utf-8')
-  fs.writeFileSync('dist/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8')
+  fs.writeFileSync('lib/package.json', JSON.stringify(pkg, null, '  '), 'utf-8')
+  fs.writeFileSync('lib/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8')
   buildCss()
 })
 
