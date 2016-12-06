@@ -1,6 +1,6 @@
 {
   "name": "k2-react-components",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "",
   "homepage": "",
   "repository": "k2data/k2-react-components",
@@ -11,8 +11,10 @@
   ],
   "license": "MIT",
   "keywords": [],
-  "main": "lib/index.js",
-  "files": ["lib"],
+  "main": "index.js",
+  "files": [
+    "lib/"
+  ],
   "jsnext:main": "index.es6.js",
   "babel": {
     "presets": [

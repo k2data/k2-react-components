@@ -86,7 +86,7 @@ promise = Promise.all(promises).then(() => {
   delete pkg.scripts
   delete pkg.eslintConfig
   delete pkg.babel
-  fs.writeFileSync('lib/package.json', JSON.stringify(pkg, null, '  '), 'utf-8')
+  // fs.writeFileSync('lib/package.json', JSON.stringify(pkg, null, '  '), 'utf-8')
   fs.writeFileSync('lib/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8')
   buildCss()
 })
