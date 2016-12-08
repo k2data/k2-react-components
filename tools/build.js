@@ -10,6 +10,7 @@
 'use strict'
 
 const fs = require('fs')
+const fsCopy = require('fs-extra')
 const path = require('path')
 const del = require('del')
 const rollup = require('rollup')
@@ -50,10 +51,10 @@ function rollupBuild (format, moduleName, entry, dest) {
 }
 
 let promises = []
-// for (const format of ['es', 'cjs', 'umd']) {
-for (const format of ['es', 'cjs']) {
+for (const format of ['es', 'cjs', 'umd']) {
+// for (const format of ['es', 'cjs']) {
   // rollupBuild(format, 'k2_react_components',
-  //   'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
+    // 'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
   componentDirs.map((dir) => {
     promises.push(rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
       `lib/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`))
@@ -89,6 +90,7 @@ promise = Promise.all(promises).then(() => {
   // fs.writeFileSync('lib/package.json', JSON.stringify(pkg, null, '  '), 'utf-8')
   fs.writeFileSync('lib/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8')
   buildCss()
+  fsCopy.copySync(path.resolve('src/static'), path.resolve('lib'))
 })
 
 promise.catch(err => console.error(err.stack)) // eslint-disable-line no-console

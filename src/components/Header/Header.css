@@ -1,4 +1,123 @@
 .header-container {
-  height: 50px;
+  height: 60px;
   background-color: #1C61A6;
+  width: 100%;
+  font-size: 14px;
+}
+.header__logo {
+  width: 200px;
+  float: left;
+  height: 100%;
+  text-align: center;
+  border-right: 1px solid #00a6ad;
+  line-height: 60px;
+}
+.header__logo_title span {
+  color: #fff;
+  font-size: 16px;
+}
+.header__logo_title span img {
+  vertical-align: middle;
+}
+.header__logo_title span:nth-child(1) {
+  /*border-right:1px solid #fff;*/
+  padding: 0px 5px;
+  margin-right: 5px;
+}
+.header__logo_title span:nth-child(1)::after {
+  content: '';
+  border-right: 1px solid #fff;
+  margin-left: 10px;
+  width: 0;
+  height: 15px;
+  display: inline-block;
+}
+.header__controll {
+  display: flex;
+  flex-direction: row;
+}
+.header__controll__nav {
+  flex: 1;
+  display: flex;
+  height: 60px;
+  border-right: 1px solid #00a6ad;
+}
+
+.header__controll__admin {
+  width: 100px;
+  text-align: center;
+  line-height: 60px;
+  border-right: 1px solid #00a6ad;
+}
+.header__controll__nav ul, .header__controll__nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+}
+.header__controll__nav ul {
+  flex: 1;
+  overflow: hidden;
+}
+
+.header__controll__nav li {
+  height: 100%;
+  text-align: center;
+  line-height: 60px;
+  padding: 0px 10px;
+  color: #78BEEA;
+  cursor: pointer;
+}
+
+.header__controll__search {
+  width: 200px;
+  padding: 0px 5px;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 60px;
+  border-right: 1px solid #00a6ad;
+}
+.header__controll__nav li:hover, .header__controll__nav .active {
+  background-color: #3c464b;
+  color: #fff;
+}
+
+.header__controll__drop {
+  width: 200px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.header__controll__showhidden {
+  line-height: 50px;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+.header__controll_hidden-list {
+  width: 150px;
+  background: #eee;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  z-index: 1000;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px #aaa;
+}
+.header__controll_hidden-list li {
+  color: #999;
+  width: 150px;
+  text-align: center;
+  padding: 0px;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+.header__controll_hidden-list li:hover {
+  background-color: #1C61A6;
+  color: #fff;
+}
+.header__controll_hidden-list .hidden__active {
+  background-color: #1C61A6;
+  color: #fff;
 }
