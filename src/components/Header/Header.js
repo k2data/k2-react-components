@@ -105,7 +105,7 @@ const Header = React.createClass({
       <header className='header-container'>
         <div className='header__logo'>
           <div className='header__logo_title'>
-            <span><img src={'/logo.png'} /></span>
+            <span><img src={'logo.png'} /></span>
             <span>
               <b>
                 {

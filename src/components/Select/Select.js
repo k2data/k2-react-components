@@ -1,5 +1,4 @@
 import React from 'react'
-
 const Select = React.createClass({
   propTypes: {
     selects: React.PropTypes.array.isRequired,
@@ -23,15 +22,19 @@ const Select = React.createClass({
     })
   },
   componentDidMount () {
-    document.body.onclick = (e) => {
-      console.log(e.target)
-      if (e.target.className && e.target.className !== 'select__box') {
-        this.setState({
-          display: 'none',
-          className: 'placeholder_close'
-        })
+    const that = this
+    document.body.addEventListener('mousemove', function (e) {
+      if (e.target.id === 'selectBox' || e.target.id === 'selectContent') {
+        document.body.onclick = null
+      } else {
+        document.body.onclick = function () {
+          that.setState({
+            display: 'none',
+            className: 'placeholder_close'
+          })
+        }
       }
-    }
+    })
   },
   itemClick (e) {
     e.stopPropagation()
@@ -44,7 +47,7 @@ const Select = React.createClass({
   },
   render () {
     return (
-      <div ref='selectBox' className='select__box' onClick={this.selectClick}>
+      <div ref='selectBox' className='select__box' onClick={this.selectClick} id='selectBox'>
         <span className={this.state.className} id='selectContent'>{this.state.placeholder}</span>
         <ul id='liOptions' style={{display: this.state.display}}>
           {

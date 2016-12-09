@@ -17,6 +17,21 @@
     cursor: pointer;
     text-decoration: none;
 }
+.select__box__defined {
+    width: 140px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 8px 8px, 8px 8px, 30px 30px, 1px 30px;
+    background-image: repeating-linear-gradient(225deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%), /*组合成三角形图标*/ repeating-linear-gradient(135deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%), /*组合成三角形图标*/ linear-gradient(#FFFFFF 0%, #F8F9Fd, #EFFAFA 100%), /*竖分割线右侧的背景色*/ repeating-linear-gradient( rgb(191, 204, 220) 0%, rgb(191, 204, 220) 100%);
+    background-position: 175px 10px, 183px 10px, right top, 167px top;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding: 0px 15px;
+}
 .select__box:hover {
   border-color: #e3e3e3;
 }
