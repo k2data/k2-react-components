@@ -25,10 +25,9 @@
     ReactDOM.render(
       <Header
       navList={['控制台','数据查询','数据分析','多维分析','运维','数据档案','导入数据',
-      'test001', 'test002', 'test003', 'test004', 'test005', 'test006', 'test007',
-      'test008', 'test009', 'test010', 'test011', 'test012', 'test013'
+      'test001', 'test002', 'test003', 'test004', 'test005', 'test006', 'test007'
       ]}
-      selects={['时序数据', 'console', 'pas', 'kmx', 'amf']}
+      selects={['时序数据', '关系型数据', '结构化数据', '非结构化数据']}
       userMessage={{'name': 'adminT','navList': ['message', 'modify', 'layout']}}
       navChange={function (value) { console.log(value) }}
       onSelectChange={function () {console.log('select change....')}}

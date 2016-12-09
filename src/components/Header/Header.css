@@ -6,7 +6,7 @@
   font-family: '微软雅黑'
 }
 .header__logo {
-  width: 200px;
+  width: 220px;
   float: left;
   height: 100%;
   text-align: center;
@@ -78,13 +78,16 @@
   line-height: 60px;
   border-right: 1px solid #1c69b7;
 }
-.header__controll__nav li:hover, .header__controll__nav .active {
+.header__controll__nav li:hover {
+  background-color: #295887;
+}
+.header__controll__nav .active {
   background-color: #3c464b;
   color: #fff;
 }
 
 .header__controll__drop {
-  width: 200px;
+  width: 220px;
   text-align: center;
   line-height: 60px;
 }

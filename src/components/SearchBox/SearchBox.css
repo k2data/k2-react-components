@@ -19,6 +19,7 @@
   width: 30px;
   vertical-align: middle;
   padding-top: 2px;
+  line-height: 0;
   cursor: pointer;
 }
 .header__controll__search__box input:focus, .header__controll__search__box button:focus {

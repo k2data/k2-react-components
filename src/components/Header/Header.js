@@ -2,7 +2,6 @@ import React from 'react'
 import Select from '../Select/index.js'
 import UserList from '../UserList/UserList.js'
 import SearchBox from '../SearchBox/index.js'
-import 'animate.css'
 const Header = React.createClass({
   propTypes: {
     navList: React.PropTypes.array.isRequired,
@@ -43,8 +42,8 @@ const Header = React.createClass({
         : ''
   },
   componentDidMount () {
-    this.hiddenNavFunc()
-    window.addEventListener('resize', this.hiddenNavFunc)
+    // this.hiddenNavFunc()
+    // window.addEventListener('resize', this.hiddenNavFunc)
   },
   componentWillUnmount () {
     window.removeEventListener('resize', this.hiddenNavFunc)
@@ -60,6 +59,8 @@ const Header = React.createClass({
         hiddenList.push(navs[i].innerHTML)
       }
     }
+    console.log('navAllWidth:' + navAllWidth)
+    console.log('navBox:' + navBox.offsetWidth)
     this.setState({
       hiddenList
     })
@@ -135,7 +136,7 @@ const Header = React.createClass({
             <a href='javascript:;' className='header__controll__showhidden'
               style={{visibility: this.state.visibility}} onClick={this.showHidden}>
               ...
-              <div className='header__controll_hidden-list animated infinite slideInDown'
+              <div className='header__controll_hidden-list'
                 style={{display: this.state.display}}>
                 <ul onClick={this.hiddenListClick} ref='hiddenNav'>
                   {

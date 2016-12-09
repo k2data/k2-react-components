@@ -17,9 +17,6 @@
     cursor: pointer;
     text-decoration: none;
 }
-.select__box a {
-  text-decoration: none;
-}
 .select__box:hover {
   border-color: #e3e3e3;
 }

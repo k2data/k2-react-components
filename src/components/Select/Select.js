@@ -21,14 +21,17 @@ const Select = React.createClass({
       className: this.state.className === 'placeholder_close'
                   ? 'placeholder_open' : 'placeholder_close'
     })
-    document.body.onclick = (e) => {
-      this.setState({
-        display: 'none',
-        className: 'placeholder_close'
-      })
-    }
   },
   componentDidMount () {
+    document.body.onclick = (e) => {
+      console.log(e.target)
+      if (e.target.className && e.target.className !== 'select__box') {
+        this.setState({
+          display: 'none',
+          className: 'placeholder_close'
+        })
+      }
+    }
   },
   itemClick (e) {
     e.stopPropagation()
@@ -42,13 +45,13 @@ const Select = React.createClass({
   render () {
     return (
       <div ref='selectBox' className='select__box' onClick={this.selectClick}>
-        <a className={this.state.className} id='selectContent'>{this.state.placeholder}</a>
+        <span className={this.state.className} id='selectContent'>{this.state.placeholder}</span>
         <ul id='liOptions' style={{display: this.state.display}}>
           {
             this.props.selects && this.props.selects instanceof Array &&
                           this.props.selects.length !== 0
             ? this.props.selects.map((item, index) => {
-              return <li onClick={this.itemClick}>{item}</li>
+              return <li onClick={this.itemClick} key={`option${index}`}>{item}</li>
             })
             : ''
           }
