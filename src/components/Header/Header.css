@@ -1,7 +1,7 @@
 .header-container {
   height: 60px;
   background-color: #1C61A6;
-  width: 100%;
+  padding-right: 20px;
   font-size: 14px;
   font-family: '微软雅黑'
 }
@@ -10,8 +10,8 @@
   float: left;
   height: 100%;
   text-align: center;
-  border-right: 1px solid #00a6ad;
   line-height: 60px;
+  overflow: hidden;
 }
 .header__logo_title span {
   color: #fff;
@@ -41,14 +41,14 @@
   flex: 1;
   display: flex;
   height: 60px;
-  border-right: 1px solid #00a6ad;
+  border-right: 1px solid #1c69b7;
 }
 
 .header__controll__admin {
   width: 100px;
   text-align: center;
   line-height: 60px;
-  border-right: 1px solid #00a6ad;
+  border-right: 1px solid #1c69b7;
 }
 .header__controll__nav ul, .header__controll__nav li {
   list-style: none;
@@ -76,7 +76,7 @@
   white-space: nowrap;
   text-align: center;
   line-height: 60px;
-  border-right: 1px solid #00a6ad;
+  border-right: 1px solid #1c69b7;
 }
 .header__controll__nav li:hover, .header__controll__nav .active {
   background-color: #3c464b;
@@ -97,7 +97,7 @@
 }
 .header__controll_hidden-list {
   width: 150px;
-  background: #eee;
+  background: #fff;
   position: absolute;
   top: 65px;
   left: 0;

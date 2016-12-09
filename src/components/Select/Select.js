@@ -21,12 +21,14 @@ const Select = React.createClass({
       className: this.state.className === 'placeholder_close'
                   ? 'placeholder_open' : 'placeholder_close'
     })
-    document.body.onclick = () => {
+    document.body.onclick = (e) => {
       this.setState({
         display: 'none',
         className: 'placeholder_close'
       })
     }
+  },
+  componentDidMount () {
   },
   itemClick (e) {
     e.stopPropagation()
@@ -39,7 +41,7 @@ const Select = React.createClass({
   },
   render () {
     return (
-      <div href='javascript:;' className='select__box' onClick={this.selectClick}>
+      <div ref='selectBox' className='select__box' onClick={this.selectClick}>
         <a className={this.state.className} id='selectContent'>{this.state.placeholder}</a>
         <ul id='liOptions' style={{display: this.state.display}}>
           {

@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 .user__list:hover {
-  background-color: #666;
+  background-color: #3c464b;
   color: #fff;
 }
 
@@ -49,7 +49,7 @@
     position: absolute;
     overflow: hidden;
     width: 100%;
-    background: #eee;
+    background: #fff;
     border-radius: 2px;
     top: 100%;
     left: 0;
