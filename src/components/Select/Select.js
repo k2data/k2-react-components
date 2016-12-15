@@ -46,11 +46,11 @@ const Select = React.createClass({
   itemClick (e) {
     e.stopPropagation()
     this.setState({
-      placeholder: e.target.innerHTML,
+      placeholder: e.target.innerText,
       display: 'none',
       className: 'placeholder_close'
     })
-    this.props.onSelectChange ? this.props.onSelectChange(e.target.innerHTML) : ''
+    this.props.onSelectChange ? this.props.onSelectChange(e.target.innerText) : ''
   },
   render () {
     return (

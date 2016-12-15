@@ -176,6 +176,7 @@
   min-width: 100px;
   margin-top: 5px;
   box-shadow: 0px 2px 10px #aaa;
+  background-color: #fff;
 }
 
 .drop__menu__list>ul, .drop__menu__list>ul>li{

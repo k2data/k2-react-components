@@ -17,18 +17,42 @@ const Header = React.createClass({
   getInitialState () {
     return {
       visibility: 'hidden',
-      display: 'none'
+      display: 'none',
+      singleList: '',
+      dropList: ''
     }
   },
   navClick (e) {
     const navList = this.refs['nav']
     const navArr = navList.childNodes
+    let newNavArr = []
+    let dropList = []
     for (let i = 0, len = navArr.length; i < len; i++) {
-      navArr[i].className = ''
-      if (navArr[i].innerHTML.indexOf(e.target.innerHTML) !== -1) {
-        navArr[i].className = 'active'
-      }
+      navArr[i].childElementCount === 0
+        ? newNavArr.unshift(navArr[i])
+      : dropList.push(navArr[i])
     }
+    this.setState({
+      singleList: newNavArr,
+      dropList
+    })
+    newNavArr.map((item) => {
+      item.onclick = (e) => {
+        for (let i = 0, len = navArr.length; i < len; i++) {
+          navArr[i].className = ''
+        }
+        item.className = 'active'
+        this.props.navChange
+          ? this.props.navChange(e.target.innerText)
+            : ''
+      }
+    })
+    // for (let i = 0, len = newNavArr.length; i < len; i++) {
+    //   newNavArr[i].className = ''
+    //   if (newNavArr[i].innerHTML.indexOf(e.target.innerHTML) !== -1) {
+    //     newNavArr[i].className = 'active'
+    //   }
+    // }
     if (this.state.visibility === 'visible') {
       const hiddenList = this.refs['hiddenNav'].getElementsByTagName('li')
       for (let i = 0, len = hiddenList.length; i < len; i++) {
@@ -38,11 +62,13 @@ const Header = React.createClass({
         display: 'none'
       })
     }
-    this.props.navChange
-      ? this.props.navChange(e.target.innerHTML)
-        : ''
+    // this.props.navChange
+    //   ? this.props.navChange(e.target.innerHTML)
+    //     : ''
   },
   componentDidMount () {
+    this.navClick()
+    //  onClick={this.navClick}
     // this.hiddenNavFunc()
     // window.addEventListener('resize', this.hiddenNavFunc)
   },
@@ -57,7 +83,7 @@ const Header = React.createClass({
     for (let i = 0, len = navs.length; i < len; i++) {
       navAllWidth += navs[i].offsetWidth
       if (navAllWidth > navBox.offsetWidth) {
-        hiddenList.push(navs[i].innerHTML)
+        hiddenList.push(navs[i].innerText)
       }
     }
     console.log('navAllWidth:' + navAllWidth)
@@ -92,12 +118,12 @@ const Header = React.createClass({
     }
     for (let i = 0, len = hiddenList.length; i < len; i++) {
       hiddenList[i].className = ''
-      if (hiddenList[i].innerHTML === e.target.innerHTML) {
+      if (hiddenList[i].innerText === e.target.innerText) {
         hiddenList[i].className = 'hidden__active'
       }
     }
     this.props.navChange
-      ? this.props.navChange(e.target.innerHTML)
+      ? this.props.navChange(e.target.innerText)
         : ''
   },
 
@@ -120,34 +146,18 @@ const Header = React.createClass({
         </div>
         <div className='header__controll'>
           <div className='header__controll__nav'>
-            <ul onClick={this.navClick} ref='nav'>
+            <ul ref='nav'>
               {
                 this.props.navList && this.props.navList.list && this.props.navList.list.length !== 0
                   ? this.props.navList.list.map((item, index) => {
                     let menuBox
-                    // const addDropMenu = (() => {
-                    //   if (this.props.navList.dropMenu && this.props.navList.dropMenu.length !== 0) {
-                    //     this.props.navList.dropMenu.map((menu) => {
-                    //       if (item === menu.name && menu.menus && menu.menus.length !== 0) {
-                    //         menuBox = <DropList name={menu.name} list={menu.menus}
-                    //           menuClick={menu.menuClick ? menu.menuClick : ''} />
-                    //         return menuBox
-                    //       } else {
-                    //         menuBox = item
-                    //         return menuBox
-                    //       }
-                    //     })
-                    //   } else {
-                    //     menuBox = item
-                    //     return menuBox
-                    //   }
-                    // })()
                     const addDropMenu = (() => {
                       if (this.props.navList.dropMenu && this.props.navList.dropMenu.length !== 0) {
                         const { dropMenu } = this.props.navList
                         for (let i = 0, len = dropMenu.length; i < len; i++) {
                           if (item === dropMenu[i].name && dropMenu[i].menus && dropMenu[i].menus.length !== 0) {
                             menuBox = <DropList name={dropMenu[i].name} list={dropMenu[i].menus}
+                              singleList={this.state.singleList} dropList={this.state.dropList}
                               menuClick={dropMenu[i].menuClick ? dropMenu[i].menuClick : ''} />
                             break
                           } else {

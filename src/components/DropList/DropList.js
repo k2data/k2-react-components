@@ -1,9 +1,11 @@
 import React from 'react'
 const DropList = React.createClass({
   propTypes: {
-    list: React.PropTypes.object.isRequired,
+    list: React.PropTypes.array.isRequired,
     name: React.PropTypes.string.isRequired,
-    menuClick: React.PropTypes.func
+    menuClick: React.PropTypes.func,
+    singleList: React.PropTypes.array.isRequired,
+    dropList: React.PropTypes.array.isRequired
   },
   getInitialState () {
     return {
@@ -19,12 +21,21 @@ const DropList = React.createClass({
     })
   },
   listClick (e) {
+    this.props.dropList.map((item) => {
+      item.className = ''
+      item.innerText === e.target.parentNode.parentNode.previousSibling.innerText
+        ? item.className = 'active'
+      : ''
+    })
+    this.props.singleList.map((item) => {
+      item.className = ''
+    })
     this.setState({
       display: 'none',
       arrow: 'drop__menu__name_hide'
     })
     this.props.menuClick
-      ? this.props.menuClick(e.target.innerHTML)
+      ? this.props.menuClick(e.target.innerText)
         : ''
   },
   setHide () {
