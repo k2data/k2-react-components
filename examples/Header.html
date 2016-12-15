@@ -63,11 +63,18 @@
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   <script src="../lib/Header/index.umd.js"></script>
   <script type="text/babel">
+     const navList = {
+       list: ['控制台','数据查询','数据分析','多维分析','运维','数据档案','导入数据'],
+       active: '数据查询',
+       dropMenu: [
+         {name: '控制台', menus: ['controll1', 'controll2'], menuClick: (value)=>{ console.log(value) }},
+         {name: '数据查询', menus: ['dataserach1', 'dataserach2', 'dataserach3']},
+         {name: '数据分析', menus: ['dataser1', 'datrach2', 'daterach3']}
+       ]
+     }
     ReactDOM.render(
       <Header
-      navList={['控制台','数据查询','数据分析','多维分析','运维','数据档案','导入数据',
-      'test001', 'test002', 'test003', 'test004', 'test005', 'test006', 'test007'
-      ]}
+      navList={navList}
       selects={['时序数据', '关系型数据', '结构化数据', '非结构化数据']}
       userMessage={{'name': 'adminT','navList': ['message', 'modify', 'layout']}}
       navChange={function (value) { console.log(value) }}

@@ -2,9 +2,10 @@ import React from 'react'
 import Select from '../Select/index.js'
 import UserList from '../UserList/UserList.js'
 import SearchBox from '../SearchBox/index.js'
+import DropList from '../DropList/index.js'
 const Header = React.createClass({
   propTypes: {
-    navList: React.PropTypes.array.isRequired,
+    navList: React.PropTypes.object.isRequired,
     selects: React.PropTypes.array.isRequired,
     userMessage: React.PropTypes.object.isRequired,
     onSelectChange: React.PropTypes.func,
@@ -21,10 +22,10 @@ const Header = React.createClass({
   },
   navClick (e) {
     const navList = this.refs['nav']
-    const navArr = navList.getElementsByTagName('li')
+    const navArr = navList.childNodes
     for (let i = 0, len = navArr.length; i < len; i++) {
       navArr[i].className = ''
-      if (navArr[i].innerHTML === e.target.innerHTML) {
+      if (navArr[i].innerHTML.indexOf(e.target.innerHTML) !== -1) {
         navArr[i].className = 'active'
       }
     }
@@ -121,13 +122,51 @@ const Header = React.createClass({
           <div className='header__controll__nav'>
             <ul onClick={this.navClick} ref='nav'>
               {
-                this.props.navList && this.props.navList instanceof Array &&
-                  this.props.navList.length !== 0
-                  ? this.props.navList.map((item, index) => {
-                    if (index === 0) {
-                      return <li key={`nav${index}`} className='active'>{item}</li>
+                this.props.navList && this.props.navList.list && this.props.navList.list.length !== 0
+                  ? this.props.navList.list.map((item, index) => {
+                    let menuBox
+                    // const addDropMenu = (() => {
+                    //   if (this.props.navList.dropMenu && this.props.navList.dropMenu.length !== 0) {
+                    //     this.props.navList.dropMenu.map((menu) => {
+                    //       if (item === menu.name && menu.menus && menu.menus.length !== 0) {
+                    //         menuBox = <DropList name={menu.name} list={menu.menus}
+                    //           menuClick={menu.menuClick ? menu.menuClick : ''} />
+                    //         return menuBox
+                    //       } else {
+                    //         menuBox = item
+                    //         return menuBox
+                    //       }
+                    //     })
+                    //   } else {
+                    //     menuBox = item
+                    //     return menuBox
+                    //   }
+                    // })()
+                    const addDropMenu = (() => {
+                      if (this.props.navList.dropMenu && this.props.navList.dropMenu.length !== 0) {
+                        const { dropMenu } = this.props.navList
+                        for (let i = 0, len = dropMenu.length; i < len; i++) {
+                          if (item === dropMenu[i].name && dropMenu[i].menus && dropMenu[i].menus.length !== 0) {
+                            menuBox = <DropList name={dropMenu[i].name} list={dropMenu[i].menus}
+                              menuClick={dropMenu[i].menuClick ? dropMenu[i].menuClick : ''} />
+                            break
+                          } else {
+                            menuBox = item
+                          }
+                        }
+                      } else {
+                        menuBox = item
+                      }
+                      return menuBox
+                    })()
+                    if (this.props.navList.active) {
+                      return item === this.props.navList.active
+                              ? <li key={`nav${index}`} className='active'>{addDropMenu}</li>
+                            : <li key={`nav${index}`}>{addDropMenu}</li>
                     } else {
-                      return <li key={`nav${index}`}>{item}</li>
+                      return index === 0
+                              ? <li key={`nav${index}`} className='active'>{addDropMenu}</li>
+                            : <li key={`nav${index}`}>{addDropMenu}</li>
                     }
                   })
                     : ''
