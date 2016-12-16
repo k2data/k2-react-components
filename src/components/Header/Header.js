@@ -3,6 +3,7 @@ import Select from '../Select/index.js'
 import UserList from '../UserList/UserList.js'
 import SearchBox from '../SearchBox/index.js'
 import DropList from '../DropList/index.js'
+import SideMenu from '../SideMenu/index.js'
 const Header = React.createClass({
   propTypes: {
     navList: React.PropTypes.object.isRequired,
@@ -207,6 +208,7 @@ const Header = React.createClass({
           <div className='header__controll__admin'>
             <UserList userMessage={this.props.userMessage} userControll={this.props.userControll} />
           </div>
+          <SideMenu />
         </div>
       </header>
     )
