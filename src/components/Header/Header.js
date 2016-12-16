@@ -18,8 +18,8 @@ const Header = React.createClass({
     return {
       visibility: 'hidden',
       display: 'none',
-      singleList: '',
-      dropList: ''
+      singleList: [],
+      dropList: []
     }
   },
   navClick (e) {
