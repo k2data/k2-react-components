@@ -31,16 +31,29 @@ promise = promise.then(() => del(['lib/*']))
 
 // Compile source code into a distributable format with Babel
 
+const babelConfig = {
+  babelrc: false,
+  exclude: 'node_modules/**',
+  runtimeHelpers: true,
+  plugins: [
+    // ['import', [{ 'libraryName': 'antd', 'style': 'css' }]],
+    'external-helpers'
+  ],
+  presets: [['latest', { es2015: { modules: false } }], 'react', 'stage-0']
+}
+
+// Object.assign(pkg.babel, {
+//   babelrc: false,
+//   exclude: 'node_modules/**',
+//   runtimeHelpers: true,
+//   presets: pkg.babel.presets.map(x => (x === 'latest' ? ['latest', { es2015: { modules: false } }] : x))
+// })
+
 function rollupBuild (format, moduleName, entry, dest) {
   return promise.then(() => rollup.rollup({
     entry,
     external: Object.keys(pkg.dependencies),
-    plugins: [babel(Object.assign(pkg.babel, {
-      babelrc: false,
-      exclude: 'node_modules/**',
-      runtimeHelpers: true,
-      presets: pkg.babel.presets.map(x => (x === 'latest' ? ['latest', { es2015: { modules: false } }] : x))
-    }))]
+    plugins: [babel(babelConfig)]
   }).then(bundle => bundle.write({
     dest,
     format,
@@ -51,8 +64,8 @@ function rollupBuild (format, moduleName, entry, dest) {
 }
 
 let promises = []
-for (const format of ['es', 'cjs', 'umd']) {
-// for (const format of ['es', 'cjs']) {
+// for (const format of ['es', 'cjs', 'umd']) {
+for (const format of ['es', 'cjs']) {
   // rollupBuild(format, 'k2_react_components',
     // 'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
   componentDirs.map((dir) => {
