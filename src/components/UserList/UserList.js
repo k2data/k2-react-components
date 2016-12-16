@@ -19,21 +19,6 @@ const UserList = React.createClass({
                   ? 'placeholder_open' : 'placeholder_close'
     })
   },
-  componentDidMount () {
-    // const that = this
-    // document.body.addEventListener('mousemove', function (e) {
-    //   if (e.target.id === 'userList' || e.target.id === 'adminContent') {
-    //     document.body.onclick = null
-    //   } else {
-    //     document.body.onclick = function () {
-    //       that.setState({
-    //         display: 'none',
-    //         className: 'placeholder_close'
-    //       })
-    //     }
-    //   }
-    // })
-  },
   itemClick (e) {
     e.stopPropagation()
     this.setState({
@@ -43,6 +28,28 @@ const UserList = React.createClass({
     this.props.userControll
       ? this.props.userControll(e.target.innerHTML)
         : ''
+  },
+  clickHiden (e) {
+    if (e.target.id === 'adminContent') {
+      document.body.removeEventListener('click', this.setHide)
+    } else {
+      document.body.addEventListener('click', this.setHide)
+    }
+  },
+  setHide () {
+    console.log('add click....')
+    this.setState({
+      display: 'none',
+      className: 'placeholder_close'
+    })
+  },
+  componentDidUpdate () {
+    if (this.state.display === 'none') {
+      document.body.removeEventListener('mousemove', this.clickHiden)
+      document.body.removeEventListener('click', this.setHide)
+    } else {
+      document.body.addEventListener('mousemove', this.clickHiden)
+    }
   },
   render () {
     return (
