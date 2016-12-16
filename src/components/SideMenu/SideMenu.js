@@ -13,7 +13,7 @@ export class SideMenu extends React.Component {
       current: '1'
     }
 
-    this.handleClick = this.handleClick
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick (e) {
