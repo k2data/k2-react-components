@@ -1,6 +1,5 @@
 import React from 'react'
-import { Menu, Icon } from 'antd'
-import 'antd/dist/antd.css'
+import Menu from 'antd/lib/menu'
 const SubMenu = Menu.SubMenu
 // const MenuItemGroup = Menu.ItemGroup
 
@@ -30,7 +29,7 @@ export class SideMenu extends React.Component {
     return (
       <div className='side__menu'>
         <Menu onClick={this.handleClick}
-          style={{ width: 240 }}
+          style={{ width: 218 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
           mode='inline'
