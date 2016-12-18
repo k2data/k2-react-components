@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from 'antd/lib/menu'
+// import { Menu } from 'antd'
 const SubMenu = Menu.SubMenu
 // const MenuItemGroup = Menu.ItemGroup
 
@@ -19,7 +20,6 @@ export class SideMenu extends React.Component {
   }
 
   handleClick (e) {
-    console.log('click ', e)
     this.setState({
       current: e.key
     })

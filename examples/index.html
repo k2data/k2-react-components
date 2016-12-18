@@ -54,28 +54,28 @@
 <body>
   <div id="left" class="split">
     <ul>
-      <li class="nav__item" data-src="/examples/Header.html">
+      <li class="nav__item" data-src="./header/">
         header
       </li>
-      <li class="nav__item" data-src="/examples/LeftNav.html">
-        leftnav
+      <li class="nav__item" data-src="./side-menu/">
+        side-menu
       </li>
-      <li class="nav__item" data-src="/examples/loading-rotate.html">
+      <li class="nav__item" data-src="./loading-rotate/">
         loading-rotate
       </li>
-      <li class="nav__item" data-src="/examples/loading-circle-spin.html">
+      <li class="nav__item" data-src="./loading-circle-spin/">
         loading-circle-spin
       </li>
-      <li class="nav__item" data-src="/examples/loading-circle-pop.html">
+      <li class="nav__item" data-src="./loading-circle-pop/">
         loading-circle-pop
       </li>
-      <li class="nav__item" data-src="/examples/loading-word-step.html">
+      <li class="nav__item" data-src="./loading-word-step/">
         loading-word-step
       </li>
     </ul>
   </div>
   <div id="right" class="split">
-    <iframe src="/examples/loading-rotate.html" width="100%" height="100%">
+    <iframe src="./loading-rotate/" width="100%" height="100%">
       <p>Your browser does not support iframes.</p>
     </iframe>
   </div>
@@ -89,15 +89,12 @@
 
     var lis = document.querySelectorAll('#left ul li');
     var iframe = document.querySelector('#right iframe');
-    Array.prototype.map.call(lis, function(li) {
+    Array.prototype.forEach.call(lis, function(li) {
       li.addEventListener('click', function(e) {
         console.log(e.target.getAttribute('data-src'));
         iframe.setAttribute('src', e.target.getAttribute('data-src'));
       })
     })
-      // .map(function(li) {
-      //   console.log(li);
-      // })
   </script>
 </body>
 </html>
