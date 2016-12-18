@@ -4,6 +4,7 @@
   <title>k2 react components</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/normalize.css">
   <style>
     html, body {
       height: 100%;
@@ -43,8 +44,49 @@
       overflow-y: auto;
       overflow-x: hidden;
     }
+    .nav {
+      margin: 0;
+      padding: 0;
+    }
     .nav__item {
+      list-style: none;
+    }
+    .nav__item a {
       cursor: pointer;
+      display: block;
+      line-height: 30px;
+      padding-left: 30px;
+      text-decoration: none;
+      color: #666;
+    }
+    .nav__item a:hover {
+      color: #333;
+      text-shadow:
+          1px 0px 1px #ccc, 0px 1px 1px #eee,
+          2px 1px 1px #ccc, 1px 2px 1px #eee,
+          3px 2px 1px #ccc, 2px 3px 1px #eee,
+          4px 3px 1px #ccc, 3px 4px 1px #eee,
+          5px 4px 1px #ccc, 4px 5px 1px #eee,
+          6px 5px 1px #ccc, 5px 6px 1px #eee,
+          7px 6px 1px #ccc;
+    }
+    .nav__item a::before {
+      content: ' ';
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      border: 1px solid #111;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .nav__item a:hover::before {
+      background-color: red;
+      border-color: red;
+    }
+    a.nav__item__a--active::before {
+      background-color: red;
+      border-color: red;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.19), 0 2px 6px rgba(0,0,0,0.23);
     }
     #right {
       overflow-y: hidden;
@@ -53,24 +95,36 @@
 </head>
 <body>
   <div id="left" class="split">
-    <ul>
-      <li class="nav__item" data-src="./header/">
-        header
+    <ul class="nav">
+      <li class="nav__item">
+        <a data-src="./header/" href="#header">
+          header
+        </a>
       </li>
-      <li class="nav__item" data-src="./side-menu/">
-        side-menu
+      <li class="nav__item">
+        <a data-src="./side-menu/" href="#side-menu">
+          side-menu
+        </a>
       </li>
-      <li class="nav__item" data-src="./loading-rotate/">
-        loading-rotate
+      <li class="nav__item">
+        <a data-src="./loading-rotate/" href="#loading-rotate">
+          loading-rotate
+        </a>
       </li>
-      <li class="nav__item" data-src="./loading-circle-spin/">
-        loading-circle-spin
+      <li class="nav__item">
+        <a data-src="./loading-circle-spin/" href="#loading-circle-spin">
+          loading-circle-spin
+        </a>
       </li>
-      <li class="nav__item" data-src="./loading-circle-pop/">
-        loading-circle-pop
+      <li class="nav__item">
+        <a data-src="./loading-circle-pop/" href="#loading-circle-pop">
+          loading-circle-pop
+        </a>
       </li>
-      <li class="nav__item" data-src="./loading-word-step/">
-        loading-word-step
+      <li class="nav__item">
+        <a data-src="./loading-word-step/" href="#loading-word-step">
+          loading-word-step
+        </a>
       </li>
     </ul>
   </div>
@@ -80,21 +134,44 @@
     </iframe>
   </div>
 
-  <script src="https://unpkg.com/split.js@1.1.1/split.min.js"></script>
+  <script src="./js/split.min.js"></script>
   <script type="text/javascript">
     Split(['#left', '#right'], {
       sizes: [25, 75],
       minSize: 200
     });
 
-    var lis = document.querySelectorAll('#left ul li');
+    var lis = document.querySelectorAll('#left ul li a');
     var iframe = document.querySelector('#right iframe');
-    Array.prototype.forEach.call(lis, function(li) {
-      li.addEventListener('click', function(e) {
-        console.log(e.target.getAttribute('data-src'));
-        iframe.setAttribute('src', e.target.getAttribute('data-src'));
+
+    function activeLi (nextHash) {
+      var hash
+      if (nextHash) {
+        hash = nextHash;
+      } else {
+        hash = window.location.hash;
+      }
+      if (!hash) { hash = '#loading-rotate'; }
+      Array.prototype.forEach.call(lis, function (li) {
+        if (li.href.endsWith(hash)) {
+          li.classList.add('nav__item__a--active')
+          iframe.setAttribute('src', li.getAttribute('data-src'));
+        } else {
+          li.classList.remove('nav__item__a--active')
+        }
+      });
+    }
+
+    activeLi();
+    Array.prototype.forEach.call(lis, function (li) {
+      li.addEventListener('click', function (e) {
+        var hashIndex = e.target.getAttribute('href').lastIndexOf('#')
+        if (hashIndex >= 0) {
+          console.log('active hash', e.target.getAttribute('href').substring(hashIndex));
+          activeLi(e.target.getAttribute('href').substring(hashIndex));
+        }
       })
-    })
+    });
   </script>
 </body>
 </html>
