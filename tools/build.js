@@ -89,7 +89,7 @@ promise = Promise.all(promises).then(() => {
   delete pkg.babel
   fs.writeFileSync('lib/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8')
   buildCss()
-  fsCopy.copySync(path.resolve('src/static'), path.resolve('lib'))
+  // fsCopy.copySync(path.resolve('src/static'), path.resolve('lib'))
 })
 
 promise.catch(err => console.error(err.stack)) // eslint-disable-line no-console
