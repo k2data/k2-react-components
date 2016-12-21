@@ -1,6 +1,6 @@
 {
   "name": "k2-react-components",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "",
   "homepage": "",
   "repository": "k2data/k2-react-components",
@@ -26,7 +26,8 @@
     "babel-runtime": "^6.11.6",
     "fs-extra": "^1.0.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "voca": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -54,6 +55,7 @@
     "eslint-plugin-react": "^6.6.0",
     "eslint-plugin-standard": "^2.0.1",
     "istanbul": "^1.1.0-alpha.1",
+    "live-server": "^1.1.0",
     "mocha": "^3.1.2",
     "postcss": "^5.2.6",
     "rollup": "^0.36.3",
@@ -69,7 +71,8 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "node tools/build",
     "prepublish": "npm run build",
-    "publish:docs": "easystatic deploy docs --repo kriasoft/babel-starter-kit",
-    "start": "easystatic start docs"
+    "publish:docs": "",
+    "start": "",
+    "start:live": "live-server ./examples --port=10001"
   }
 }

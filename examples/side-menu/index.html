@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>side-menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/antd.css">
+  <link rel="stylesheet" href="./bundle.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" style="height: 100%"></div>
+  <script src="../js/react.min.js"></script>
+  <script src="../js/react-dom.min.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <script src="../js/antd.js"></script>
+  <script type="text/javascript">
+    window.Menu = antd.Menu
+  </script>
+  <script src="./bundle.js"></script>
+  <script type="text/babel">
+    const menuList = {
+      menus: [{
+        name: '数据源',
+        icon: '',
+        subMenu: []
+      }, {
+        name: '数据源',
+        icon: '',
+        subMenu: []
+      }]
+    }
+    ReactDOM.render(
+      <SideMenu menuList={menuList}
+       />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+</html>
