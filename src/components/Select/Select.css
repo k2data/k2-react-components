@@ -9,13 +9,39 @@
     user-select: none;
     -webkit-touch-callout: none;
     height: 30px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     text-align: center;
     line-height: 30px;
-    border-radius: 15px;
+    /*border-radius: 15px;*/
     display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
+    /*cursor: pointer;*/
+    /*text-decoration: none;*/
+}
+/*.select__box .ant-select-selection--single {
+  border-radius: 15px;
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  box-shadow: 1px 0px 0px 0px, 0px 1px 0px 0px, 0px -1px 0px 0px, -1px 0px 0px 0px;
+}*/
+.select__box .ant-select-selection--single,
+.select__box .ant-select-focused .ant-select-selection,
+.select__box .ant-select-selection:active,
+.select__box .ant-select-selection:focus {
+  border-radius: 15px;
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  box-shadow: 1px 0px 0px 0px, 0px 1px 0px 0px, 0px -1px 0px 0px, -1px 0px 0px 0px;
+}
+.select__box .ant-select-selection-selected-value {
+  float: none;
 }
 .select__box__defined {
     width: 140px;

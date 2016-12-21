@@ -1,70 +1,36 @@
 import React from 'react'
+import { Menu, Dropdown, Icon } from 'antd'
 
 const UserList = React.createClass({
   propTypes: {
     userMessage: React.PropTypes.object.isRequired,
     userControll: React.PropTypes.func
   },
-  getInitialState () {
-    return {
-      display: 'none',
-      className: 'placeholder_close'
-    }
-  },
-  selectClick (e) {
-    e.stopPropagation()
-    this.setState({
-      display: this.state.display === 'block' ? 'none' : 'block',
-      className: this.state.className === 'placeholder_close'
-                  ? 'placeholder_open' : 'placeholder_close'
-    })
-  },
-  itemClick (e) {
-    e.stopPropagation()
-    this.setState({
-      display: 'none',
-      className: 'placeholder_close'
-    })
+  menuClick (e) {
     this.props.userControll
-      ? this.props.userControll(e.target.innerHTML)
-        : ''
-  },
-  clickHiden (e) {
-    if (e.target.id === 'adminContent') {
-      document.body.removeEventListener('click', this.setHide)
-    } else {
-      document.body.addEventListener('click', this.setHide)
-    }
-  },
-  setHide () {
-    console.log('add click....')
-    this.setState({
-      display: 'none',
-      className: 'placeholder_close'
-    })
-  },
-  componentDidUpdate () {
-    if (this.state.display === 'none') {
-      document.body.removeEventListener('mousemove', this.clickHiden)
-      document.body.removeEventListener('click', this.setHide)
-    } else {
-      document.body.addEventListener('mousemove', this.clickHiden)
-    }
+      ? this.props.userControll(e.key)
+    : ''
   },
   render () {
+    const menu = (
+      <Menu onClick={this.menuClick}>
+        {
+          this.props.userMessage && this.props.userMessage.navList &&
+            this.props.userMessage.navList instanceof Array
+            ? this.props.userMessage.navList.map((item) => {
+              return <Menu.Item key={item}>{item}</Menu.Item>
+            })
+          : ''
+        }
+      </Menu>
+    )
     return (
-      <div className='user__list' onClick={this.selectClick} id='userList'>
-        <span className={this.state.className} id='adminContent'>{this.props.userMessage.name}</span>
-        <ul id='liOptions' style={{display: this.state.display}}>
-          {
-            this.props.userMessage && this.props.userMessage.navList &&
-              this.props.userMessage.navList instanceof Array
-              ? this.props.userMessage.navList.map((item, index) => {
-                return <li key={`user${index}`} onClick={this.itemClick}>{item}</li>
-              })
-                : ''
-          }
-        </ul>
+      <div className='user__list' id='userList'>
+        <Dropdown overlay={menu} trigger={['click']}>
+          <a className='ant-dropdown-link' href='#'>
+            admin <Icon type='down' />
+          </a>
+        </Dropdown>
       </div>
     )
   }

@@ -18,7 +18,7 @@
   font-size: 16px;
 }
 .header__logo_title span img {
-  vertical-align: middle;
+  vertical-align: sub;
 }
 .header__logo_title span:nth-child(1) {
   /*border-right:1px solid #fff;*/
@@ -194,5 +194,62 @@
 .drop__menu__list>ul>li:hover {
   background-color: #295887;
   cursor: pointer;
+  color: #fff;
+}
+
+
+.nav__list {
+  flex: 1;
+  overflow: hidden;
+}
+.nav__list .ant-menu-horizontal {
+  height: 100%;
+  line-height: 60px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+/*.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,*/
+/*.ant-menu-horizontal > .ant-menu-item-selected,*/
+/*.ant-menu-horizontal > .ant-menu-submenu-selected*/
+.nav__list .ant-menu-horizontal > .ant-menu-item-selected {
+  background-color: #3c464b;
+  color: #fff!important;
+}
+.nav__list .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
+  display: inline-block;
+  float: none;
+  color: #78beea;
+  top: 0px;
+}
+.nav__list .ant-menu-item, .nav__list .ant-menu-submenu-title {
+  padding: 0px 10px;
+}
+.nav__list .ant-menu-horizontal > .ant-menu-item:hover {
+  border: none;
+  background-color: #295887;
+  color: #fff;
+}
+.nav__list .ant-menu-item:hover, .nav__list.ant-menu-item-active,
+.nav__list .ant-menu-submenu-active, .nav__list .ant-menu-submenu-title:hover {
+  border: none;
+  background-color: #295887;
+  color: #fff;
+  cursor: pointer;
+}
+.nav__list_dp {
+  color: #78beea;
+  font-size: 14px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+.nav__list_dp:hover {
+  color: #fff;
+}
+.nav__list .ant-menu-horizontal > .ant-menu-item-selected > span {
   color: #fff;
 }

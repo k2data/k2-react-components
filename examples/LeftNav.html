@@ -70,22 +70,23 @@
   <script src="js/antd.js"></script>
   <script src="../lib/SideMenu/index.umd.js"></script>
   <script type="text/babel">
-     const menuList = {
-       menus: [
-         {
-           name: '数据源',
-           icon: '',
-           subMenu: []
-         },
-         {
-           name: '数据源',
-           icon: '',
-           subMenu: []
-         }
-       ]
-     }
+    //  const menuList = {
+    //    menus: [
+    //      {
+    //        name: '数据源',
+    //        icon: '',
+    //        subMenu: []
+    //      },
+    //      {
+    //        name: '数据源',
+    //        icon: '',
+    //        subMenu: []
+    //      }
+    //    ]
+    //  }
+     const menuComponent = <span>11</span>
     ReactDOM.render(
-      <SideMenu menuList={menuList}
+      <SideMenu menuComponent={menuComponent}
        />,
       document.getElementById('root')
     )

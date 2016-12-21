@@ -64,10 +64,10 @@ function rollupBuild (format, moduleName, entry, dest) {
 }
 
 let promises = []
-for (const format of ['es', 'cjs', 'umd']) {
-// for (const format of ['es', 'cjs']) {
-  // rollupBuild(format, 'k2_react_components',
-    // 'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
+// for (const format of ['es', 'cjs', 'umd']) {
+for (const format of ['es', 'cjs']) {
+  rollupBuild(format, 'k2_react_components',
+    'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
   componentDirs.map((dir) => {
     promises.push(rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
       `lib/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`))
