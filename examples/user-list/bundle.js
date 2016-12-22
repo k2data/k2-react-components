@@ -1,10 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.UserList = factory(global.React,global.antd));
-}(this, (function (React,antd) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon'], factory) :
+  (global.UserList = factory(global.React,global.Menu,global.Dropdown,global.Icon));
+}(this, (function (React,Menu,Dropdown,Icon) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+Menu = 'default' in Menu ? Menu['default'] : Menu;
+Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
+Icon = 'default' in Icon ? Icon['default'] : Icon;
 
 var UserList$1 = React.createClass({
   displayName: 'UserList',
@@ -18,11 +21,11 @@ var UserList$1 = React.createClass({
   },
   render: function render() {
     var menu = React.createElement(
-      antd.Menu,
+      Menu,
       { onClick: this.menuClick },
       this.props.userMessage && this.props.userMessage.navList && this.props.userMessage.navList instanceof Array ? this.props.userMessage.navList.map(function (item) {
         return React.createElement(
-          antd.Menu.Item,
+          Menu.Item,
           { key: item },
           item
         );
@@ -32,13 +35,13 @@ var UserList$1 = React.createClass({
       'div',
       { className: 'user__list', id: 'userList' },
       React.createElement(
-        antd.Dropdown,
+        Dropdown,
         { overlay: menu, trigger: ['click'] },
         React.createElement(
           'a',
           { className: 'ant-dropdown-link', href: '#' },
           'admin ',
-          React.createElement(antd.Icon, { type: 'down' })
+          React.createElement(Icon, { type: 'down' })
         )
       )
     );

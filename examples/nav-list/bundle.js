@@ -1,10 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.NavList = factory(global.React,global.antd));
-}(this, (function (React,antd) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon'], factory) :
+  (global.NavList = factory(global.React,global.Menu,global.Dropdown,global.Icon));
+}(this, (function (React,Menu,Dropdown,Icon) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+Menu = 'default' in Menu ? Menu['default'] : Menu;
+Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
+Icon = 'default' in Icon ? Icon['default'] : Icon;
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -303,7 +306,7 @@ var NavList$1 = function (_React$Component) {
         'div',
         { className: 'nav__list' },
         React.createElement(
-          antd.Menu,
+          Menu,
           { onClick: this.handlerClick,
             selectedKeys: [this.state.current],
             mode: 'horizontal'
@@ -311,35 +314,35 @@ var NavList$1 = function (_React$Component) {
           this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
             if (list.name && list.dropMenu) {
               var menu = React.createElement(
-                antd.Menu,
+                Menu,
                 { onClick: _this4.subMenuClick },
                 list.dropMenu.map(function (dp) {
                   return React.createElement(
-                    antd.Menu.Item,
+                    Menu.Item,
                     { clickEvent: list.menuClick, key: dp },
                     dp
                   );
                 })
               );
               return React.createElement(
-                antd.Menu.Item,
+                Menu.Item,
                 {
                   key: list.name },
                 React.createElement(
-                  antd.Dropdown,
+                  Dropdown,
                   { overlay: menu, trigger: ['click'] },
                   React.createElement(
                     'span',
                     { className: 'nav__list_dp' },
                     list.name,
                     ' ',
-                    React.createElement(antd.Icon, { type: 'down' })
+                    React.createElement(Icon, { type: 'down' })
                   )
                 )
               );
             }
             return React.createElement(
-              antd.Menu.Item,
+              Menu.Item,
               { clickEvent: list.menuClick, key: list.name },
               list.name
             );

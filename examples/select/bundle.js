@@ -1,12 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.Select = factory(global.React,global.antd));
-}(this, (function (React,antd) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/select')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/select'], factory) :
+  (global.Select = factory(global.React,global.Select));
+}(this, (function (React,Select) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+Select = 'default' in Select ? Select['default'] : Select;
 
-var Option = antd.Select.Option;
+var Option = Select.Option;
 
 var SelectComponent = React.createClass({
   displayName: 'SelectComponent',
@@ -20,7 +21,7 @@ var SelectComponent = React.createClass({
       'div',
       { ref: 'selectBox', className: 'select__box' },
       React.createElement(
-        antd.Select,
+        Select,
         { defaultValue: this.props.selects && this.props.selects instanceof Array && this.props.selects.length !== 0 && this.props.selects[0],
           style: { width: '100%' },
           showSearch: false,

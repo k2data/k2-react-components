@@ -1,5 +1,7 @@
 import React from 'react'
-import { Menu, Dropdown, Icon } from 'antd'
+import Menu from 'antd/lib/menu'
+import Dropdown from 'antd/lib/dropdown'
+import Icon from 'antd/lib/icon'
 type Props = {
   navList: React.PropTypes.array.isRequired
 }

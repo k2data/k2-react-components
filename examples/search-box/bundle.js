@@ -1,12 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.SearchBox = factory(global.React,global.antd));
-}(this, (function (React,antd) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/input')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/input'], factory) :
+  (global.SearchBox = factory(global.React,global.Input));
+}(this, (function (React,Input) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+Input = 'default' in Input ? Input['default'] : Input;
 
-var Search = antd.Input.Search;
+var Search = Input.Search;
 
 var SearchBox$1 = React.createClass({
   displayName: 'SearchBox',

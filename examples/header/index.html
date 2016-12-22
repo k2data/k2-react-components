@@ -4,6 +4,8 @@
   <title>k2 react components</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/antd.css">
   <link rel="stylesheet" href="../select/bundle.css">
   <link rel="stylesheet" href="../user-list/bundle.css">
   <link rel="stylesheet" href="../search-box/bundle.css">
@@ -13,64 +15,23 @@
       height: 100%;
       margin: 0;
     }
-    #select {
-      width: 200px;
-      /*注意在下拉框中，width是包括border的宽度的*/
-
-      height: 30px;
-      border-radius: 5px;
-      border: 1px solid goldenrod;
-      background-color: white;
-      background-repeat: no-repeat;
-      /*背景图像的尺寸：第一个值为宽度，第二值为高度*/
-
-      background-size: 8px 8px, 8px 8px, 30px 30px, 1px 30px;
-      /*背景图片：多张图片用","分割*/
-      /*repeating-linear-gradient() 函数用于重复线性渐变：参数分别为角度，颜色1，颜色2,...*/
-
-      background-image: repeating-linear-gradient(225deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%),
-      /*组合成三角形图标*/
-
-      repeating-linear-gradient(135deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%),
-      /*组合成三角形图标*/
-
-      linear-gradient(#FFFFFF 0%, #F8F9Fd, #EFFAFA 100%),
-      /*竖分割线右侧的背景色*/
-
-      repeating-linear-gradient( rgb(191, 204, 220) 0%, rgb(191, 204, 220) 100%);
-      /*竖分割线*/
-      /*背景图片的位置：第一个参数为水平位置，第二参数为垂直位置*/
-
-      background-position: 175px 10px, 183px 10px, right top, 167px top;
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-  }
   </style>
 </head>
 <body>
   <div id="root" style="height: 100%"></div>
-  <div>
-    <select id="select">
-      <option value="1">选项1</option>
-      <option value="2">选项2</option>
-      <option value="3">选项3</option>
-      <option value="4">选项4</option>
-  </select>
-  </div>
-<<<<<<< HEAD:examples/Header.html
-  <script src="js/react.min.js"></script>
-  <script src="js/react-dom.min.js"></script>
-  <script src="js/babel.min.js"></script>
-  <script src="js/antd.js"></script>
-  <script src="../lib/Header/index.umd.js"></script>
-=======
   <script src="../js/react.min.js"></script>
   <script src="../js/react-dom.min.js"></script>
   <script src="../js/babel.min.js"></script>
   <script src="../js/antd.js"></script>
+  <script type="text/javascript">
+    window.Select = antd.Select
+    window.Menu = antd.Menu
+    window.Dropdown = antd.Dropdown
+    window.Icon = antd.Icon
+    window.Input = antd.Input
+    window.Select = antd.Select
+  </script>
   <script src="./bundle.js"></script>
->>>>>>> d1cfb155034a342ec8658e2b16b060395bfdc2b1:examples/header/index.html
   <script type="text/babel">
      const navList = [
        {
