@@ -1,108 +1,10 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
   typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.Header = factory(global.React,global.antd));
+  (global.NavList = factory(global.React,global.antd));
 }(this, (function (React,antd) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
-
-var Option = antd.Select.Option;
-
-var SelectComponent$1 = React.createClass({
-  displayName: 'SelectComponent',
-
-  propTypes: {
-    selects: React.PropTypes.array.isRequired,
-    onSelectChange: React.PropTypes.func
-  },
-  render: function render() {
-    return React.createElement(
-      'div',
-      { ref: 'selectBox', className: 'select__box' },
-      React.createElement(
-        antd.Select,
-        { defaultValue: this.props.selects && this.props.selects instanceof Array && this.props.selects.length !== 0 && this.props.selects[0],
-          style: { width: '100%' },
-          showSearch: false,
-          onChange: this.props.onSelectChange || function () {
-            console.info('no onchange func..');
-          }
-        },
-        this.props.selects && this.props.selects instanceof Array && this.props.selects.length !== 0 ? this.props.selects.map(function (item, index) {
-          return React.createElement(
-            Option,
-            { value: item, key: 'option' + index },
-            item
-          );
-        }) : ''
-      )
-    );
-  }
-});
-
-var UserList = React.createClass({
-  displayName: 'UserList',
-
-  propTypes: {
-    userMessage: React.PropTypes.object.isRequired,
-    userControll: React.PropTypes.func
-  },
-  menuClick: function menuClick(e) {
-    this.props.userControll ? this.props.userControll(e.key) : '';
-  },
-  render: function render() {
-    var menu = React.createElement(
-      antd.Menu,
-      { onClick: this.menuClick },
-      this.props.userMessage && this.props.userMessage.navList && this.props.userMessage.navList instanceof Array ? this.props.userMessage.navList.map(function (item) {
-        return React.createElement(
-          antd.Menu.Item,
-          { key: item },
-          item
-        );
-      }) : ''
-    );
-    return React.createElement(
-      'div',
-      { className: 'user__list', id: 'userList' },
-      React.createElement(
-        antd.Dropdown,
-        { overlay: menu, trigger: ['click'] },
-        React.createElement(
-          'a',
-          { className: 'ant-dropdown-link', href: '#' },
-          'admin ',
-          React.createElement(antd.Icon, { type: 'down' })
-        )
-      )
-    );
-  }
-});
-
-var Search = antd.Input.Search;
-
-var SearchBox$1 = React.createClass({
-  displayName: 'SearchBox',
-
-  propTypes: {
-    searchChange: React.PropTypes.func
-  },
-  getInitialState: function getInitialState() {
-    return {
-      value: ''
-    };
-  },
-  searchClick: function searchClick(value) {
-    this.props.searchChange ? this.props.searchChange(value) : '';
-  },
-  render: function render() {
-    return React.createElement(
-      'span',
-      { className: 'header__controll__search__box' },
-      React.createElement(Search, { placeholder: '\u641C\u7D22\u5173\u952E\u5B57', onSearch: this.searchClick })
-    );
-  }
-});
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -449,74 +351,7 @@ var NavList$1 = function (_React$Component) {
   return NavList;
 }(React.Component);
 
-var Header$1 = React.createClass({
-  displayName: 'Header',
-
-  propTypes: {
-    navList: React.PropTypes.array.isRequired,
-    selects: React.PropTypes.array.isRequired,
-    userMessage: React.PropTypes.object.isRequired,
-    onSelectChange: React.PropTypes.func,
-    navChange: React.PropTypes.func,
-    userControll: React.PropTypes.func,
-    searchChange: React.PropTypes.func,
-    logoData: React.PropTypes.object.isRequired
-  },
-  render: function render() {
-    return React.createElement(
-      'header',
-      { className: 'header-container' },
-      React.createElement(
-        'div',
-        { className: 'header__logo' },
-        React.createElement(
-          'div',
-          { className: 'header__logo_title' },
-          React.createElement(
-            'span',
-            null,
-            React.createElement('img', { src: 'logo.png', width: '23' })
-          ),
-          React.createElement(
-            'span',
-            null,
-            React.createElement(
-              'b',
-              null,
-              this.props.logoData && this.props.logoData.title ? this.props.logoData.title : ''
-            )
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'header__controll' },
-        React.createElement(
-          'div',
-          { className: 'header__controll__nav' },
-          React.createElement(NavList$1, { navList: this.props.navList }),
-          React.createElement(
-            'span',
-            { className: 'header__controll__drop' },
-            React.createElement(SelectComponent$1, { selects: this.props.selects, onSelectChange: this.props.onSelectChange })
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'header__controll__search' },
-          React.createElement(SearchBox$1, { searchChange: this.props.searchChange })
-        ),
-        React.createElement(
-          'div',
-          { className: 'header__controll__admin' },
-          React.createElement(UserList, { userMessage: this.props.userMessage, userControll: this.props.userControll })
-        )
-      )
-    );
-  }
-});
-
-return Header$1;
+return NavList$1;
 
 })));
 //# sourceMappingURL=bundle.js.map
