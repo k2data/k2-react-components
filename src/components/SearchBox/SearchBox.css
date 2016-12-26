@@ -7,7 +7,7 @@
   border-bottom-right-radius: 15px;
   line-height: 30px;
   right: 0px;
-  top: calc( 50% - 3px );
+  top: calc( 50% - 4px );
 }
 .header__controll__search__box .ant-input-search-wrapper .ant-input-search {
   border-radius: 15px;
