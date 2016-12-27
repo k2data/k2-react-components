@@ -123,3 +123,7 @@
     background: #1C61A6;
     color: #fff;
 }
+.select__box .ant-select-selection__rendered {
+  height: 100%;
+  line-height: inherit;
+}

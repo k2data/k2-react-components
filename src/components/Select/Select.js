@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select } from 'antd'
+import Select from 'antd/lib/select'
 const Option = Select.Option
 
 const SelectComponent = React.createClass({

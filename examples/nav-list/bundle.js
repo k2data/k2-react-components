@@ -1,10 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
-  typeof define === 'function' && define.amd ? define(['react'], factory) :
-  (global.SideMenu = factory(global.React));
-}(this, (function (React) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon'], factory) :
+  (global.NavList = factory(global.React,global.Menu,global.Dropdown,global.Icon));
+}(this, (function (React,Menu,Dropdown,Icon) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+Menu = 'default' in Menu ? Menu['default'] : Menu;
+Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
+Icon = 'default' in Icon ? Icon['default'] : Icon;
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -236,43 +239,122 @@ var set = function set(object, property, value, receiver) {
   return value;
 };
 
-var SideMenu$1 = function (_React$Component) {
-  inherits(SideMenu, _React$Component);
+var NavList$1 = function (_React$Component) {
+  inherits(NavList, _React$Component);
 
-  function SideMenu(props) {
-    classCallCheck(this, SideMenu);
+  function NavList(props) {
+    classCallCheck(this, NavList);
 
-    var _this = possibleConstructorReturn(this, (SideMenu.__proto__ || Object.getPrototypeOf(SideMenu)).call(this, props));
+    var _this = possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
 
     _this.state = {
-      current: '1'
+      current: '',
+      currentKey: ''
     };
 
-    _this.handleClick = _this.handleClick.bind(_this);
+    _this.handlerClick = _this.handlerClick.bind(_this);
+    _this.subMenuClick = _this.subMenuClick.bind(_this);
     return _this;
   }
 
-  createClass(SideMenu, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
-      this.setState({
-        current: e.key
+  createClass(NavList, [{
+    key: 'handlerClick',
+    value: function handlerClick(e) {
+      var _this2 = this;
+
+      var subMenus = [];
+      this.props.navList && this.props.navList.map(function (list) {
+        !list.dropMenu || list.dropMenu.length === 0 ? subMenus.push(list.name) : _this2.setState({
+          currentKey: e.key
+        });
       });
+      subMenus.map(function (item) {
+        e.key === item ? function () {
+          _this2.setState({
+            current: e.key
+          });
+          e.item.props.clickEvent && e.item.props.clickEvent(e.key);
+        }() : '';
+      });
+    }
+  }, {
+    key: 'subMenuClick',
+    value: function subMenuClick(e) {
+      var newCurrent = this.state.currentKey;
+      this.setState({
+        current: newCurrent
+      });
+      e.item.props.clickEvent && e.item.props.clickEvent(e.key);
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this3 = this;
+
+      this.props.navList ? this.props.navList.map(function (item) {
+        item.active ? _this3.setState({
+          current: item.name
+        }) : '';
+      }) : '';
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
       return React.createElement(
         'div',
-        { className: 'side__menu' },
-        this.props.menuComponent ? this.props.menuComponent : ''
+        { className: 'nav__list' },
+        React.createElement(
+          Menu,
+          { onClick: this.handlerClick,
+            selectedKeys: [this.state.current],
+            mode: 'horizontal'
+          },
+          this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
+            if (list.name && list.dropMenu) {
+              var menu = React.createElement(
+                Menu,
+                { onClick: _this4.subMenuClick },
+                list.dropMenu.map(function (dp) {
+                  return React.createElement(
+                    Menu.Item,
+                    { clickEvent: list.menuClick, key: dp },
+                    dp
+                  );
+                })
+              );
+              return React.createElement(
+                Menu.Item,
+                {
+                  key: list.name },
+                React.createElement(
+                  Dropdown,
+                  { overlay: menu, trigger: ['click'] },
+                  React.createElement(
+                    'span',
+                    { className: 'nav__list_dp' },
+                    list.name,
+                    ' ',
+                    React.createElement(Icon, { type: 'down' })
+                  )
+                )
+              );
+            }
+            return React.createElement(
+              Menu.Item,
+              { clickEvent: list.menuClick, key: list.name },
+              list.name
+            );
+          }) : ''
+        )
       );
     }
   }]);
-  return SideMenu;
+  return NavList;
 }(React.Component);
 
-return SideMenu$1;
+return NavList$1;
 
 })));
 //# sourceMappingURL=bundle.js.map
