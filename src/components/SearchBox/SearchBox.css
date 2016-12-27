@@ -2,12 +2,13 @@
   display: inline-block;
   height: 30px;
   width: 30px;
-  background: #ddd;
+  /*background: #ddd;*/
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   line-height: 30px;
   right: 0px;
   top: calc( 50% - 4px );
+  /*position: inherit;*/
 }
 .header__controll__search__box .ant-input-search-wrapper .ant-input-search {
   border-radius: 15px;

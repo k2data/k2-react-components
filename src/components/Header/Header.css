@@ -258,10 +258,7 @@
 }
 
 .header__controll__search__box .ant-input-search-wrapper .ant-input-search {
-  border-top-right-radius: 0px;
+  /*border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  width: 140px;
-}
-.ant-input-search-wrapper .ant-input-search-icon {
-  position: inherit;
+  width: 140px;*/
 }
