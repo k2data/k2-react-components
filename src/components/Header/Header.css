@@ -88,9 +88,12 @@
 }
 
 .header__controll__drop {
-  width: 220px;
-  text-align: center;
+  /*width: 220px;*/
+  /*text-align: center;*/
+  /*padding: 0px 10px;*/
   line-height: 60px;
+  border-left: 1px solid #1c69b7;
+  background-color: #1b5a9a;
 }
 
 .header__controll__showhidden {
@@ -252,4 +255,13 @@
 }
 .nav__list .ant-menu-horizontal > .ant-menu-item-selected > span {
   color: #fff;
+}
+
+.header__controll__search__box .ant-input-search-wrapper .ant-input-search {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 140px;
+}
+.ant-input-search-wrapper .ant-input-search-icon {
+  position: inherit;
 }

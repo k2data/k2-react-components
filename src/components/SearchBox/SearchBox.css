@@ -27,7 +27,7 @@
   padding: 0px 15px;
   width: 130px;
   font-size: 12px;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   text-overflow: ellipsis;
 }
 .header__controll__search__box button {

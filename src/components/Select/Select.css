@@ -1,21 +1,9 @@
 .select__box {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    width: 60%;
-    max-width: 325px;
-    color: #fff;
     vertical-align: middle;
-    user-select: none;
-    -webkit-touch-callout: none;
-    height: 30px;
-    /*border: 1px solid #ccc;*/
     text-align: center;
-    line-height: 30px;
-    /*border-radius: 15px;*/
+    line-height: 60px;
+    height: 100%;
     display: inline-block;
-    /*cursor: pointer;*/
-    /*text-decoration: none;*/
 }
 /*.select__box .ant-select-selection--single {
   border-radius: 15px;
@@ -31,14 +19,15 @@
 .select__box .ant-select-focused .ant-select-selection,
 .select__box .ant-select-selection:active,
 .select__box .ant-select-selection:focus {
-  border-radius: 15px;
+  /*border-radius: 15px;*/
   background: transparent;
   border-color: #fff;
   color: #fff;
-  height: 30px;
   font-size: 14px;
   border: none;
-  box-shadow: 1px 0px 0px 0px, 0px 1px 0px 0px, 0px -1px 0px 0px, -1px 0px 0px 0px;
+  box-shadow: none;
+  height: 100%;
+  /*box-shadow: 1px 0px 0px 0px, 0px 1px 0px 0px, 0px -1px 0px 0px, -1px 0px 0px 0px;*/
 }
 .select__box .ant-select-selection-selected-value {
   float: none;
@@ -126,4 +115,7 @@
 .select__box .ant-select-selection__rendered {
   height: 100%;
   line-height: inherit;
+}
+.select__box .ant-select-arrow {
+  top: 54%;
 }

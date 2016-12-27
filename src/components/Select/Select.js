@@ -14,7 +14,7 @@ const SelectComponent = React.createClass({
           this.props.selects && this.props.selects instanceof Array &&
           this.props.selects.length !== 0 && this.props.selects[0]
           }
-          style={{ width: '100%' }}
+          style={{ width: '120px', height: '55px' }}
           showSearch={false}
           onChange={this.props.onSelectChange || function () { console.info('no onchange func..') }}
        >
