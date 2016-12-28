@@ -76,7 +76,8 @@ var UserList = React.createClass({
         React.createElement(
           'a',
           { className: 'ant-dropdown-link', href: '#' },
-          'admin ',
+          this.props.userMessage.user,
+          ' ',
           React.createElement(Icon, { type: 'down' })
         )
       )
