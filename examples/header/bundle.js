@@ -461,13 +461,13 @@ var Header$1 = React.createClass({
   propTypes: {
     navList: React.PropTypes.array.isRequired,
     selects: React.PropTypes.array,
-    showSelects: React.PropTypes.boolean,
+    showSelects: React.PropTypes.bool,
     userMessage: React.PropTypes.object.isRequired,
     onSelectChange: React.PropTypes.func,
     navChange: React.PropTypes.func,
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
-    showSearch: React.PropTypes.boolean,
+    showSearch: React.PropTypes.bool,
     logoData: React.PropTypes.object.isRequired
   },
   render: function render() {
