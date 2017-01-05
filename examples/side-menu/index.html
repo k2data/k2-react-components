@@ -24,20 +24,18 @@
   </script>
   <script src="./bundle.js"></script>
   <script type="text/babel">
-    const menuList = {
-      menus: [{
-        name: '数据源',
-        icon: '',
-        subMenu: []
-      }, {
-        name: '数据源',
-        icon: '',
-        subMenu: []
-      }]
-    }
+    const menu = <Menu
+      mode='inline'>
+      <Menu.Item key='1'>
+          数据批量导入
+      </Menu.Item>
+      <Menu.Item key='2'>
+          分析作业
+      </Menu.Item>
+    </Menu>
+
     ReactDOM.render(
-      <SideMenu menuList={menuList}
-       />,
+      <SideMenu menuComponent={menu} />,
       document.getElementById('root')
     )
   </script>

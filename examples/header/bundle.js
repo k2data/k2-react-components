@@ -460,12 +460,14 @@ var Header$1 = React.createClass({
 
   propTypes: {
     navList: React.PropTypes.array.isRequired,
-    selects: React.PropTypes.array.isRequired,
+    selects: React.PropTypes.array,
+    showSelects: React.PropTypes.boolean,
     userMessage: React.PropTypes.object.isRequired,
     onSelectChange: React.PropTypes.func,
     navChange: React.PropTypes.func,
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
+    showSearch: React.PropTypes.boolean,
     logoData: React.PropTypes.object.isRequired
   },
   render: function render() {
@@ -501,13 +503,13 @@ var Header$1 = React.createClass({
           'div',
           { className: 'header__controll__nav' },
           React.createElement(NavList$1, { navList: this.props.navList }),
-          React.createElement(
+          this.props.showSelects && React.createElement(
             'span',
             { className: 'header__controll__drop' },
             React.createElement(SelectComponent$1, { selects: this.props.selects, onSelectChange: this.props.onSelectChange })
           )
         ),
-        React.createElement(
+        this.props.showSearch && React.createElement(
           'div',
           { className: 'header__controll__search' },
           React.createElement(SearchBox$1, { searchChange: this.props.searchChange })
@@ -521,6 +523,11 @@ var Header$1 = React.createClass({
     );
   }
 });
+
+Header$1.defaultProps = {
+  showSearch: true,
+  showSelects: true
+};
 
 return Header$1;
 

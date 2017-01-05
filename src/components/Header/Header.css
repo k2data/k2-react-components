@@ -9,7 +9,7 @@
   width: 220px;
   float: left;
   height: 100%;
-  text-align: center;
+  padding-left: 18px;
   line-height: 60px;
   overflow: hidden;
 }
@@ -67,7 +67,7 @@
   text-align: center;
   line-height: 60px;
   padding: 0px 10px;
-  color: #78BEEA;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -225,7 +225,7 @@
 .nav__list .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
   display: inline-block;
   float: none;
-  color: #78beea;
+  color: #fff;
   top: 0px;
 }
 .nav__list .ant-menu-item, .nav__list .ant-menu-submenu-title {
@@ -244,7 +244,7 @@
   cursor: pointer;
 }
 .nav__list_dp {
-  color: #78beea;
+  color: #fff;
   font-size: 14px;
   display: inline-block;
   height: 100%;
