@@ -15,14 +15,15 @@ const Header = React.createClass({
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired
+    logoData: React.PropTypes.object.isRequired,
+    logo: React.PropTypes.string
   },
   render () {
     return (
       <header className='header-container'>
         <div className='header__logo'>
           <div className='header__logo_title'>
-            <span><img src={'logo.png'} width='23' /></span>
+            <span><img src={this.props.logo} width='23' /></span>
             <span>
               <b>
                 {
@@ -58,6 +59,7 @@ const Header = React.createClass({
 export default Header
 
 Header.defaultProps = {
+  logo: 'logo.png',
   showSearch: true,
   showSelects: true
 }
