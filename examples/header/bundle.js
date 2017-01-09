@@ -468,7 +468,8 @@ var Header$1 = React.createClass({
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired
+    logoData: React.PropTypes.object.isRequired,
+    logo: React.PropTypes.string
   },
   render: function render() {
     return React.createElement(
@@ -483,7 +484,7 @@ var Header$1 = React.createClass({
           React.createElement(
             'span',
             null,
-            React.createElement('img', { src: 'logo.png', width: '23' })
+            React.createElement('img', { src: this.props.logo, width: '23' })
           ),
           React.createElement(
             'span',
@@ -525,6 +526,7 @@ var Header$1 = React.createClass({
 });
 
 Header$1.defaultProps = {
+  logo: 'logo.png',
   showSearch: true,
   showSelects: true
 };
