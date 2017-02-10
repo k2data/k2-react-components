@@ -39,7 +39,7 @@ var UserList$1 = React.createClass({
         { overlay: menu, trigger: ['click'] },
         React.createElement(
           'a',
-          { className: 'ant-dropdown-link', href: '#' },
+          { className: 'ant-dropdown-link', href: '#', title: this.props.userMessage.name },
           this.props.userMessage.name,
           ' ',
           React.createElement(Icon, { type: 'down' })

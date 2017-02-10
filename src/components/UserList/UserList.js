@@ -29,7 +29,7 @@ const UserList = React.createClass({
     return (
       <div className='user__list' id='userList'>
         <Dropdown overlay={menu} trigger={['click']}>
-          <a className='ant-dropdown-link' href='#'>
+          <a className='ant-dropdown-link' href='#' title={this.props.userMessage.name}>
             {this.props.userMessage.name} <Icon type='down' />
           </a>
         </Dropdown>

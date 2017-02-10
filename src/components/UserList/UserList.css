@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   margin: 0 auto;
-  max-width: 325px;
+  /*max-width: 325px;*/
   color: #cccccc;
   vertical-align: middle;
   user-select: none;
@@ -23,6 +23,9 @@
   height: 100%;
   color: #fff;
   font-size: 14px;
+  overflow: hidden;
+  padding: 0px 5px;
+  text-overflow: ellipsis;
 }
 
 .user__list .placeholder_close:after {

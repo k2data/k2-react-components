@@ -34,19 +34,33 @@
   display: inline-block;
 }
 .header__controll {
-  display: flex;
-  flex-direction: row;
+  margin-left: 220px;
+  height: 100%;
+  position: relative;
+  /*display: flex;
+  flex-direction: row;*/
 }
 .header__controll__nav {
-  flex: 1;
-  display: flex;
+  /*flex: 1;
+  display: flex;*/
+  /*position: absolute;
+  left: 0;
+  right: 120px;
+  height: 60px;*/
   height: 60px;
+  margin-right: 120px;
+  /*float: left;*/
+  /*min-width: 450px;*/
+  overflow: hidden;
   border-right: 1px solid #1c69b7;
 }
 
 .header__controll__admin {
-  width: 100px;
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: center;
+  float: right;
   line-height: 60px;
   border-right: 1px solid #1c69b7;
 }
@@ -202,12 +216,11 @@
 
 
 .nav__list {
-  flex: 1;
   overflow: hidden;
 }
 .nav__list .ant-menu-horizontal {
   height: 100%;
-  line-height: 60px;
+  line-height: 58px;
   background: transparent;
   border: none;
   outline: none;
