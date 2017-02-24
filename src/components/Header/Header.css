@@ -48,7 +48,7 @@
   right: 120px;
   height: 60px;*/
   height: 60px;
-  margin-right: 120px;
+  /*margin-right: 120px;*/
   /*float: left;*/
   /*min-width: 450px;*/
   overflow: hidden;
@@ -56,7 +56,7 @@
 }
 
 .header__controll__admin {
-  width: 120px;
+  /*width: 120px;*/
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
