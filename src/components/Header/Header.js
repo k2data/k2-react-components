@@ -37,7 +37,10 @@ const Header = React.createClass({
         </div>
         <div className='header__controll'>
           <div className='header__controll__admin'>
-            <UserList userMessage={this.props.userMessage} userControll={this.props.userControll} />
+            {
+              this.props.userMessage.name && this.props.userMessage.name !== '' &&
+              <UserList userMessage={this.props.userMessage} userControll={this.props.userControll} />
+            }
           </div>
           <div className='header__controll__nav'>
             <NavList navList={this.props.navList} />

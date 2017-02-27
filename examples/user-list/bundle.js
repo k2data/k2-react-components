@@ -41,8 +41,7 @@ var UserList$1 = React.createClass({
           'a',
           { className: 'ant-dropdown-link', href: '#', title: this.props.userMessage.name },
           this.props.userMessage.name,
-          ' ',
-          React.createElement(Icon, { type: 'down' })
+          this.props.userMessage.navList instanceof Array && this.props.userMessage.navList.length !== 0 && React.createElement(Icon, { type: 'down' })
         )
       )
     );
