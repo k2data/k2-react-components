@@ -77,6 +77,7 @@ var UserList = React.createClass({
           'a',
           { className: 'ant-dropdown-link', href: '#', title: this.props.userMessage.name },
           this.props.userMessage.name,
+          '\xA0\xA0',
           this.props.userMessage.navList instanceof Array && this.props.userMessage.navList.length !== 0 && React.createElement(Icon, { type: 'down' })
         )
       )
@@ -316,9 +317,9 @@ var NavList$1 = function (_React$Component) {
                   { overlay: menu, trigger: ['click'] },
                   React.createElement(
                     'span',
-                    { className: 'nav__list_dp' },
+                    { className: 'nav__list_dp', style: { textAlign: 'center' } },
                     list.name,
-                    ' ',
+                    '\xA0\xA0',
                     React.createElement(Icon, { type: 'down' })
                   )
                 )
@@ -327,7 +328,11 @@ var NavList$1 = function (_React$Component) {
             return React.createElement(
               Menu.Item,
               { clickEvent: list.menuClick, key: list.name },
-              list.name
+              React.createElement(
+                'span',
+                { className: 'nav__list_dp', style: { textAlign: 'center' } },
+                list.name
+              )
             );
           }) : ''
         )

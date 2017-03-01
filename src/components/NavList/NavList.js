@@ -78,10 +78,13 @@ export default class NavList extends React.Component {
                   </Menu>
                   return <Menu.Item
                     key={list.name}><Dropdown overlay={menu} trigger={['click']}>
-                      <span className='nav__list_dp'>{list.name} <Icon type='down' /></span>
+                      <span className='nav__list_dp' style={{ textAlign: 'center' }}>
+                        {list.name}&nbsp;&nbsp;<Icon type='down' /></span>
                     </Dropdown></Menu.Item>
                 }
-                return <Menu.Item clickEvent={list.menuClick} key={list.name}>{list.name}</Menu.Item>
+                return <Menu.Item clickEvent={list.menuClick} key={list.name}>
+                  <span className='nav__list_dp' style={{ textAlign: 'center' }}>{list.name}</span>
+                </Menu.Item>
               })
             : ''
           }

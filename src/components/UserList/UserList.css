@@ -11,6 +11,7 @@
   text-align: center;
   line-height: 60px;
   cursor: pointer;
+  min-width: 100px;
 }
 .user__list:hover {
   background-color: #295887;
@@ -24,7 +25,7 @@
   color: #fff;
   font-size: 14px;
   overflow: hidden;
-  padding: 0px 5px;
+  padding: 0px 15px;
   text-overflow: ellipsis;
 }
 

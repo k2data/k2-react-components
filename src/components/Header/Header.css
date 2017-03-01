@@ -57,12 +57,44 @@
 
 .header__controll__admin {
   /*width: 120px;*/
-  overflow: hidden;
+  /*overflow: hidden;*/
+  height: 100%;
+  color: #333;
   text-overflow: ellipsis;
   text-align: center;
   float: right;
   line-height: 60px;
   border-right: 1px solid #1c69b7;
+}
+/*.header__controll__admin:hover {
+  background-color: #295887;
+}
+.header__controll__admin .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 100%;
+  line-height: 60px;
+}
+.header__controll__admin .ant-menu-submenu {
+  height: 100%;
+}
+.header__controll__admin .ant-menu-root.ant-menu-inline {
+  height: 100%;
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+.header__controll__admin .ant-menu-sub.ant-menu-inline {
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px #8a8a8a;
+}
+.header__controll__admin .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding: 0px 16px!important;
+}
+.header__controll__admin .ant-menu-sub.ant-menu-inline > .ant-menu-item {
+  padding-left: 16px!important;
+}*/
+.header__controll__admin .ant-menu {
+  /*background-color: rgba(0,0,0,0);*/
+  /*height: 100%;*/
+  /*background-color: */
 }
 .header__controll__nav>ul, .header__controll__nav>ul>li {
   list-style: none;
@@ -225,24 +257,22 @@
   border: none;
   outline: none;
 }
-/*.ant-menu-horizontal > .ant-menu-item:hover,
-.ant-menu-horizontal > .ant-menu-submenu:hover,
-.ant-menu-horizontal > .ant-menu-item-active,
-.ant-menu-horizontal > .ant-menu-submenu-active,*/
-/*.ant-menu-horizontal > .ant-menu-item-selected,*/
-/*.ant-menu-horizontal > .ant-menu-submenu-selected*/
 .nav__list .ant-menu-horizontal > .ant-menu-item-selected {
   background-color: #3c464b;
   color: #fff!important;
 }
+
 .nav__list .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
   display: inline-block;
   float: none;
   color: #fff;
   top: 0px;
+  border: none;
 }
 .nav__list .ant-menu-item, .nav__list .ant-menu-submenu-title {
-  padding: 0px 10px;
+  /*padding: 0px 10px;*/
+  /*min-width: 100px;*/
+  padding: 0px;
 }
 .nav__list .ant-menu-horizontal > .ant-menu-item:hover {
   border: none;
@@ -262,6 +292,8 @@
   display: inline-block;
   height: 100%;
   width: 100%;
+  padding: 0px 15px;
+  min-width: 70px;
 }
 .nav__list_dp:hover {
   color: #fff;
