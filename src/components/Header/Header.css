@@ -1,3 +1,7 @@
+a:hover {
+  text-decoration: none;
+}
+
 .header-container {
   height: 54px;
   background-color: #000;
