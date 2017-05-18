@@ -6,7 +6,7 @@ node_modules
 npm-debug.log
 
 # build result
-# lib
+lib
 dist
 docs/dist
 
