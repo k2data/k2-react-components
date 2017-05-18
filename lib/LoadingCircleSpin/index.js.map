@@ -1,1 +1,0 @@
-{"version":3,"file":null,"sources":["../../src/components/LoadingCircleSpin/LoadingCircleSpin.js"],"sourcesContent":["import React from 'react'\n\nconst LoadingCircleSpin = () => (\n  <div className='loading' />\n)\n\nexport default LoadingCircleSpin\n"],"names":["LoadingCircleSpin"],"mappings":";;;;;;AAEA,IAAMA,sBAAoB,SAApBA,mBAAoB;SACxB,6BAAK,WAAU,SAAf,GADwB;CAA1B,CAIA;;"}
