@@ -15,27 +15,33 @@ const Header = React.createClass({
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired,
-    logo: React.PropTypes.string
+    logoData: React.PropTypes.object.isRequired
+    // logo: React.PropTypes.string
   },
   render () {
+    const { logo, title, width, fontSize } = this.props.logoData
     return (
       <header className='header-container'>
-        <div className='header__logo'>
+        <div className='header__logo' style={{ width: `${width || 140}px`, fontSize: `${fontSize || 30}px` }}>
           <div className='header__logo_title'>
-            <span><img src={this.props.logo} width='23' /></span>
+            {
+              logo && logo.src &&
+              <span className='logoImg'>
+                <a href={logo.href || ''}>
+                  <img title={title || ''} alt={title || ''} src={logo.src} width='23' />
+                </a>
+              </span>
+            }
             <span>
               <b>
                 {
-                  this.props.logoData && this.props.logoData.title
-                    ? this.props.logoData.title
-                      : ''
+                  title || ''
                 }
               </b>
             </span>
           </div>
         </div>
-        <div className='header__controll'>
+        <div className='header__controll' style={{ marginLeft: `${width || 140}px` }}>
           <div className='header__controll__admin'>
             {
               this.props.userMessage.name && this.props.userMessage.name !== '' &&
@@ -62,7 +68,7 @@ const Header = React.createClass({
 export default Header
 
 Header.defaultProps = {
-  logo: 'logo.png',
+  // logo: 'logo.png',
   showSearch: true,
   showSelects: true
 }

@@ -355,23 +355,33 @@ var Header$1 = React.createClass({
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired,
-    logo: React.PropTypes.string
+    logoData: React.PropTypes.object.isRequired
+    // logo: React.PropTypes.string
   },
   render: function render() {
+    var _props$logoData = this.props.logoData,
+        logo = _props$logoData.logo,
+        title = _props$logoData.title,
+        width = _props$logoData.width,
+        fontSize = _props$logoData.fontSize;
+
     return React.createElement(
       'header',
       { className: 'header-container' },
       React.createElement(
         'div',
-        { className: 'header__logo' },
+        { className: 'header__logo', style: { width: (width || 140) + 'px', fontSize: (fontSize || 30) + 'px' } },
         React.createElement(
           'div',
           { className: 'header__logo_title' },
-          React.createElement(
+          logo && logo.src && React.createElement(
             'span',
-            null,
-            React.createElement('img', { src: this.props.logo, width: '23' })
+            { className: 'logoImg' },
+            React.createElement(
+              'a',
+              { href: logo.href || '' },
+              React.createElement('img', { title: title || '', alt: title || '', src: logo.src, width: '23' })
+            )
           ),
           React.createElement(
             'span',
@@ -379,14 +389,14 @@ var Header$1 = React.createClass({
             React.createElement(
               'b',
               null,
-              this.props.logoData && this.props.logoData.title ? this.props.logoData.title : ''
+              title || ''
             )
           )
         )
       ),
       React.createElement(
         'div',
-        { className: 'header__controll' },
+        { className: 'header__controll', style: { marginLeft: (width || 140) + 'px' } },
         React.createElement(
           'div',
           { className: 'header__controll__admin' },
@@ -413,7 +423,7 @@ var Header$1 = React.createClass({
 });
 
 Header$1.defaultProps = {
-  logo: 'logo.png',
+  // logo: 'logo.png',
   showSearch: true,
   showSelects: true
 };

@@ -33,11 +33,16 @@
       // onSelectChange={function (value) {console.log(value)}}
       userControll={function (value) { console.log(value) }}
       // searchChange={function (value) { console.log(value) }}
+      // logoData={{'title': 'KMX', 'logo': {src: 'logo.png', href: 'http://www.baidu.com'}, 'width': 180, fontSize: 16}}
       logoData={{'title': 'KMX Manager'}}
        />,
       document.getElementById('root')
     )
 ```
+Header新增功能：
+  在原有的基础上可进行logo的切换， 若在logoData中未添加logo属性（或logo属性为空） 则不显示logo，
+  其中logo属性可设置logo图的src，同时还可设置logo图的链接（点击logo跳转到那？）。
+  添加了width、fontSize属性，可控制logo区域的宽度和字体大小，如没有设置则显示默认的宽度和字体大小（默认为款140px,字体16px）
 自己引入css样式和组件
 ```javascript
 import Header from 'k2-react-components/lib/Header/index.js'
@@ -62,7 +67,71 @@ import SideMenu from 'k2-react-components/lib/SideMenu/index.js'
 import 'k2-react-components/lib/SideMenu/index.css'
 ```
 
+**3.<SideBar />组件**
+```javascript
+var list = [
+  {name: 'test01', icon: <Icon type="apple" />,
+    toggle: true,
+    second: [
+      {name: 'sli01', onClick: function () { console.log('I am second -- sli01') } },
+      {name: 'sli02', disabled: true},
+      {name: 'sli03'}
+    ]
+  },
+  {name: 'test02', img: 'anls.png', onClick: function () { console.log('test02') }, active: true},
+  {name: 'test03', img: 'mode.png', onClick: function () { console.log('test03') }},
+  {name: 'test04', img: 'program.png', onClick: function () { console.log('test04') }},
+  {name: 'LINK', img: 'program.png', href: 'http://www.baidu.com', disabled: true}
+]
+ReactDOM.render(
+  <SideBar
+    list={list}
+    width={220}
+   />,
+  document.getElementById('root')
+)
+```
+根据新的设计，并为了所有项目服务，增加了SideBar组件
+当前设计： 支持一级菜单，二级菜单（待续。。。）
+list属性：
+  类型： 数组
+  数组元素格式：
+    一级菜单：
+    {
+      name（菜单名）:test,
+      icon(菜单icon，antd中的Icon或是fontawesome): <Icon type="apple" />,
+      img(如果不用icon， 则可以使用img传入图片路径，图片要用png): 'mode.png',
+      onClick(菜单点击事件): function () { console.log('test02') },
+      active（是否初始化被激活）: true，
+      disabled（是否初始化禁用）: true，
+      href(是否为链接)：'http://www.k2data.com.cn'
+    }
+    NOTE: 如果使用href则click事件不生效，也不能制作二级菜单
 
+    二级菜单：
+    {
+      name（菜单名）:test,
+      icon(菜单icon，antd中的Icon或是fontawesome): <Icon type="apple" />,
+      img(如果不用icon， 则可以使用img传入图片路径，图片要用png): 'mode.png',
+      toggle（是否默认打开二级菜单）: true,
+      second(二级菜单内容，数据格式为数组)： [
+        {name: 'sli01', onClick: function () { console.log('I am second -- sli01') } },
+        {name: 'sli02', disabled: true},
+        {name: 'sli03'}
+      ]
+    }
+width属性：
+  可控制菜单的宽度，如不设置，则显示默认宽度，为140px。
+
+另一种使用方法：
+  <SideBar width={220}>
+    {自己定义的菜单组件}
+  </SideBar>
+自己引入css样式和组件
+```javascript
+import SideBar from 'k2-react-components/lib/SideBar/index.js'
+import 'k2-react-components/lib/SideBar/index.css'
+```
 
 
 

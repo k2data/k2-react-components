@@ -1,58 +1,51 @@
 .header-container {
-  height: 60px;
-  background-color: #1C61A6;
+  height: 54px;
+  background-color: #000;
   padding-right: 20px;
   font-size: 14px;
   font-family: '微软雅黑'
 }
 .header__logo {
-  width: 220px;
   float: left;
   height: 100%;
-  padding-left: 14px;
-  line-height: 60px;
+  /*padding-left: 14px;*/
+  line-height: 54px;
   overflow: hidden;
+  text-align: center;
+}
+.header__logo_title {
+  height: 100%;
 }
 .header__logo_title span {
   color: #fff;
-  font-size: 16px;
+  /*font-size: 30px;*/
 }
-.header__logo_title span img {
-  vertical-align: sub;
-}
-.header__logo_title span:nth-child(1) {
-  /*border-right:1px solid #fff;*/
+.header__logo_title .logoImg {
+  border-right:1px solid #fff;
   padding: 0px 5px;
   margin-right: 5px;
 }
-.header__logo_title span:nth-child(1)::after {
+.header__logo_title .logoImg img {
+  vertical-align: middle;
+}
+/*.header__logo_title .logoImg::after {
   content: '';
   border-right: 1px solid #fff;
   margin-left: 10px;
   width: 0;
   height: 15px;
   display: inline-block;
-}
+}*/
 .header__controll {
-  margin-left: 220px;
   height: 100%;
   position: relative;
   /*display: flex;
   flex-direction: row;*/
 }
 .header__controll__nav {
-  /*flex: 1;
-  display: flex;*/
-  /*position: absolute;
-  left: 0;
-  right: 120px;
-  height: 60px;*/
-  height: 60px;
-  /*margin-right: 120px;*/
-  /*float: left;*/
-  /*min-width: 450px;*/
+  height: 54px;
   overflow: hidden;
-  border-right: 1px solid #1c69b7;
+  border-right: 1px solid #ccc;
 }
 
 .header__controll__admin {
@@ -63,8 +56,8 @@
   text-overflow: ellipsis;
   text-align: center;
   float: right;
-  line-height: 60px;
-  border-right: 1px solid #1c69b7;
+  /*line-height: 60px;*/
+  border-right: 1px solid #ccc;
 }
 /*.header__controll__admin:hover {
   background-color: #295887;
@@ -258,7 +251,7 @@
   outline: none;
 }
 .nav__list .ant-menu-horizontal > .ant-menu-item-selected {
-  background-color: #3c464b;
+  background-color: #45B6F7;
   color: #fff!important;
 }
 
@@ -268,6 +261,8 @@
   color: #fff;
   top: 0px;
   border: none;
+  height: 54px;
+  width: 100px;
 }
 .nav__list .ant-menu-item, .nav__list .ant-menu-submenu-title {
   /*padding: 0px 10px;*/

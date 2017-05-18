@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>k2 react components</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/antd.css">
+  <link rel="stylesheet" href="../select/bundle.css">
+  <link rel="stylesheet" href="../user-list/bundle.css">
+  <link rel="stylesheet" href="../search-box/bundle.css">
+  <link rel="stylesheet" href="./bundle.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" style="height: 100%"></div>
+  <script src="../js/react.min.js"></script>
+  <script src="../js/react-dom.min.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <script src="../js/antd.js"></script>
+  <script type="text/javascript">
+    window.Select = antd.Select
+    window.Menu = antd.Menu
+    window.Dropdown = antd.Dropdown
+    window.Icon = antd.Icon
+    window.Input = antd.Input
+    window.Select = antd.Select
+  </script>
+  <script src="./bundle.js"></script>
+  <script type="text/babel">
+    var list = [
+      {name: 'test01', icon: <Icon type="apple" />,
+        toggle: true,
+        second: [
+          {name: 'sli01', onClick: function () { console.log('I am second -- sli01') } },
+          {name: 'sli02', disabled: true},
+          {name: 'sli03'}
+        ]
+      },
+      {name: 'test02', img: 'anls.png', onClick: function () { console.log('test02') }, active: true},
+      {name: 'test03', img: 'mode.png', onClick: function () { console.log('test03') },
+        second: [
+          {name: 'sli01', onClick: function () { console.log('I am second -- sli01') } },
+          {name: 'sli02', disabled: true},
+          {name: 'sli03'}
+        ]
+      },
+      {name: 'test04', img: 'program.png', onClick: function () { console.log('test04') }},
+      {name: 'LINK', img: 'program.png', href: 'http://www.baidu.com', disabled: true}
+    ]
+    ReactDOM.render(
+      <SideBar
+        list={list}
+        width={220}
+       />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+</html>
