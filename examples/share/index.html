@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>k2 react components</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/antd.css">
+  <link rel="stylesheet" href="../select/bundle.css">
+  <link rel="stylesheet" href="../user-list/bundle.css">
+  <link rel="stylesheet" href="../search-box/bundle.css">
+  <link rel="stylesheet" href="./bundle.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" style="height: 100%"></div>
+  <script src="../js/react.min.js"></script>
+  <script src="../js/react-dom.min.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <script src="../js/antd.js"></script>
+  <script type="text/javascript">
+    window.Select = antd.Select
+    window.Menu = antd.Menu
+    window.Dropdown = antd.Dropdown
+    window.Icon = antd.Icon
+    window.Input = antd.Input
+    window.Select = antd.Select
+    window.Button = antd.Button
+    window.Modal = antd.Modal
+  </script>
+  <script src="./bundle.js"></script>
+  <script type="text/babel">
+    // var list = ['javascript', 'Node', 'React', 'Vue']
+    // var loading = true
+    // var share = (val) => {
+    //   console.info(val)
+    //   setTimeout(() => {
+    //     loading = false
+    //   }, 1000)
+    // }
+  var ShareDom = React.createClass({
+      getInitialState: function () {
+        return {loading: false, list: ['javascript', 'Node', 'React', 'Vue']}
+      },
+      share: function (val) {
+        this.setState({ loading: true })
+        console.info(val)
+        setTimeout(() => {
+          this.setState({ loading: false })
+        }, 10000)
+      },
+      render: function () {
+        return <Share
+          list={this.state.list}
+          share={this.share}
+          title='分享'
+          type='primary'
+          size='small'
+          loading={this.state.loading}
+        />
+      }
+    })
+    ReactDOM.render(
+      <ShareDom />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+</html>

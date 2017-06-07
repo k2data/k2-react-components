@@ -132,9 +132,42 @@ width属性：
 import SideBar from 'k2-react-components/lib/SideBar/index.js'
 import 'k2-react-components/lib/SideBar/index.css'
 ```
-
-
-
+**3.<Share />组件**
+由于pas和console等ＫＭＸ产品可能用到公用的一个分享功能，避免重复性，封装一个新的组件 Share
+接受参数：　list: 数组（必须）, share:　callback(必须), callback接收一个数组进行处理，
+          title: 弹窗显示名称(非必须)，　type: 根据ａｎｔｄ的Button组件的type（非必须），
+          size: 参考ａｎｔｄ的Button的ｓｉｚｅ，　loading： 分享触发时的loading效果
+eg：
+  ```javascript
+  <script type="text/babel">
+  var ShareDom = React.createClass({
+      getInitialState: function () {
+        return {loading: false, list: ['javascript', 'Node', 'React', 'Vue']}
+      },
+      share: function (val) {
+        this.setState({ loading: true })
+        console.info(val)
+        setTimeout(() => {
+          this.setState({ loading: false })
+        }, 10000)
+      },
+      render: function () {
+        return <Share
+          list={this.state.list}
+          share={this.share}
+          title='分享'
+          type='primary'
+          size='small'
+          loading={this.state.loading}
+        />
+      }
+    })
+    ReactDOM.render(
+      <ShareDom />,
+      document.getElementById('root')
+    )
+  </script>
+  ```
 
 # k2 react components
 
