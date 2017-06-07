@@ -132,7 +132,7 @@ width属性：
 import SideBar from 'k2-react-components/lib/SideBar/index.js'
 import 'k2-react-components/lib/SideBar/index.css'
 ```
-**3.<Share />组件**
+**4.Share组件**
 由于pas和console等ＫＭＸ产品可能用到公用的一个分享功能，避免重复性，封装一个新的组件 Share
 接受参数：　list: 数组（必须）, share:　callback(必须), callback接收一个数组进行处理，
           title: 弹窗显示名称(非必须)，　type: 根据ａｎｔｄ的Button组件的type（非必须），
