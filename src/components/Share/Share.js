@@ -1,24 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Button, Modal, Select, Row, Col, Icon } from 'antd'
 const Option = Select.Option
 
-type Props = {
-  form: Object,
-  list: Array,
-  share: Function,
-  title: String,
-  loading: Boolean,
-  type: String,
-  size: String
-}
 class Share extends React.Component {
-  props: Props
   constructor (props) {
     super(props)
     this.state = {
       visible: false,
       value: '',
-      shares: []
+      shares: [],
     }
     this.showModal = this.showModal.bind(this)
     this.handleOk = this.handleOk.bind(this)
@@ -75,22 +66,22 @@ class Share extends React.Component {
       display: 'block',
       whiteSpace: 'nowarp',
       overflow: 'hidden',
-      lineHeight: '20px'
+      lineHeight: '20px',
     }
     const text = {
       display: 'block',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       width: '90%',
-      float: 'left'
+      float: 'left',
     }
     const btn = {
-      float: 'right'
+      float: 'right',
     }
     const container = {
       maxHeight: '50vh',
       overflow: 'hidden',
-      overflowY: 'auto'
+      overflowY: 'auto',
     }
     return (
       <span>
@@ -107,7 +98,7 @@ class Share extends React.Component {
             <Button key='back' size='small' onClick={this.handleCancel}>取消</Button>,
             <Button key='submit' type='primary' size='small' loading={loading} onClick={this.handleOk}>
               确定
-            </Button>
+            </Button>,
           ]}
         >
           <Row>
@@ -156,6 +147,16 @@ class Share extends React.Component {
       </span>
     )
   }
+}
+
+Share.propTypes = {
+  // form: PropTypes.object,
+  list: PropTypes.array,
+  share: PropTypes.func,
+  title: PropTypes.string,
+  loading: PropTypes.bool,
+  type: PropTypes.string,
+  size: PropTypes.string,
 }
 
 export default Share

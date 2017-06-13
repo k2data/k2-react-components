@@ -1,12 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-type Props = {
-  children: React.PropTypes.elem,
-  width: React.PropTypes.number,
-  list: React.PropTypes.array
-}
 export default class SideBar extends React.Component {
-  props: Props
   constructor (props) {
     super(props)
     this.navClick = this.navClick.bind(this)
@@ -97,5 +92,11 @@ export default class SideBar extends React.Component {
       </div>
     )
   }
+}
+
+SideBar.propTypes = {
+  children: PropTypes.elem,
+  width: PropTypes.number,
+  list: PropTypes.array,
 }
 // style={{ display: `${nav.toggle ? 'block' : 'none'}` }}

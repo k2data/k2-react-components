@@ -6,7 +6,7 @@ import Icon from 'antd/lib/icon'
 const UserList = React.createClass({
   propTypes: {
     userMessage: React.PropTypes.object.isRequired,
-    userControll: React.PropTypes.func
+    userControll: React.PropTypes.func,
   },
   menuClick (e) {
     this.props.userControll
@@ -39,7 +39,7 @@ const UserList = React.createClass({
         </Dropdown>
       </div>
     )
-  }
+  },
 })
 
 export default UserList

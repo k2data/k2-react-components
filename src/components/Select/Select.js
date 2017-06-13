@@ -5,7 +5,7 @@ const Option = Select.Option
 const SelectComponent = React.createClass({
   propTypes: {
     selects: React.PropTypes.array.isRequired,
-    onSelectChange: React.PropTypes.func
+    onSelectChange: React.PropTypes.func,
   },
   render () {
     return (
@@ -29,7 +29,7 @@ const SelectComponent = React.createClass({
         </Select>
       </div>
     )
-  }
+  },
 
 })
 

@@ -1,7 +1,7 @@
 'use strict'
 
 const fs = require('fs')
-const fsCopy = require('fs-extra')
+// const fsCopy = require('fs-extra')
 const path = require('path')
 const del = require('del')
 const rollup = require('rollup')
@@ -27,21 +27,21 @@ const babelConfig = {
   runtimeHelpers: true,
   plugins: [
     // ['import', [{ 'libraryName': 'antd', 'style': 'css' }]],
-    'external-helpers'
+    'external-helpers',
   ],
-  presets: [['latest', { es2015: { modules: false } }], 'react', 'stage-0']
+  presets: [['latest', { es2015: { modules: false } }], 'react', 'stage-0'],
 }
 
 function rollupBuild (format, moduleName, entry, dest) {
   return promise.then(() => rollup.rollup({
     entry,
     external: Object.keys(pkg.dependencies),
-    plugins: [babel(babelConfig)]
+    plugins: [babel(babelConfig)],
   }).then(bundle => bundle.write({
     dest,
     format,
     sourceMap: true,
-    moduleName: format === 'umd' ? moduleName : undefined
+    moduleName: format === 'umd' ? moduleName : undefined,
   })))
 }
 

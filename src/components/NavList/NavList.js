@@ -1,15 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Menu from 'antd/lib/menu'
 import Dropdown from 'antd/lib/dropdown'
 import Icon from 'antd/lib/icon'
-type Props = {
-  navList: React.PropTypes.array.isRequired
-}
+
 export default class NavList extends React.Component {
-  props: Props
   state = {
     current: '',
-    currentKey: ''
+    currentKey: '',
   }
 
   constructor (props) {
@@ -24,14 +22,14 @@ export default class NavList extends React.Component {
       !list.dropMenu || list.dropMenu.length === 0
         ? subMenus.push(list.name)
       : this.setState({
-        currentKey: e.key
+        currentKey: e.key,
       })
     })
     subMenus.map((item) => {
       e.key === item
         ? (() => {
           this.setState({
-            current: e.key
+            current: e.key,
           })
           e.item.props.clickEvent && e.item.props.clickEvent(e.key)
         })()
@@ -42,7 +40,7 @@ export default class NavList extends React.Component {
   subMenuClick (e) {
     const newCurrent = this.state.currentKey
     this.setState({
-      current: newCurrent
+      current: newCurrent,
     })
     e.item.props.clickEvent && e.item.props.clickEvent(e.key)
   }
@@ -52,7 +50,7 @@ export default class NavList extends React.Component {
       ? this.props.navList.map((item) => {
         item.active
           ? this.setState({
-            current: item.name
+            current: item.name,
           })
         : ''
       })
@@ -92,4 +90,8 @@ export default class NavList extends React.Component {
       </div>
     )
   }
+}
+
+NavList.propTypes = {
+  navList: PropTypes.array.isRequired,
 }

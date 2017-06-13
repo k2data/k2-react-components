@@ -1,15 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-type Props = {
-  menuComponent: Object
-}
 export class SideMenu extends React.Component {
-  props: Props
   constructor (props) {
     super(props)
 
     this.state = {
-      current: '1'
+      current: '1',
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -17,7 +14,7 @@ export class SideMenu extends React.Component {
 
   handleClick (e) {
     this.setState({
-      current: e.key
+      current: e.key,
     })
   }
 
@@ -32,6 +29,10 @@ export class SideMenu extends React.Component {
       </div>
     )
   }
+}
+
+SideMenu.propTypes = {
+  menuComponent: PropTypes.object,
 }
 
 export default SideMenu
