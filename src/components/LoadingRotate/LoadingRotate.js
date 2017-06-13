@@ -1,12 +1,18 @@
 import React from 'react'
+import logo from './logo.png'
+import PropTypes from 'prop-types'
 
-const Loading = () => (
-  <div className='loading'>
-    <div className='spinner-wrapper'>
-      <span className='spinner-text'>LOADING</span>
-      <span className='spinner' />
-    </div>
+const Loading = ({ text = 'LOADING...' }) => (
+  <div className='spinner-wrapper'>
+    <span className='spinner'>
+      <img src={logo} />
+    </span>
+    <span className='spinner-text'>{text}</span>
   </div>
 )
+
+Loading.propTypes = {
+  text: PropTypes.string,
+}
 
 export default Loading
