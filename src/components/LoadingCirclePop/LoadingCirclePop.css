@@ -1,59 +1,65 @@
-#loading {
-  position: absolute;
-  left: calc(50% - 100px);
-  top: calc(50% - 25px);
-  z-index: 9999
+.loading--ripple-container
+{
+    position: relative;
+
+    width: 182px;
+    height: 182px;
 }
 
-.uil-ripple {
-  position: absolute;
-  left: calc(50% - 90px);
-  top: calc(50% - 90px);
-  opacity: .5;
-  z-index: 999
+.loading--ripple
+{
+    position: absolute;
+    z-index: 999;
+    top: calc(50% - 90px);
+    left: calc(50% - 90px);
+
+    opacity: .5;
 }
 
-.img {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: calc(50% - 15px);
-  top: calc(50% - 15px);
-  /*opacity: .5;*/
-  z-index: 9999;
+.img
+{
+    position: absolute;
+    /*opacity: .5;*/
+    z-index: 9999;
+    top: calc(50% - 18.5px);
+    left: calc(50% - 18.5px);
 
-  background-image: url('./logo.png');
-  /*background-position: center;*/
-  background-size: cover;
-  background-repeat: no-repeat;
+    width: 37px;
+    height: 37px;
 }
 
-.circle-1 {
-  opacity: 0;
-  animation: 3s linear 0s infinite circle-in;
+.circle-1
+{
+    animation: 3s linear 0s infinite circle-in;
+
+    opacity: 0;
 }
 
-.circle-2 {
-  opacity: 0;
-  animation: 3s linear 1.5s infinite circle-in;
+.circle-2
+{
+    animation: 3s linear 1.5s infinite circle-in;
+
+    opacity: 0;
 }
 
-@keyframes circle-in {
-  0% { opacity: 1; transform:translate(50px, 50px) scale(0); }
-  33% { opacity: 1; transform:translate(22.5px, 22.5px) scale(0.55); }
-  100% { opacity: 0; transform:translate(-5px, -5px) scale(1.1); }
+@keyframes circle-in
+{
+    0%
+    {
+        transform: translate(50px, 50px) scale(0);
+
+        opacity: 1;
+    }
+    33%
+    {
+        transform: translate(22.5px, 22.5px) scale(.55);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translate(-5px, -5px) scale(1.1);
+
+        opacity: 0;
+    }
 }
-
-/*.ld-l {opacity:0;animation: ld-in 3s 0.0s ease infinite;}
-.ld-o {opacity:0;animation: ld-in 3s 0.1s ease infinite;}
-.ld-a {opacity:0;animation: ld-in 3s 0.2s ease infinite;}
-.ld-d {opacity:0;animation: ld-in 3s 0.3s ease infinite;}
-.ld-i {opacity:0;animation: ld-in 3s 0.4s ease infinite;}
-.ld-n {opacity:0;animation: ld-in 3s 0.5s ease infinite;}
-.ld-g {opacity:0;animation: ld-in 3s 0.6s ease infinite;}
-
-@keyframes ld-in {
-  0% {opacity:0;transform:scale(0);}
-  30% {opacity:1;transform:scale(1);}
-  100% {opacity:1;transform:scale(1);}
-}*/

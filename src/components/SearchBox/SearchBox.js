@@ -4,11 +4,11 @@ const Search = Input.Search
 
 const SearchBox = React.createClass({
   propTypes: {
-    searchChange: React.PropTypes.func
+    searchChange: React.PropTypes.func,
   },
   getInitialState () {
     return {
-      value: ''
+      value: '',
     }
   },
   searchClick (value) {
@@ -22,7 +22,7 @@ const SearchBox = React.createClass({
         <Search placeholder='搜索关键字' onSearch={this.searchClick} />
       </span>
     )
-  }
+  },
 })
 
 export default SearchBox

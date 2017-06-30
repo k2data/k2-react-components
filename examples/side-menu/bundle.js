@@ -1,10 +1,11 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
-  typeof define === 'function' && define.amd ? define(['react'], factory) :
-  (global.SideMenu = factory(global.React));
-}(this, (function (React) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('prop-types')) :
+  typeof define === 'function' && define.amd ? define(['react', 'prop-types'], factory) :
+  (global.SideMenu = factory(global.React,global.PropTypes));
+}(this, (function (React,PropTypes) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+PropTypes = 'default' in PropTypes ? PropTypes['default'] : PropTypes;
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -154,6 +155,10 @@ var SideMenu$1 = function (_React$Component) {
   }]);
   return SideMenu;
 }(React.Component);
+
+SideMenu$1.propTypes = {
+  menuComponent: PropTypes.object
+};
 
 return SideMenu$1;
 

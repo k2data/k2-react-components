@@ -1,10 +1,11 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
-  typeof define === 'function' && define.amd ? define(['react'], factory) :
-  (global.SideBar = factory(global.React));
-}(this, (function (React) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('prop-types')) :
+  typeof define === 'function' && define.amd ? define(['react', 'prop-types'], factory) :
+  (global.SideBar = factory(global.React,global.PropTypes));
+}(this, (function (React,PropTypes) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+PropTypes = 'default' in PropTypes ? PropTypes['default'] : PropTypes;
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -239,6 +240,14 @@ var SideBar$1 = function (_React$Component) {
   }]);
   return SideBar;
 }(React.Component);
+
+SideBar$1.propTypes = {
+  children: PropTypes.elem,
+  width: PropTypes.number,
+  list: PropTypes.array
+  // style={{ display: `${nav.toggle ? 'block' : 'none'}` }}
+
+};
 
 return SideBar$1;
 

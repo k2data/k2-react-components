@@ -11,17 +11,17 @@ const Header = React.createClass({
     showSelects: React.PropTypes.bool,
     userMessage: React.PropTypes.object.isRequired,
     onSelectChange: React.PropTypes.func,
-    navChange: React.PropTypes.func,
+    // navChange: React.PropTypes.func,
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired
+    logoData: React.PropTypes.object.isRequired,
     // logo: React.PropTypes.string
   },
   render () {
     const { logo, title, width, fontSize } = this.props.logoData
     return (
-      <header className='header-container'>
+      <header className='header-container' ref='header'>
         <div className='header__logo' style={{ width: `${width || 140}px`, fontSize: `${fontSize || 30}px` }}>
           <div className='header__logo_title'>
             {
@@ -62,7 +62,7 @@ const Header = React.createClass({
         </div>
       </header>
     )
-  }
+  },
 })
 
 export default Header
@@ -70,5 +70,5 @@ export default Header
 Header.defaultProps = {
   // logo: 'logo.png',
   showSearch: true,
-  showSelects: true
+  showSelects: true,
 }

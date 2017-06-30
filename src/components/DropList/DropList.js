@@ -5,19 +5,19 @@ const DropList = React.createClass({
     name: React.PropTypes.string.isRequired,
     menuClick: React.PropTypes.func,
     singleList: React.PropTypes.array.isRequired,
-    dropList: React.PropTypes.array.isRequired
+    dropList: React.PropTypes.array.isRequired,
   },
   getInitialState () {
     return {
       display: 'none',
       arrow: 'drop__menu__name_hide',
-      current: this.props.name
+      current: this.props.name,
     }
   },
   dropDown (e) {
     this.setState({
       display: this.state.display === 'none' ? 'block' : 'none',
-      arrow: this.state.arrow === 'drop__menu__name_hide' ? 'drop__menu__name_open' : 'drop__menu__name_hide'
+      arrow: this.state.arrow === 'drop__menu__name_hide' ? 'drop__menu__name_open' : 'drop__menu__name_hide',
     })
   },
   listClick (e) {
@@ -32,7 +32,7 @@ const DropList = React.createClass({
     })
     this.setState({
       display: 'none',
-      arrow: 'drop__menu__name_hide'
+      arrow: 'drop__menu__name_hide',
     })
     this.props.menuClick
       ? this.props.menuClick(e.target.innerText)
@@ -41,7 +41,7 @@ const DropList = React.createClass({
   setHide () {
     this.setState({
       display: 'none',
-      arrow: 'drop__menu__name_hide'
+      arrow: 'drop__menu__name_hide',
     })
   },
   clickHiden (e) {
@@ -75,7 +75,7 @@ const DropList = React.createClass({
         </div>
       </div>
     )
-  }
+  },
 })
 
 export default DropList

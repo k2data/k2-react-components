@@ -354,7 +354,7 @@ var Header$1 = React.createClass({
     showSelects: React.PropTypes.bool,
     userMessage: React.PropTypes.object.isRequired,
     onSelectChange: React.PropTypes.func,
-    navChange: React.PropTypes.func,
+    // navChange: React.PropTypes.func,
     userControll: React.PropTypes.func,
     searchChange: React.PropTypes.func,
     showSearch: React.PropTypes.bool,
@@ -370,7 +370,7 @@ var Header$1 = React.createClass({
 
     return React.createElement(
       'header',
-      { className: 'header-container' },
+      { className: 'header-container', ref: 'header' },
       React.createElement(
         'div',
         { className: 'header__logo', style: { width: (width || 140) + 'px', fontSize: (fontSize || 30) + 'px' } },

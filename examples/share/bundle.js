@@ -1,10 +1,11 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd'], factory) :
-  (global.Share = factory(global.React,global.antd));
-}(this, (function (React,antd) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('prop-types'), require('antd')) :
+  typeof define === 'function' && define.amd ? define(['react', 'prop-types', 'antd'], factory) :
+  (global.Share = factory(global.React,global.PropTypes,global.antd));
+}(this, (function (React,PropTypes,antd) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
+PropTypes = 'default' in PropTypes ? PropTypes['default'] : PropTypes;
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -356,6 +357,16 @@ var Share$1 = function (_React$Component) {
   }]);
   return Share;
 }(React.Component);
+
+Share$1.propTypes = {
+  // form: PropTypes.object,
+  list: PropTypes.array,
+  share: PropTypes.func,
+  title: PropTypes.string,
+  loading: PropTypes.bool,
+  type: PropTypes.string,
+  size: PropTypes.string
+};
 
 return Share$1;
 

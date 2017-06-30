@@ -26,6 +26,7 @@
     "babel-runtime": "^6.11.6",
     "fs-extra": "^1.0.0",
     "ramda": "^0.24.1",
+    "prop-types": "^15.5.10",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "voca": "^1.0.0"
@@ -62,10 +63,12 @@
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-postcss": "^0.2.0",
-    "sinon": "^2.0.0-pre.3"
+    "sinon": "^2.0.0-pre.3",
+    "@storybook/react": "^3.0.1"
   },
   "scripts": {
     "lint": "eslint src test tools",
+    "lint:fix": "eslint --fix src test tools",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
     "test:cover": "babel-node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
@@ -74,6 +77,8 @@
     "prepublish": "npm run build",
     "publish:docs": "",
     "start": "",
-    "start:live": "live-server ./examples --port=10001"
+    "start:live": "live-server ./examples --port=10001",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
