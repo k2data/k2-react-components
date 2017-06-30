@@ -6,16 +6,22 @@
 
 React = 'default' in React ? React['default'] : React;
 
+// import logo from './logo.png'
+
 var LoadingCirclePop$1 = function LoadingCirclePop$1() {
   return React.createElement(
     'div',
-    { style: { width: '100%', height: '100%' } },
-    React.createElement('div', { className: 'img' }),
+    { className: 'loading--ripple-container' },
+    React.createElement(
+      'div',
+      { className: 'img' },
+      React.createElement('img', { src: 'logo' })
+    ),
     React.createElement(
       'svg',
       { width: '182px', height: '182px', xmlns: 'http://www.w3.org/2000/svg',
         viewBox: '0 0 100 100', preserveAspectRatio: 'xMidYMid',
-        className: 'uil-ripple' },
+        className: 'loading--ripple' },
       React.createElement('rect', { x: '0', y: '0', width: '100', height: '100', fill: 'none', className: 'bk' }),
       React.createElement(
         'g',
