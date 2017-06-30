@@ -1,13 +1,14 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon'], factory) :
-  (global.NavList = factory(global.React,global.Menu,global.Dropdown,global.Icon));
-}(this, (function (React,Menu,Dropdown,Icon) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon'), require('ramda')) :
+  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon', 'ramda'], factory) :
+  (global.NavList = factory(global.React,global.Menu,global.Dropdown,global.Icon,global.R));
+}(this, (function (React,Menu,Dropdown,Icon,R) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
 Menu = 'default' in Menu ? Menu['default'] : Menu;
 Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
 Icon = 'default' in Icon ? Icon['default'] : Icon;
+R = 'default' in R ? R['default'] : R;
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -141,19 +142,32 @@ var NavList$1 = function (_React$Component) {
   }
 
   createClass(NavList, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this2 = this;
+
+      if (!R.equals(nextProps.navList, this.props.navList)) {
+        nextProps.navList ? nextProps.navList.map(function (item) {
+          item.active ? _this2.setState({
+            current: item.name
+          }) : '';
+        }) : '';
+      }
+    }
+  }, {
     key: 'handlerClick',
     value: function handlerClick(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       var subMenus = [];
       this.props.navList && this.props.navList.map(function (list) {
-        !list.dropMenu || list.dropMenu.length === 0 ? subMenus.push(list.name) : _this2.setState({
+        !list.dropMenu || list.dropMenu.length === 0 ? subMenus.push(list.name) : _this3.setState({
           currentKey: e.key
         });
       });
       subMenus.map(function (item) {
         e.key === item ? function () {
-          _this2.setState({
+          _this3.setState({
             current: e.key
           });
           e.item.props.clickEvent && e.item.props.clickEvent(e.key);
@@ -168,17 +182,6 @@ var NavList$1 = function (_React$Component) {
         current: newCurrent
       });
       e.item.props.clickEvent && e.item.props.clickEvent(e.key);
-    }
-  }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      var _this3 = this;
-
-      this.props.navList ? this.props.navList.map(function (item) {
-        item.active ? _this3.setState({
-          current: item.name
-        }) : '';
-      }) : '';
     }
   }, {
     key: 'render',

@@ -23,6 +23,7 @@
   <script src="../js/react-dom.min.js"></script>
   <script src="../js/babel.min.js"></script>
   <script src="../js/antd.js"></script>
+  <script src="../js/ramda.min.js"></script>
   <script type="text/javascript">
     window.Select = antd.Select
     window.Menu = antd.Menu
@@ -30,6 +31,7 @@
     window.Icon = antd.Icon
     window.Input = antd.Input
     window.Select = antd.Select
+    window.R = ramda.R
   </script>
   <script src="./bundle.js"></script>
   <script type="text/babel">
@@ -68,7 +70,7 @@
         userControll={function (value) { console.log(value) }}
         // searchChange={function (value) { console.log(value) }}
         // logoData={{'title': 'KMX', 'logo': {src: 'logo.png', href: 'http://www.baidu.com'}, 'width': 180, fontSize: 16}}
-        logoData={{'title': 'KMX'}}
+        logoData={{logo: {src: 'logo.png'}}}
        />,
       document.getElementById('root')
     )

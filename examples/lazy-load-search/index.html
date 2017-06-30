@@ -35,30 +35,8 @@
   </script>
   <script src="./bundle.js"></script>
   <script type="text/babel">
-  var ShareDom = React.createClass({
-      getInitialState: function () {
-        return {loading: false, list: ['javascript', 'Node', 'React', 'Vue']}
-      },
-      share: function (val) {
-        this.setState({ loading: true })
-        console.info(val)
-        setTimeout(() => {
-          this.setState({ loading: false })
-        }, 10000)
-      },
-      render: function () {
-        return <Share
-          list={this.state.list}
-          share={this.share}
-          title='分享'
-          type='primary'
-          size='small'
-          loading={this.state.loading}
-        />
-      }
-    })
     ReactDOM.render(
-      <ShareDom />,
+      <LazyLoadSearch />,
       document.getElementById('root')
     )
   </script>
