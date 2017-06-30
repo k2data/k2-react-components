@@ -2,6 +2,7 @@ import React from 'react'
 import Menu from 'antd/lib/menu'
 import Dropdown from 'antd/lib/dropdown'
 import Icon from 'antd/lib/icon'
+import R from 'ramda'
 type Props = {
   navList: React.PropTypes.array.isRequired
 }
@@ -16,6 +17,19 @@ export default class NavList extends React.Component {
     super(props)
     this.handlerClick = this.handlerClick.bind(this)
     this.subMenuClick = this.subMenuClick.bind(this)
+  }
+  componentWillReceiveProps (nextProps) {
+    if (!R.equals(nextProps.navList, this.props.navList)) {
+      nextProps.navList
+      ? nextProps.navList.map((item) => {
+        item.active
+        ? this.setState({
+          current: item.name
+        })
+        : ''
+      })
+      : ''
+    }
   }
 
   handlerClick (e) {
@@ -47,17 +61,6 @@ export default class NavList extends React.Component {
     e.item.props.clickEvent && e.item.props.clickEvent(e.key)
   }
 
-  componentWillMount () {
-    this.props.navList
-      ? this.props.navList.map((item) => {
-        item.active
-          ? this.setState({
-            current: item.name
-          })
-        : ''
-      })
-    : ''
-  }
   render () {
     return (
       <div className='nav__list'>

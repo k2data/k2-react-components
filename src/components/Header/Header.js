@@ -28,7 +28,7 @@ const Header = React.createClass({
               logo && logo.src &&
               <span className='logoImg'>
                 <a href={logo.href || ''}>
-                  <img title={title || ''} alt={title || ''} src={logo.src} width='23' />
+                  <img title={title || ''} alt={title || ''} src={logo.src} width='100' />
                 </a>
               </span>
             }
