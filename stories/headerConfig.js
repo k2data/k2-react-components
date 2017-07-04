@@ -26,7 +26,7 @@
 //   logo: '/logo.png',
 //   logoData: {'title': 'KMX Manager'},
 // }
-export default {
+export const testValue1 = {
   showSearch: false,
   showSelects: false,
   navList: [
@@ -57,4 +57,32 @@ export default {
   userMessage: {'name': 'adminT', 'navList': ['message', 'modify', 'layout']},
   userControll: function (value) { console.log(value) },
   logoData: {logo: {src: 'logo.png'}},
+}
+
+export const testValue2 = {
+  showSearch: false,
+  showSelects: false,
+  navList: [
+    {
+      name: '数据接入',
+      menuClick: () => { window.location.href = '' },
+    },
+    {
+      name: '数据管理',
+      menuClick: () => { window.location.href = '' },
+    },
+    {
+      name: '数据分析',
+      active: true,
+      menuClick: () => {},
+    },
+    {
+      name: '系统管理',
+      menuClick: () => { window.location.href = '' },
+    },
+  ],
+  selects: ['时序数据', '关系型', '半结构化', '非结构化'],
+  userMessage: {'name': 'admin', navList: ['登出']},
+  userControll: this.handleUserList,
+  logoData: {logo: {src: require('./logo.png')}},
 }

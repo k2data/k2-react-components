@@ -370,7 +370,7 @@ var Header$1 = React.createClass({
 
     return React.createElement(
       'header',
-      { className: 'header-container', ref: 'header' },
+      { className: 'header-container' },
       React.createElement(
         'div',
         { className: 'header__logo', style: { width: (width || 140) + 'px', fontSize: (fontSize || 30) + 'px' } },
@@ -378,21 +378,12 @@ var Header$1 = React.createClass({
           'div',
           { className: 'header__logo_title' },
           logo && logo.src && React.createElement(
-            'span',
+            'div',
             { className: 'logoImg' },
             React.createElement(
               'a',
-              { href: logo.href || '' },
+              { className: 'logo-box', href: logo.href || '' },
               React.createElement('img', { title: title || '', alt: title || '', src: logo.src, width: '100' })
-            )
-          ),
-          React.createElement(
-            'span',
-            null,
-            React.createElement(
-              'b',
-              null,
-              title || ''
             )
           )
         )

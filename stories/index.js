@@ -5,9 +5,7 @@ import { linkTo } from '@storybook/addon-links'
 import Button from './Button'
 import Welcome from './Welcome'
 import Header from './Header'
-import headerConfig from './headerConfig'
-import LoadingRotate from './LoadingRotate'
-import LoadingCirclePop from './LoadingCirclePop'
+import { testValue1, testValue2 } from './headerConfig'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
@@ -16,8 +14,4 @@ storiesOf('Button', module)
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>)
 
 storiesOf('Header', module)
-  .add('default', () => <Header {...headerConfig} />)
-
-storiesOf('Loading', module)
-  .add('rotate', () => <LoadingRotate />)
-  .add('circle pop', () => <LoadingCirclePop />)
+  .add('default', () => <Header {...testValue2} />)

@@ -21,24 +21,26 @@ const Header = React.createClass({
   render () {
     const { logo, title, width, fontSize } = this.props.logoData
     return (
-      <header className='header-container' ref='header'>
+      <header className='header-container'>
         <div className='header__logo' style={{ width: `${width || 140}px`, fontSize: `${fontSize || 30}px` }}>
           <div className='header__logo_title'>
             {
               logo && logo.src &&
-              <span className='logoImg'>
-                <a href={logo.href || ''}>
+              <div className='logoImg'>
+                <a className='logo-box' href={logo.href || ''}>
                   <img title={title || ''} alt={title || ''} src={logo.src} width='100' />
                 </a>
-              </span>
+              </div>
             }
-            <span>
-              <b>
-                {
-                  title || ''
-                }
-              </b>
-            </span>
+            {
+              // <span>
+              //   <b>
+              //     {
+              //       title || ''
+              //     }
+              //   </b>
+              // </span>
+            }
           </div>
         </div>
         <div className='header__controll' style={{ marginLeft: `${width || 140}px` }}>
