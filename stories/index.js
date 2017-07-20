@@ -5,8 +5,16 @@ import { linkTo } from '@storybook/addon-links'
 import Button from './Button'
 import Welcome from './Welcome'
 import Header from './Header'
+import Share from './Share'
 import { testValue1, testValue2 } from './headerConfig'
-
+let loading = false
+function share (val) {
+  loading = true
+  console.info(val)
+  setTimeout(() => {
+    loading = false
+  }, 10000)
+}
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
 storiesOf('Button', module)
@@ -15,3 +23,13 @@ storiesOf('Button', module)
 
 storiesOf('Header', module)
   .add('default', () => <Header {...testValue2} />)
+
+storiesOf('Share', module)
+  .add('default', () => <Share
+    list={['javascript', 'Node', 'React', 'Vue']}
+    share={(val) => { share(val) }}
+    title='分享'
+    type='primary'
+    size='small'
+    loading={loading}
+  />)
