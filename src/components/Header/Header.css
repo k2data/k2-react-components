@@ -287,7 +287,7 @@
   color: #fff;
   cursor: pointer;
 }
-.nav__list_dp {
+.ant-menu-horizontal .ant-menu-item .nav__list_dp {
   color: #fff;
   font-size: 14px;
   display: inline-block;
@@ -296,10 +296,10 @@
   padding: 0px 15px;
   min-width: 70px;
 }
-.nav__list_dp:hover {
+.ant-menu-horizontal .ant-menu-item .nav__list_dp:hover {
   color: #fff;
 }
-.nav__list .ant-menu-horizontal > .ant-menu-item-selected > span {
+.nav__list .ant-menu-horizontal > .ant-menu-item-selected > a {
   color: #fff;
 }
 

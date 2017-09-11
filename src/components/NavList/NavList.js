@@ -85,8 +85,8 @@ export default class NavList extends React.Component {
                         {list.name}&nbsp;&nbsp;<Icon type='down' /></span>
                     </Dropdown></Menu.Item>
                 }
-                return <Menu.Item clickEvent={list.menuClick} key={list.name}>
-                  <span className='nav__list_dp' style={{ textAlign: 'center' }}>{list.name}</span>
+                return <Menu.Item key={list.name}>
+                  <a href={list.href} target='_blank' className='nav__list_dp' style={{ textAlign: 'center' }}>{list.name}</a>
                 </Menu.Item>
               })
             : ''
