@@ -229,10 +229,10 @@ var NavList$1 = function (_React$Component) {
             }
             return React.createElement(
               Menu.Item,
-              { clickEvent: list.menuClick, key: list.name },
+              { key: list.name },
               React.createElement(
-                'span',
-                { className: 'nav__list_dp', style: { textAlign: 'center' } },
+                'a',
+                { href: list.href, target: '_blank', className: 'nav__list_dp', style: { textAlign: 'center' } },
                 list.name
               )
             );
