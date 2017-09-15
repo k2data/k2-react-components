@@ -1,14 +1,12 @@
 .header-container {
-  height: 54px;
-  background-color: #000;
-  padding-right: 20px;
-  font-size: 14px;
+  height: 60px;
+  background-color: #152D51;
 }
 .header__logo {
   float: left;
   height: 100%;
   /*padding-left: 14px;*/
-  line-height: 54px;
+  line-height: 60px;
   overflow: hidden;
   text-align: center;
 }
@@ -27,7 +25,8 @@
 }
 .logo-box {
   display: block;
-  height: 35px;
+  height: 34px;
+  line-height: 34px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -50,11 +49,55 @@
   /*display: flex;
   flex-direction: row;*/
 }
-.header__controll__nav {
-  height: 54px;
+.header_menu_list {
+  margin-left: 25%;
+  list-style: none;
+  display: flex;
+  height: 60px;
+  width: 50%;
   overflow: hidden;
+  white-space: nowrap;
 }
+.header_menu_list li {
+  flex: 1;
+  float: left;
+  height: 100%;
+  text-align: center;
+  line-height: 60px;
 
+  color: #fff;
+  cursor: pointer;
+}
+.header_menu_list li a {
+  position: relative;
+  opacity: 0.6;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+.header_menu_list li span{
+  float: right;
+  color: #fff;
+  opacity: 0.6;
+}
+.header_menu_list li:last-child span {
+  opacity: 0;
+}
+.header_menu_list li a::after {
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  left: -55px;
+  opacity: 0;
+  content: '';
+  width: 37px;
+  height: 3px;
+  background-color: #fff;
+}
+.header_menu_list li a:hover {
+  opacity: 1;
+}
 .header__controll__admin {
   /*width: 120px;*/
   /*overflow: hidden;*/
