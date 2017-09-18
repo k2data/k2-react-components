@@ -18,7 +18,7 @@ const UserList = React.createClass({
           <span>{this.props.userMessage.name}</span>
         </div>
         <div className="header_separate">
-          <span>&nbsp;|&nbsp;</span>
+          <span>|</span>
         </div>
         <div className="header_logOut">
           <span onClick={this.menuClick}>{this.props.userMessage.tuichu}</span>
