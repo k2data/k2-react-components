@@ -1,0 +1,86 @@
+#root{
+  height: 100%;
+  font-size: 14px;
+}
+
+i{
+  font-style: normal;
+}
+
+h3{
+  font-weight: normal;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+.dark a {
+  color: #fff;
+}
+.light a {
+  color: #555555;
+}
+.leftNav_wraper{
+display: inline-block;
+height: 100%;
+width: 201px;
+font-Family: PingFangSC-Medium;
+font-weight: bold;
+}
+.light{
+  box-shadow: 2px 0 4px 0 ;
+}
+.dark{
+  box-shadow: 2px 0 7px 0;
+}
+.menu_title{
+  padding-left: 20px;
+  opacity: 0.5;
+  margin: 10px 0;
+  height: 20px;
+  line-height: 20px;
+}
+.menu_list{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 39px;
+  opacity: 0.7;
+}
+.dark_active{
+  background-image: linear-gradient(to right, #4F95FB 0%, rgba(79,149,251,0.00) 100%);
+  opacity: 1;
+}
+.light_active {
+  color: #0B95FE;
+}
+.light_active a{
+  color: #0B95FE;
+}
+.menulist_name {
+  text-decoration: none;
+  box-sizing: border-box;
+  padding-left: 60px;
+  display: inline-block;
+  width: 100%;
+  line-height: 40px;
+  text-decoration: none;
+}
+.dark .menulist_name:hover{
+  background: rgba(79,149,251,.2);
+}
+.light .menulist_name:hover{
+  background: rgba(0,0,0,.5);
+}
+.menulist_name:focus{
+  text-decoration: none;
+}
+.icon{
+  display: inline-block;
+  position: absolute;
+  left: 40px;
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+}
