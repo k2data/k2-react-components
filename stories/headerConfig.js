@@ -91,7 +91,7 @@ export const testValue2 = {
     },
   ],
   selects: ['时序数据', '关系型', '半结构化', '非结构化'],
-  userMessage: {'name': 'admin', navList: ['登出']},
+  userMessage: {'name': 'admin', navList: ['登出'],'tuichu': '退出'},
   userControll: this.handleUserList,
   logoData: {logo: {src: require('./logo.png')}},
 }

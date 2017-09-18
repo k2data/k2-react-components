@@ -67,7 +67,7 @@ export default class NavList extends React.Component {
         {
           this.props.navList && this.props.navList instanceof Array
             ? this.props.navList.map((list) => {
-              return <li key={list.name}><a href={list.href}>{list.name}</a><span>|</span></li>
+              return <li key={list.name}><a href={list.href} target='_blank'>{list.name}</a><span>|</span></li>
             })
             : ''
         }
