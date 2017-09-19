@@ -39,6 +39,7 @@ font-weight: bold;
   margin: 10px 0;
   height: 20px;
   line-height: 20px;
+  font-weight: bold;
 }
 .menu_list{
   position: relative;
@@ -70,7 +71,7 @@ font-weight: bold;
   background: rgba(79,149,251,.2);
 }
 .light .menulist_name:hover{
-  background: rgba(0,0,0,.5);
+  background: rgba(240,240,240,1);
 }
 .menulist_name:focus{
   text-decoration: none;
