@@ -1,50 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/select'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon'), require('antd/lib/input'), require('ramda')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/select', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon', 'antd/lib/input', 'ramda'], factory) :
-  (global.Header = factory(global.React,global.Select,global.Menu,global.Dropdown,global.Icon,global.Input,global.R));
-}(this, (function (React,Select,Menu,Dropdown,Icon,Input,R) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
+  typeof define === 'function' && define.amd ? define(['react'], factory) :
+  (global.Header = factory(global.React));
+}(this, (function (React) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
-Select = 'default' in Select ? Select['default'] : Select;
-Menu = 'default' in Menu ? Menu['default'] : Menu;
-Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
-Icon = 'default' in Icon ? Icon['default'] : Icon;
-Input = 'default' in Input ? Input['default'] : Input;
-R = 'default' in R ? R['default'] : R;
-
-var Option = Select.Option;
-
-var SelectComponent$1 = React.createClass({
-  displayName: 'SelectComponent',
-
-  propTypes: {
-    selects: React.PropTypes.array.isRequired,
-    onSelectChange: React.PropTypes.func
-  },
-  render: function render() {
-    return React.createElement(
-      'div',
-      { ref: 'selectBox', className: 'select__box' },
-      React.createElement(
-        Select,
-        { defaultValue: this.props.selects && this.props.selects instanceof Array && this.props.selects.length !== 0 && this.props.selects[0],
-          style: { width: '120px', height: '55px' },
-          showSearch: false,
-          onChange: this.props.onSelectChange || function () {
-            console.info('no onchange func..');
-          }
-        },
-        this.props.selects && this.props.selects instanceof Array && this.props.selects.length !== 0 ? this.props.selects.map(function (item, index) {
-          return React.createElement(
-            Option,
-            { value: item, key: 'option' + index },
-            item
-          );
-        }) : ''
-      )
-    );
-  }
-});
 
 var UserList = React.createClass({
   displayName: 'UserList',
@@ -55,58 +15,39 @@ var UserList = React.createClass({
   },
   menuClick: function menuClick(e) {
     this.props.userControll ? this.props.userControll(e.key) : '';
+    console.log('退出');
   },
   render: function render() {
-    var menu = React.createElement(
-      Menu,
-      { onClick: this.menuClick },
-      this.props.userMessage && this.props.userMessage.navList && this.props.userMessage.navList instanceof Array ? this.props.userMessage.navList.map(function (item) {
-        return React.createElement(
-          Menu.Item,
-          { key: item },
-          item
-        );
-      }) : ''
-    );
     return React.createElement(
       'div',
-      { className: 'user__list', id: 'userList' },
+      { className: 'header_user_center' },
       React.createElement(
-        Dropdown,
-        { overlay: menu, trigger: ['click'] },
+        'div',
+        { className: 'header_username' },
         React.createElement(
-          'a',
-          { className: 'ant-dropdown-link', href: '#', title: this.props.userMessage.name },
-          this.props.userMessage.name,
-          '\xA0\xA0',
-          this.props.userMessage.navList instanceof Array && this.props.userMessage.navList.length !== 0 && React.createElement(Icon, { type: 'down' })
+          'span',
+          null,
+          this.props.userMessage.name
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'header_separate' },
+        React.createElement(
+          'span',
+          null,
+          '|'
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'header_logOut' },
+        React.createElement(
+          'span',
+          { onClick: this.menuClick },
+          this.props.userMessage.tuichu
         )
       )
-    );
-  }
-});
-
-var Search = Input.Search;
-
-var SearchBox$1 = React.createClass({
-  displayName: 'SearchBox',
-
-  propTypes: {
-    searchChange: React.PropTypes.func
-  },
-  getInitialState: function getInitialState() {
-    return {
-      value: ''
-    };
-  },
-  searchClick: function searchClick(value) {
-    this.props.searchChange ? this.props.searchChange(value) : '';
-  },
-  render: function render() {
-    return React.createElement(
-      'span',
-      { className: 'header__controll__search__box' },
-      React.createElement(Search, { placeholder: '\u641C\u7D22\u5173\u952E\u5B57', onSearch: this.searchClick })
     );
   }
 });
@@ -224,140 +165,116 @@ var set = function set(object, property, value, receiver) {
   return value;
 };
 
+// import Menu from 'antd/lib/menu'
+// import Dropdown from 'antd/lib/dropdown'
+// import Icon from 'antd/lib/icon'
+// import R from 'ramda'
+
 var NavList$1 = function (_React$Component) {
   inherits(NavList, _React$Component);
 
-  function NavList(props) {
+  function NavList() {
     classCallCheck(this, NavList);
-
-    var _this = possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
-
-    _this.state = {
-      current: '',
-      currentKey: ''
-    };
-
-    _this.handlerClick = _this.handlerClick.bind(_this);
-    _this.subMenuClick = _this.subMenuClick.bind(_this);
-    return _this;
+    return possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).apply(this, arguments));
   }
 
   createClass(NavList, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var _this2 = this;
-
-      if (!R.equals(nextProps.navList, this.props.navList)) {
-        nextProps.navList ? nextProps.navList.map(function (item) {
-          item.active ? _this2.setState({
-            current: item.name
-          }) : '';
-        }) : '';
-      }
-    }
-  }, {
-    key: 'handlerClick',
-    value: function handlerClick(e) {
-      var _this3 = this;
-
-      var subMenus = [];
-      this.props.navList && this.props.navList.map(function (list) {
-        !list.dropMenu || list.dropMenu.length === 0 ? subMenus.push(list.name) : _this3.setState({
-          currentKey: e.key
-        });
-      });
-      subMenus.map(function (item) {
-        e.key === item ? function () {
-          _this3.setState({
-            current: e.key
-          });
-          e.item.props.clickEvent && e.item.props.clickEvent(e.key);
-        }() : '';
-      });
-    }
-  }, {
-    key: 'subMenuClick',
-    value: function subMenuClick(e) {
-      var newCurrent = this.state.currentKey;
-      this.setState({
-        current: newCurrent
-      });
-      e.item.props.clickEvent && e.item.props.clickEvent(e.key);
-    }
-  }, {
     key: 'render',
-    value: function render() {
-      var _this4 = this;
 
+    // props: Props
+    // state = {
+    //   current: '',
+    //   currentKey: '',
+    // }
+
+    // constructor (props) {
+    //   super(props)
+    //   this.handlerClick = this.handlerClick.bind(this)
+    //   this.subMenuClick = this.subMenuClick.bind(this)
+    // }
+    // componentWillReceiveProps (nextProps) {
+    //   if (!R.equals(nextProps.navList, this.props.navList)) {
+    //     nextProps.navList
+    //     ? nextProps.navList.map((item) => {
+    //       item.active
+    //       ? this.setState({
+    //         current: item.name,
+    //       })
+    //       : ''
+    //     })
+    //     : ''
+    //   }
+    // }
+
+    // handlerClick (e) {
+    //   let subMenus = []
+    //   this.props.navList && this.props.navList.map((list) => {
+    //     !list.dropMenu || list.dropMenu.length === 0
+    //       ? subMenus.push(list.name)
+    //     : this.setState({
+    //       currentKey: e.key,
+    //     })
+    //   })
+    //   subMenus.map((item) => {
+    //     e.key === item
+    //       ? (() => {
+    //         this.setState({
+    //           current: e.key,
+    //         })
+    //         e.item.props.clickEvent && e.item.props.clickEvent(e.key)
+    //       })()
+    //     : ''
+    //   })
+    // }
+
+    // subMenuClick (e) {
+    //   const newCurrent = this.state.currentKey
+    //   this.setState({
+    //     current: newCurrent,
+    //   })
+    //   e.item.props.clickEvent && e.item.props.clickEvent(e.key)
+    // }
+    value: function render() {
       return React.createElement(
-        'div',
-        { className: 'nav__list' },
-        React.createElement(
-          Menu,
-          { onClick: this.handlerClick,
-            selectedKeys: [this.state.current],
-            mode: 'horizontal'
-          },
-          this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
-            if (list.name && list.dropMenu) {
-              var menu = React.createElement(
-                Menu,
-                { onClick: _this4.subMenuClick },
-                list.dropMenu.map(function (dp) {
-                  return React.createElement(
-                    Menu.Item,
-                    { clickEvent: list.menuClick, key: dp },
-                    dp
-                  );
-                })
-              );
-              return React.createElement(
-                Menu.Item,
-                {
-                  key: list.name },
-                React.createElement(
-                  Dropdown,
-                  { overlay: menu, trigger: ['click'] },
-                  React.createElement(
-                    'span',
-                    { className: 'nav__list_dp', style: { textAlign: 'center' } },
-                    list.name,
-                    '\xA0\xA0',
-                    React.createElement(Icon, { type: 'down' })
-                  )
-                )
-              );
-            }
-            return React.createElement(
-              Menu.Item,
-              { key: list.name },
-              React.createElement(
-                'a',
-                { href: list.href, target: '_blank', className: 'nav__list_dp', style: { textAlign: 'center' } },
-                list.name
-              )
-            );
-          }) : ''
-        )
+        'ul',
+        { className: 'header_menu_list' },
+        this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
+          return React.createElement(
+            'li',
+            { key: list.name },
+            React.createElement(
+              'a',
+              { href: list.href, target: '_blank' },
+              list.name
+            ),
+            React.createElement(
+              'span',
+              null,
+              '|'
+            )
+          );
+        }) : ''
       );
     }
   }]);
   return NavList;
 }(React.Component);
 
+// import SelectComponent from '../Select/index.js'
+// import SearchBox from '../SearchBox/index.js'
 var Header$1 = React.createClass({
   displayName: 'Header',
 
   propTypes: {
     navList: React.PropTypes.array.isRequired,
-    selects: React.PropTypes.array,
-    showSelects: React.PropTypes.bool,
+    // selects: React.PropTypes.array,
+    // showSelects: React.PropTypes.bool,
     userMessage: React.PropTypes.object.isRequired,
-    onSelectChange: React.PropTypes.func,
+    // onSelectChange: React.PropTypes.func,
     // navChange: React.PropTypes.func,
     userControll: React.PropTypes.func,
-    searchChange: React.PropTypes.func,
-    showSearch: React.PropTypes.bool,
+    // searchChange: React.PropTypes.func,
+    // showSearch: React.PropTypes.bool,
     logoData: React.PropTypes.object.isRequired
     // logo: React.PropTypes.string
   },
@@ -373,7 +290,7 @@ var Header$1 = React.createClass({
       { className: 'header-container' },
       React.createElement(
         'div',
-        { className: 'header__logo', style: { width: (width || 140) + 'px', fontSize: (fontSize || 30) + 'px' } },
+        { className: 'header__logo', style: { width: (width || 200) + 'px', fontSize: (fontSize || 30) + 'px' } },
         React.createElement(
           'div',
           { className: 'header__logo_title' },
@@ -383,34 +300,20 @@ var Header$1 = React.createClass({
             React.createElement(
               'a',
               { className: 'logo-box', href: logo.href || '' },
-              React.createElement('img', { title: title || '', alt: title || '', src: logo.src, width: '100' })
+              React.createElement('img', { title: title || '', alt: title || '', src: logo.src, width: '105' })
             )
           )
         )
       ),
       React.createElement(
         'div',
-        { className: 'header__controll', style: { marginLeft: (width || 140) + 'px' } },
-        React.createElement(
-          'div',
-          { className: 'header__controll__admin' },
-          this.props.userMessage.name && this.props.userMessage.name !== '' && React.createElement(UserList, { userMessage: this.props.userMessage, userControll: this.props.userControll })
-        ),
-        React.createElement(
-          'div',
-          { className: 'header__controll__nav' },
-          React.createElement(NavList$1, { navList: this.props.navList }),
-          this.props.showSelects && React.createElement(
-            'span',
-            { className: 'header__controll__drop' },
-            React.createElement(SelectComponent$1, { selects: this.props.selects, onSelectChange: this.props.onSelectChange })
-          )
-        ),
-        this.props.showSearch && React.createElement(
-          'div',
-          { className: 'header__controll__search' },
-          React.createElement(SearchBox$1, { searchChange: this.props.searchChange })
-        )
+        { className: 'header__controll' },
+        React.createElement(NavList$1, { navList: this.props.navList })
+      ),
+      React.createElement(
+        'div',
+        { className: 'header_user' },
+        this.props.userMessage.name && this.props.userMessage.name !== '' && React.createElement(UserList, { userMessage: this.props.userMessage, userControll: this.props.userControll })
       )
     );
   }

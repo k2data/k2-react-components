@@ -1,14 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('antd/lib/menu'), require('antd/lib/dropdown'), require('antd/lib/icon'), require('ramda')) :
-  typeof define === 'function' && define.amd ? define(['react', 'antd/lib/menu', 'antd/lib/dropdown', 'antd/lib/icon', 'ramda'], factory) :
-  (global.NavList = factory(global.React,global.Menu,global.Dropdown,global.Icon,global.R));
-}(this, (function (React,Menu,Dropdown,Icon,R) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
+  typeof define === 'function' && define.amd ? define(['react'], factory) :
+  (global.NavList = factory(global.React));
+}(this, (function (React) { 'use strict';
 
 React = 'default' in React ? React['default'] : React;
-Menu = 'default' in Menu ? Menu['default'] : Menu;
-Dropdown = 'default' in Dropdown ? Dropdown['default'] : Dropdown;
-Icon = 'default' in Icon ? Icon['default'] : Icon;
-R = 'default' in R ? R['default'] : R;
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -123,121 +119,95 @@ var set = function set(object, property, value, receiver) {
   return value;
 };
 
+// import Menu from 'antd/lib/menu'
+// import Dropdown from 'antd/lib/dropdown'
+// import Icon from 'antd/lib/icon'
+// import R from 'ramda'
+
 var NavList$1 = function (_React$Component) {
   inherits(NavList, _React$Component);
 
-  function NavList(props) {
+  function NavList() {
     classCallCheck(this, NavList);
-
-    var _this = possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
-
-    _this.state = {
-      current: '',
-      currentKey: ''
-    };
-
-    _this.handlerClick = _this.handlerClick.bind(_this);
-    _this.subMenuClick = _this.subMenuClick.bind(_this);
-    return _this;
+    return possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).apply(this, arguments));
   }
 
   createClass(NavList, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var _this2 = this;
-
-      if (!R.equals(nextProps.navList, this.props.navList)) {
-        nextProps.navList ? nextProps.navList.map(function (item) {
-          item.active ? _this2.setState({
-            current: item.name
-          }) : '';
-        }) : '';
-      }
-    }
-  }, {
-    key: 'handlerClick',
-    value: function handlerClick(e) {
-      var _this3 = this;
-
-      var subMenus = [];
-      this.props.navList && this.props.navList.map(function (list) {
-        !list.dropMenu || list.dropMenu.length === 0 ? subMenus.push(list.name) : _this3.setState({
-          currentKey: e.key
-        });
-      });
-      subMenus.map(function (item) {
-        e.key === item ? function () {
-          _this3.setState({
-            current: e.key
-          });
-          e.item.props.clickEvent && e.item.props.clickEvent(e.key);
-        }() : '';
-      });
-    }
-  }, {
-    key: 'subMenuClick',
-    value: function subMenuClick(e) {
-      var newCurrent = this.state.currentKey;
-      this.setState({
-        current: newCurrent
-      });
-      e.item.props.clickEvent && e.item.props.clickEvent(e.key);
-    }
-  }, {
     key: 'render',
-    value: function render() {
-      var _this4 = this;
 
+    // props: Props
+    // state = {
+    //   current: '',
+    //   currentKey: '',
+    // }
+
+    // constructor (props) {
+    //   super(props)
+    //   this.handlerClick = this.handlerClick.bind(this)
+    //   this.subMenuClick = this.subMenuClick.bind(this)
+    // }
+    // componentWillReceiveProps (nextProps) {
+    //   if (!R.equals(nextProps.navList, this.props.navList)) {
+    //     nextProps.navList
+    //     ? nextProps.navList.map((item) => {
+    //       item.active
+    //       ? this.setState({
+    //         current: item.name,
+    //       })
+    //       : ''
+    //     })
+    //     : ''
+    //   }
+    // }
+
+    // handlerClick (e) {
+    //   let subMenus = []
+    //   this.props.navList && this.props.navList.map((list) => {
+    //     !list.dropMenu || list.dropMenu.length === 0
+    //       ? subMenus.push(list.name)
+    //     : this.setState({
+    //       currentKey: e.key,
+    //     })
+    //   })
+    //   subMenus.map((item) => {
+    //     e.key === item
+    //       ? (() => {
+    //         this.setState({
+    //           current: e.key,
+    //         })
+    //         e.item.props.clickEvent && e.item.props.clickEvent(e.key)
+    //       })()
+    //     : ''
+    //   })
+    // }
+
+    // subMenuClick (e) {
+    //   const newCurrent = this.state.currentKey
+    //   this.setState({
+    //     current: newCurrent,
+    //   })
+    //   e.item.props.clickEvent && e.item.props.clickEvent(e.key)
+    // }
+    value: function render() {
       return React.createElement(
-        'div',
-        { className: 'nav__list' },
-        React.createElement(
-          Menu,
-          { onClick: this.handlerClick,
-            selectedKeys: [this.state.current],
-            mode: 'horizontal'
-          },
-          this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
-            if (list.name && list.dropMenu) {
-              var menu = React.createElement(
-                Menu,
-                { onClick: _this4.subMenuClick },
-                list.dropMenu.map(function (dp) {
-                  return React.createElement(
-                    Menu.Item,
-                    { clickEvent: list.menuClick, key: dp },
-                    dp
-                  );
-                })
-              );
-              return React.createElement(
-                Menu.Item,
-                {
-                  key: list.name },
-                React.createElement(
-                  Dropdown,
-                  { overlay: menu, trigger: ['click'] },
-                  React.createElement(
-                    'span',
-                    { className: 'nav__list_dp', style: { textAlign: 'center' } },
-                    list.name,
-                    '\xA0\xA0',
-                    React.createElement(Icon, { type: 'down' })
-                  )
-                )
-              );
-            }
-            return React.createElement(
-              Menu.Item,
-              { key: list.name },
-              React.createElement(
-                'a',
-                { href: list.href, target: '_blank', className: 'nav__list_dp', style: { textAlign: 'center' } },
-                list.name
-              )
-            );
-          }) : ''
-        )
+        'ul',
+        { className: 'header_menu_list' },
+        this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
+          return React.createElement(
+            'li',
+            { key: list.name },
+            React.createElement(
+              'a',
+              { href: list.href, target: '_blank' },
+              list.name
+            ),
+            React.createElement(
+              'span',
+              null,
+              '|'
+            )
+          );
+        }) : ''
       );
     }
   }]);
