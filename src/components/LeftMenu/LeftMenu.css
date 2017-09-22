@@ -28,7 +28,6 @@ a {
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
   font-size: 14px;
-  font-weight: bold;
 }
 .dark{
   box-shadow: 2px 0 7px 0 rgba(0,0,0,0.05);
@@ -38,7 +37,6 @@ a {
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
   font-size: 14px;
-  font-weight: bold;
 }
 .menu_title{
   padding: 10px 20px;
@@ -46,7 +44,6 @@ a {
   opacity: 0.5;
   height: 40px;
   display: inline-block;
-  font-weight: bold;
 }
 .menu_list{
   position: relative;
