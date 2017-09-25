@@ -2,7 +2,7 @@ export const menuList = {
   menu: [
     {
       name: '',
-      children: [
+      subMenu: [
         {
           name: '概览',
           icon: '<',
@@ -11,7 +11,7 @@ export const menuList = {
     },
     {
       name: '时序数据',
-      children: [
+      subMenu: [
         {
           name: '同义字段',
           icon: '>',
@@ -24,7 +24,7 @@ export const menuList = {
     },
     {
       name: '关系数据',
-      children: [
+      subMenu: [
         {
           name: '同步任务',
           icon: '<',
