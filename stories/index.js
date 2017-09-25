@@ -6,10 +6,8 @@ import Button from './Button'
 import Welcome from './Welcome'
 import Header from './Header'
 import Share from './Share'
-import LeftNav from './LeftNav'
 import { SubMenu, MenuItem, LeftMenu } from './LeftMenu'
 import { testValue1, testValue2 } from './headerConfig'
-import { menuList } from './leftNavConfig.js'
 let loading = false
 function share (val) {
   loading = true
@@ -18,13 +16,7 @@ function share (val) {
     loading = false
   }, 10000)
 }
-const LeftMenuDemo = (
-  <LeftMenu>
-    <SubMenu name='一级菜单'>
-      <MenuItem name='二级菜单' />
-    </SubMenu>
-  </LeftMenu>
-)
+
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
 storiesOf('Button', module)
@@ -33,10 +25,6 @@ storiesOf('Button', module)
 
 storiesOf('Header', module)
   .add('default', () => <Header {...testValue2} />)
-
-storiesOf('LeftNav', module)
-.add('light', () => <LeftNav {...menuList} them='light' />)
-.add('dark', () => <LeftNav {...menuList} them='dark' />)
 
 storiesOf('LeftMenu', module)
 .add('light', () => (<LeftMenu><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))
