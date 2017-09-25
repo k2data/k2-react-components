@@ -47,7 +47,7 @@ var LeftNav$1 = React.createClass({
       'div',
       { className: 'leftNav_wraper  ' + them, style: raperStyle },
       menu.map(function (item, index) {
-        return React.createElement(
+        return item['subMenu'] ? React.createElement(
           'ul',
           { key: item.name + index },
           React.createElement(
@@ -55,7 +55,7 @@ var LeftNav$1 = React.createClass({
             { className: 'menu_title', style: { color: raperStyle.color } },
             item.name
           ),
-          item.children.map(function (menuList, menuListIndex) {
+          item.subMenu.map(function (menuList, menuListIndex) {
             var classNames = 'menu_list';
             if (activeArr[index]) {
               if (activeArr[index][menuListIndex]) {
@@ -71,11 +71,7 @@ var LeftNav$1 = React.createClass({
                   _this.handleActive(index, menuListIndex);
                 }
               },
-              React.createElement(
-                'div',
-                { className: 'icon' },
-                menuList.icon
-              ),
+              React.createElement('div', { className: 'icon ' + menuList.icon }),
               React.createElement(
                 'a',
                 { href: 'javascript:void(0)',
@@ -84,13 +80,19 @@ var LeftNav$1 = React.createClass({
               )
             );
           })
+        ) : React.createElement(
+          'ul',
+          { key: item.name + index },
+          React.createElement(
+            'h3',
+            { className: 'menu_title', style: { color: raperStyle.color } },
+            item.name
+          )
         );
       })
     );
   }
 });
-
-LeftNav$1.defaultProps = {};
 
 return LeftNav$1;
 
