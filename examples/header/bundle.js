@@ -385,6 +385,15 @@ var Header$1 = React.createClass({
               { className: 'logo-box', href: logo.href || '' },
               React.createElement('img', { title: title || '', alt: title || '', src: logo.src, width: '100' })
             )
+          ),
+          !logo && title && React.createElement(
+            'span',
+            null,
+            React.createElement(
+              'b',
+              null,
+              title
+            )
           )
         )
       ),

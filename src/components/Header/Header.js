@@ -33,13 +33,10 @@ const Header = React.createClass({
               </div>
             }
             {
-              // <span>
-              //   <b>
-              //     {
-              //       title || ''
-              //     }
-              //   </b>
-              // </span>
+              !logo && title &&
+              <span>
+                <b>{ title }</b>
+              </span>
             }
           </div>
         </div>
