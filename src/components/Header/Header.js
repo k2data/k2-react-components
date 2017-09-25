@@ -34,7 +34,7 @@ const Header = React.createClass({
             }
             {
               !logo && title &&
-              <span>
+              <span style={{ fontSize: '24px' }}>
                 <b>{ title }</b>
               </span>
             }
