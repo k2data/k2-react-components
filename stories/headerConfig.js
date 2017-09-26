@@ -66,28 +66,28 @@ export const testValue2 = {
     {
       name: '数据接入',
       menuClick: () => { window.location.href = '' },
-      href: '1'
+      href: '0'
     },
     {
       name: '数据管理',
       menuClick: () => { window.location.href = '' },
-      href: '2'
+      href: '1'
     },
     {
       name: '数据分析',
       active: true,
       menuClick: () => {},
-      href: '3'
+      href: '2'
     },
     {
       name: '系统管理',
       menuClick: () => { window.location.href = '' },
-      href: '4'
+      href: '3'
     },
     {
       name: '用户管理',
       menuClick: () => { window.location.href = '' },
-      href: '5'
+      href: '4'
     },
   ],
   selects: ['时序数据', '关系型', '半结构化', '非结构化'],

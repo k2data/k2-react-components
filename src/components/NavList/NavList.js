@@ -66,8 +66,8 @@ export default class NavList extends React.Component {
       <ul className="header_menu_list">
         {
           this.props.navList && this.props.navList instanceof Array
-            ? this.props.navList.map((list) => {
-              return <li key={list.name}><a href={list.href} target='_blank'>{list.name}</a><span>|</span></li>
+            ? this.props.navList.map((list,index) => {
+              return <li key={list.name}><a className={list.active ? 'activeA' : ''} href={list.href} target='_blank'>{list.name}</a><span>|</span></li>
             })
             : ''
         }
