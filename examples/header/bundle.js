@@ -244,7 +244,7 @@ var NavList$1 = function (_React$Component) {
             { key: list.name },
             React.createElement(
               'a',
-              { href: list.href, target: '_blank' },
+              { className: list.active ? 'activeA' : '', href: list.href, target: '_blank' },
               list.name
             ),
             React.createElement(
