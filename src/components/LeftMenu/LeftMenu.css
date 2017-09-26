@@ -23,7 +23,7 @@ a {
 .light{
   box-shadow: 2px 0 4px 0 rgba(0,0,0,0.05);
   height: calc(100% - 2px);
-  width: calc(100% - 4px);
+  width: 100%;
   box-sizing: border-box;
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
@@ -33,7 +33,7 @@ a {
   box-shadow: 2px 0 7px 0 rgba(0,0,0,0.05);
   box-sizing: border-box;
   height: calc(100% - 2px);
-  width: calc(100% - 2px);
+  width: 100%;
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
   font-size: 14px;

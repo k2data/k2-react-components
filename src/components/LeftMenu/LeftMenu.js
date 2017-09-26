@@ -1,6 +1,5 @@
 //  @flow
 import React from 'react'
-import styles from './LeftMenu.css'
 
 const LeftMenu = (props: Object) => {
   const lightThem = {
