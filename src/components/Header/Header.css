@@ -99,10 +99,23 @@
   height: 2px;
   background-color: #fff;
 }*/
-.header_menu_list li a:active {
+/*.header_menu_list li a:active {
   opacity: 1;
 }
 .header_menu_list li a:active::after {
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  left: 25%;
+  content: '';
+  width: 37px;
+  height: 2px;
+  background-color: #fff;
+}*/
+.header_menu_list li .activeA {
+  opacity: 1;
+}
+.header_menu_list li .activeA::after {
   display: inline-block;
   position: absolute;
   top: 30px;

@@ -238,7 +238,7 @@ var NavList$1 = function (_React$Component) {
       return React.createElement(
         'ul',
         { className: 'header_menu_list' },
-        this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list) {
+        this.props.navList && this.props.navList instanceof Array ? this.props.navList.map(function (list, index) {
           return React.createElement(
             'li',
             { key: list.name },
