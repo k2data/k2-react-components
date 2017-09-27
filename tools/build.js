@@ -7,7 +7,7 @@ const del = require('del')
 const rollup = require('rollup')
 const babel = require('rollup-plugin-babel')
 const pkg = require('../package.json')
-const v = require('voca')
+// const v = require('voca')
 // const postcss = require('rollup-plugin-postcss')
 const postcss = require('postcss')
 
@@ -41,6 +41,11 @@ function rollupBuild (format, moduleName, entry, dest) {
     dest,
     format,
     sourceMap: true,
+    globals: {
+      'antd': 'antd',
+      'react': 'React',
+      'prop-types': 'PropTypes',
+    },
     moduleName: format === 'umd' ? moduleName : undefined,
   })))
 }
@@ -52,16 +57,16 @@ let promises = []
 //     'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
 //   componentDirs.map((dir) => {
 /**
- * formart: es, cjs, umd. es: ignore, cjs: publish, umd: examples.
+ * formart: es, cjs, umd. es: ignore, cjs: publish.
  */
 const formats = ['es', 'cjs', 'umd']
 formats.forEach((format) => {
   if (format === 'es') { return }
   componentDirs.forEach((dir) => {
-    promises.push(rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
-      format === 'cjs'
-        ? `lib/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`
-        : `examples/${v.kebabCase(dir)}/bundle.js`))
+    promises.push(
+      rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
+        `lib/${dir}/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
+    )
   })
 })
 
@@ -76,7 +81,6 @@ function buildCss () {
         to: `lib/${dir}/index.css` })
       .then(function (result) {
         fs.writeFileSync(`./lib/${dir}/index.css`, result.css)
-        fs.writeFileSync(`./examples/${v.kebabCase(dir)}/bundle.css`, result.css)
         if (result.map) fs.writeFileSync(`lib/${dir}/index.css.map`, result.map)
       })
       .catch((e) => {
