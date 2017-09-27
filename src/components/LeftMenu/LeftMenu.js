@@ -1,7 +1,7 @@
-//  @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const LeftMenu = (props: Object) => {
+const LeftMenu = (props) => {
   const lightThem = {
     background: '#FAFAFA',
     color: '#555555',
@@ -19,14 +19,24 @@ const LeftMenu = (props: Object) => {
   )
 }
 
-const SubMenu = (props: Object) => (
+LeftMenu.propTypes = {
+  them: PropTypes.string,
+  children: PropTypes.element
+}
+
+const SubMenu = (props) => (
   <div>
     <div className={'menu_title'}>{props.name}</div>
     {props.children}
   </div>
 )
 
-const MenuItem = (props: Object) => {
+SubMenu.propTypes = {
+  name: PropTypes.string,
+  children: PropTypes.element
+}
+
+const MenuItem = (props) => {
   return (
     <div>
       {props.icon}
@@ -36,6 +46,11 @@ const MenuItem = (props: Object) => {
       </a>
     </div>
   )
+}
+
+MenuItem.propTypes = {
+  icon: PropTypes.node,
+  name: PropTypes.string
 }
 
 export { SubMenu, MenuItem, LeftMenu }

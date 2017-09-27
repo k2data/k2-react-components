@@ -1,57 +1,89 @@
 import React from 'react'
-// import SelectComponent from '../Select/index.js'
-import UserList from '../UserList/UserList.js'
-// import SearchBox from '../SearchBox/index.js'
-import NavList from '../NavList/index.js'
+import PropTypes from 'prop-types'
 
-const Header = React.createClass({
-  propTypes: {
-     navList: React.PropTypes.array.isRequired,
-    // selects: React.PropTypes.array,
-    // showSelects: React.PropTypes.bool,
-    userMessage: React.PropTypes.object.isRequired,
-    // onSelectChange: React.PropTypes.func,
-    // navChange: React.PropTypes.func,
-    userControll: React.PropTypes.func,
-    // searchChange: React.PropTypes.func,
-    // showSearch: React.PropTypes.bool,
-    logoData: React.PropTypes.object.isRequired,
-    // logo: React.PropTypes.string
-  },
+class Header extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.logout = this.logout.bind(this)
+  }
+
+  logout () {
+    const { user } = this.props
+    if (user && user.logout && typeof user.logout.callback === 'function') {
+      user.logout.callback()
+    }
+  }
+
   render () {
-    const { logo, title, width, fontSize } = this.props.logoData
+    const { navList, logoData } = this.props
+    const { logo, title, width, fontSize } = logoData
     return (
-      <header className='header-container'>
-        <div className='header__logo' style={{ width: `${width || 200}px`, fontSize: `${fontSize || 30}px` }}>
-          <div className='header__logo_title'>
-            {
-              logo && logo.src &&
-              <div className='logoImg'>
-                <a className='logo-box' href={logo.href || ''}>
-                  <img title={title || ''} alt={title || ''} src={logo.src} width='105' />
-                </a>
-              </div>
-            }
-          </div>
+      <header className='k2-header'>
+        <div className='k2-header__logo'
+          style={{ width: `${width || 200}px`, fontSize: `${fontSize || 30}px` }}
+        >
+          {
+            logo && logo.src &&
+            <div className='image-wrapper'>
+              <a href={logo.href || ''}>
+                <img title={title || ''} alt={title || ''} src={logo.src} />
+              </a>
+            </div>
+          }
+          {
+            !logo && title &&
+              <span className='k2-header__logo__title'>
+                <b>{ title }</b>
+              </span>
+          }
         </div>
-        <div className="header__controll">
-          <NavList navList={this.props.navList} />
-        </div>
-        <div className="header_user">
+        <ul className='header__menu'>
+          {
+            navList && navList instanceof Array &&
+              this.props.navList.map((list, index) => {
+                return (
+                  <li key={list.name}>
+                    <a href={list.href}
+                      target='_blank'
+                      className={list.active ? 'activeA' : ''}
+                    >
+                      {list.name}
+                    </a>
+                    <span>|</span>
+                  </li>
+                )
+              })
+          }
+        </ul>
         {
-          this.props.userMessage.name && this.props.userMessage.name !== '' &&
-          <UserList userMessage={this.props.userMessage} userControll={this.props.userControll}></UserList>
+          this.props.user.name && this.props.user.name !== '' &&
+          <div className='header__usernav'>
+            <div className='header__usernav__name'>
+              <span>{this.props.user.name}</span>
+            </div>
+            <div className='header__usernav__separate'>
+              <span>|</span>
+            </div>
+            <div className='header__usernav__logout'>
+              <span onClick={this.logout}>{this.props.user.logout.title}</span>
+            </div>
+          </div>
         }
-        </div>
       </header>
     )
-  },
-})
+  }
+}
+
+Header.propTypes = {
+  navList: PropTypes.array.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    logout: PropTypes.object
+  }),
+  logoData: PropTypes.object.isRequired,
+}
+
+Header.defaultProps = {}
 
 export default Header
-
-Header.defaultProps = {
-  // logo: 'logo.png',
-  showSearch: true,
-  showSelects: true,
-}

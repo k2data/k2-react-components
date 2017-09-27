@@ -7,7 +7,7 @@ import Welcome from './Welcome'
 import Header from './Header'
 import Share from './Share'
 import { SubMenu, MenuItem, LeftMenu } from './LeftMenu'
-import { testValue1, testValue2 } from './headerConfig'
+import headerProps from './headerProps'
 let loading = false
 function share (val) {
   loading = true
@@ -24,7 +24,7 @@ storiesOf('Button', module)
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>)
 
 storiesOf('Header', module)
-  .add('default', () => <Header {...testValue2} />)
+  .add('default', () => <Header {...headerProps} />)
 
 storiesOf('LeftMenu', module)
 .add('light', () => (<LeftMenu><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))

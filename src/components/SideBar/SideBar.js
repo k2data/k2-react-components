@@ -1,14 +1,10 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-type Props = {
-  children: elem,
-    width: Number,
-    list: Array,
-}
+import PropTypes from 'prop-types'
+
 export default class SideBar extends React.Component {
-  props: Props
   constructor (props) {
     super(props)
+
     this.navClick = this.navClick.bind(this)
   }
 
@@ -76,14 +72,14 @@ export default class SideBar extends React.Component {
                       <ul style={{ height: `${nav.toggle ? 'auto' : 0}` }}>
                         {
                           nav.second.map((b, i) => {
-                            return <li key={`second${i}`} className={b.active ? 'active' : ''}>
+                            return (<li key={`second${i}`} className={b.active ? 'active' : ''}>
                               <a onClick={b.onClick || null}
                                 style={{ pointerEvents: b.disabled ? 'none' : 'all' }}
                                 disabled={b.disabled || false}
                                 >
                                 {b.name}
                               </a>
-                            </li>
+                            </li>)
                           })
                         }
                       </ul>
@@ -99,9 +95,8 @@ export default class SideBar extends React.Component {
   }
 }
 
-// SideBar.propTypes = {
-//   children: PropTypes.elem,
-//   width: PropTypes.number,
-//   list: PropTypes.array,
-// }
-// style={{ display: `${nav.toggle ? 'block' : 'none'}` }}
+SideBar.propTypes = {
+  children: PropTypes.element,
+  width: PropTypes.number,
+  list: PropTypes.array,
+}

@@ -1,55 +1,39 @@
-.header-container {
+.k2-header {
   height: 60px;
   background-color: #152D51;
 }
-.header__logo {
+
+.k2-header__logo {
   float: left;
   height: 100%;
-  /*padding-left: 14px;*/
   line-height: 60px;
   overflow: hidden;
   text-align: center;
 }
-.header__logo_title {
-  height: 100%;
-}
-.header__logo_title span {
+
+.k2-header__logo {
   color: #fff;
-  /*font-size: 30px;*/
 }
-.header__logo_title .logoImg {
+
+.k2-header__logo .image-wrapper {
   padding: 0px 5px;
   margin-right: 5px;
   height: 100%;
   position: relative;
 }
-.logo-box {
+
+.k2-header__logo .image-wrapper img {
   display: block;
   height: 34px;
-  line-height: 34px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
-.header__logo_title .logoImg img {
-  /*vertical-align: middle;*/
-}
-/*.header__logo_title .logoImg::after {
-  content: '';
-  border-right: 1px solid #fff;
-  margin-left: 10px;
-  width: 0;
-  height: 15px;
-  display: inline-block;
-}*/
-.header__controll {
+
+.header__menu {
   height: 100%;
   position: relative;
-  /*display: flex;
-  flex-direction: row;*/
-}
-.header_menu_list {
   margin-left: 25%;
   list-style: none;
   display: flex;
@@ -58,7 +42,8 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.header_menu_list li {
+
+.header__menu li {
   flex: 1;
   float: left;
   height: 100%;
@@ -68,95 +53,79 @@
   color: #fff;
   cursor: pointer;
 }
-.header_menu_list li a {
+
+.header__menu li a {
   text-decoration: none;
   position: relative;
-  opacity: 0.6;
-  font-family: PingFangSC-Medium, "\5FAE\8F6F\96C5\9ED1";
+  opacity: .75;
   font-size: 16px;
-  font-weight: bold;
   color: #FFFFFF;
   letter-spacing: 0;
 }
-.header_menu_list li span{
+
+.header__menu li span{
   float: right;
   color: #fff;
   opacity: 0.2;
 }
-.header_menu_list li:last-child span {
+
+.header__menu li:last-child span {
   opacity: 0;
 }
-.header_menu_list li a:hover {
+
+.header__menu li a:hover {
   opacity: 1;
 }
-/*.header_menu_list li a:hover::after {
+
+.header__menu li .activeA {
+  opacity: 1;
+}
+
+.header__menu li .activeA::after {
   display: inline-block;
   position: absolute;
   top: 30px;
-  left: 25%;
-  content: '';
-  width: 37px;
-  height: 2px;
-  background-color: #fff;
-}*/
-/*.header_menu_list li a:active {
-  opacity: 1;
-}
-.header_menu_list li a:active::after {
-  display: inline-block;
-  position: absolute;
-  top: 30px;
-  left: 25%;
-  content: '';
-  width: 37px;
-  height: 2px;
-  background-color: #fff;
-}*/
-.header_menu_list li .activeA {
-  opacity: 1;
-}
-.header_menu_list li .activeA::after {
-  display: inline-block;
-  position: absolute;
-  top: 30px;
-  left: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   content: '';
   width: 37px;
   height: 2px;
   background-color: #fff;
 }
-.header_user {
+
+.header__usernav {
   width: 25%;
   height: 100%;
   float: right;
   margin-top: -60px;
+
+  position: relative;
+  height: 100%;
 }
-.header_user .logIn {
+
+.header__usernav .logIn {
   opacity: 0.7;
-  font-family: PingFangSC-Medium;
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
 }
-.header_user .header_user_center {
-  position: relative;
-  height: 100%;
-}
-.header_user .header_user_center .header_username {
+
+.header__usernav__name {
   width: 65%;
   height: 100%;
   display: inline-block;
   line-height: 60px;
 }
-.header_user .header_user_center .header_username span {
+
+.header__usernav__name span {
   opacity: 0.7;
-  font-family: PingFangSC-Medium;
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
   float: right;
 }
-.header_user .header_user_center .header_separate {
+
+.header__usernav__separate {
   position: absolute;
   top: 0;
   width: 10%;
@@ -165,15 +134,16 @@
   text-align: center;
   line-height: 60px;
 }
-.header_user .header_user_center .header_separate span {
+
+.header__usernav__separate span {
   position: absolute;
   opacity: 0.3;
-  font-family: PingFangSC-Medium;
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
 }
-.header_user .header_user_center .header_logOut {
+
+.header__usernav__logout {
   position: absolute;
   top: 0;
   right: 0;
@@ -182,14 +152,15 @@
   display: inline-block;
   text-align: center;
 }
-.header_user .header_user_center .header_logOut span {
+
+.header__usernav__logout span {
   position: absolute;
   left: 0;
   top: 30%;
   width: 46px;
   height: 24px;
   border: 1px solid rgba(255,255,255,0.5);
-  font-family: PingFangSC-Medium;
+  border-radius: 3px;
   font-size: 12px;
   color: #FFFFFF;
   letter-spacing: 0;
