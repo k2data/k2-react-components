@@ -61,7 +61,6 @@ let promises = []
  */
 const formats = ['es', 'cjs', 'umd']
 formats.forEach((format) => {
-  // if (format === 'es') { return }
   componentDirs.forEach((dir) => {
     promises.push(
       rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
