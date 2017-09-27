@@ -32,21 +32,21 @@ const babelConfig = {
   presets: [['latest', { es2015: { modules: false } }], 'react', 'stage-0'],
 }
 
-function rollupBuild (format, moduleName, entry, dest) {
+function rollupBuild (format, name, input, file) {
   return promise.then(() => rollup.rollup({
-    entry,
+    input,
     external: Object.keys(pkg.dependencies),
     plugins: [babel(babelConfig)],
   }).then(bundle => bundle.write({
-    dest,
+    file,
     format,
-    sourceMap: true,
+    sourcemap: true,
     globals: {
       'antd': 'antd',
       'react': 'React',
       'prop-types': 'PropTypes',
     },
-    moduleName: format === 'umd' ? moduleName : undefined,
+    name: format === 'umd' ? name : undefined,
   })))
 }
 
@@ -61,7 +61,7 @@ let promises = []
  */
 const formats = ['es', 'cjs', 'umd']
 formats.forEach((format) => {
-  if (format === 'es') { return }
+  // if (format === 'es') { return }
   componentDirs.forEach((dir) => {
     promises.push(
       rollupBuild(format, dir, `${componentsPath}/${dir}/index.js`,
