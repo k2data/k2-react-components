@@ -79,7 +79,7 @@ Header.propTypes = {
   navList: PropTypes.array.isRequired,
   user: PropTypes.shape({
     name: PropTypes.string,
-    logout: PropTypes.object
+    logout: PropTypes.object,
   }),
   logoData: PropTypes.object.isRequired,
 }
