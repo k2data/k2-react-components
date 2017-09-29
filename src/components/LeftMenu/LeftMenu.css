@@ -14,12 +14,12 @@ h3{
 a {
   text-decoration: none;
 }
-.dark a {
+/*.dark a {
   color: #fff;
 }
 .light a {
   color: #555555;
-}
+}*/
 .light{
   box-shadow: 2px 0 4px 0 rgba(0,0,0,0.05);
   height: calc(100% - 2px);
