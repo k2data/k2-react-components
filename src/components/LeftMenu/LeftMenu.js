@@ -13,7 +13,7 @@ const LeftMenu = (props) => {
   const them = props.them || 'light'
   const raperStyle = them === 'light' ? lightThem : darkThem
   return (
-    <div className={`${them}`} style={raperStyle}>
+    <div className={`k2-${them}`} style={raperStyle}>
       {props.children}
     </div>
   )
