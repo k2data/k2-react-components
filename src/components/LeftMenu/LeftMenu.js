@@ -40,10 +40,10 @@ const MenuItem = (props) => {
   return (
     <div>
       {props.icon}
-      <a href='javascript:void(0)'
+      <span
         className={'menulist_name'} >
         {props.name}
-      </a>
+      </span>
     </div>
   )
 }
