@@ -77,16 +77,6 @@
 .header__menu li:last-child::after {
   opacity: 0;
 }
-/*.header__menu li span{
-  float: right;
-  color: #fff;
-  opacity: 0.2;
-}
-
-.header__menu li:last-child span {
-  opacity: 0;
-}*/
-
 .header__menu li a:hover {
   opacity: 1;
 }
