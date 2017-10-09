@@ -50,7 +50,7 @@ class Header extends React.Component {
                     >
                       {list.name}
                     </a>
-                    <span>|</span>
+
                   </li>
                 )
               })
