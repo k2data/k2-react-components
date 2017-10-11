@@ -1,39 +1,30 @@
-#root{
+.k2-light, k2-dark {
   height: 100%;
   font-size: 14px;
 }
 
-i{
+.k2-dark i {
   font-style: normal;
 }
 
-h3{
+.k2-dark h3 {
   font-weight: normal;
   font-size: 14px;
 }
-a {
-  text-decoration: none;
-}
-/*.dark a {
-  color: #fff;
-}
-.light a {
-  color: #555555;
-}*/
-.light{
+.k2-light {
   box-shadow: 2px 0 4px 0 rgba(0,0,0,0.05);
   height: calc(100% - 2px);
-  width: calc(100% - 4px);
+  width: 100%;
   box-sizing: border-box;
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
   font-size: 14px;
 }
-.dark{
+.k2-dark {
   box-shadow: 2px 0 7px 0 rgba(0,0,0,0.05);
   box-sizing: border-box;
   height: calc(100% - 2px);
-  width: calc(100% - 2px);
+  width: 100%;
   font-Family: PingFangSC-Medium;
   padding-top: 40px;
   font-size: 14px;
@@ -52,16 +43,6 @@ a {
   line-height: 39px;
   opacity: 0.7;
 }
-.dark_active .menulist_name{
-  background-image: linear-gradient(to right, #4F95FB 0%, rgba(79,149,251,0.00) 100%);
-  opacity: 1;
-}
-.light_active div{
-  color: #0B95FE;
-}
-.light_active .menulist_name{
-  color: #0B95FE;
-}
 .menulist_name {
   text-decoration: none;
   box-sizing: border-box;
@@ -71,16 +52,16 @@ a {
   line-height: 40px;
   text-decoration: none;
 }
-.dark .menulist_name:hover{
+.k2-dark .menulist_name:hover{
   background: rgba(79,149,251,.2);
 }
-.light .menulist_name:hover{
+.k2-light .menulist_name:hover{
   background: rgba(240,240,240,1);
 }
 .menulist_name:focus{
   text-decoration: none;
 }
-.icon{
+.k2-light .icon{
   display: inline-block;
   position: absolute;
   left: 40px;

@@ -108,10 +108,10 @@ class Share extends React.Component {
                 <ul style={container}>
                   {
                     shares.map((sh) => {
-                      return <li style={item} key={sh}>
+                      return (<li style={item} key={sh}>
                         <span style={text}>{sh}</span>
                         <a style={btn} onClick={() => { this.deleteItem(sh) }}><Icon type='delete' /></a>
-                      </li>
+                      </li>)
                     })
                   }
                 </ul>
