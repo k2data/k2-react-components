@@ -4,6 +4,7 @@ export default {
   navList: [
     {
       name: '数据接入',
+      active: true,
       href: '#0',
     },
     {
@@ -12,7 +13,6 @@ export default {
     },
     {
       name: '数据分析',
-      active: true,
       href: '#2',
     },
     {
