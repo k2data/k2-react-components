@@ -1,5 +1,14 @@
 {
   "plugins": [
   ],
-  "presets": [["latest", { "es2015": { "modules": false } }], "react", "stage-0"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7", "ie >= 9"],
+      },
+      "modules": false,
+    }],
+    "stage-0",
+    "react",
+  ]
 }

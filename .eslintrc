@@ -6,12 +6,15 @@
     "plugin:flowtype/recommended"
   ],
   "plugins": [
-    "babel", "flowtype", "import"
+    "babel", "flowtype", "import", "node"
   ],
   "env"     : {
     "browser" : true
   },
   "globals" : {
+  },
+  settings: {
+    'import/resolver': {}
   },
   "rules": {
     "semi" : [2, "never"],

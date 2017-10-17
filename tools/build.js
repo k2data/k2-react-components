@@ -1,14 +1,11 @@
 'use strict'
 
 const fs = require('fs')
-// const fsCopy = require('fs-extra')
 const path = require('path')
 const del = require('del')
 const rollup = require('rollup')
 const babel = require('rollup-plugin-babel')
 const pkg = require('../package.json')
-// const v = require('voca')
-// const postcss = require('rollup-plugin-postcss')
 const postcss = require('postcss')
 
 const componentsPath = './src/components'
@@ -26,10 +23,18 @@ const babelConfig = {
   exclude: 'node_modules/**',
   runtimeHelpers: true,
   plugins: [
-    // ['import', [{ 'libraryName': 'antd', 'style': 'css' }]],
     'external-helpers',
   ],
-  presets: [['latest', { es2015: { modules: false } }], 'react', 'stage-0'],
+  presets: [
+    ['env', {
+      targets: {
+        browsers: ['last 2 versions', 'safari >= 7', 'ie >= 9'],
+      },
+      modules: false,
+    }],
+    'stage-0',
+    'react',
+  ],
 }
 
 function rollupBuild (format, name, input, file) {
@@ -51,11 +56,14 @@ function rollupBuild (format, name, input, file) {
 }
 
 let promises = []
+
+// build all components into one file
 // for (const format of ['es', 'cjs', 'umd']) {
 // for (const format of ['es', 'cjs']) {
 //   rollupBuild(format, 'k2_react_components',
 //     'src/index.js', `lib/${format === 'cjs' ? 'index' : `index.${format}`}.js`)
 //   componentDirs.map((dir) => {
+
 /**
  * formart: es, cjs, umd. es: ignore, cjs: publish.
  */
