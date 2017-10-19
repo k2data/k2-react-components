@@ -1,6 +1,7 @@
 .k2-header {
   height: 60px;
   background-color: #152D51;
+  /* In IE9 "display: table;" change header__menu's height */
   overflow: hidden;
 }
 
@@ -8,7 +9,6 @@
   float: left;
   height: 60px;
   line-height: 60px;
-  overflow: hidden;
   text-align: center;
   color: #fff;
   position: relative;
@@ -32,17 +32,18 @@
   position: relative;
   margin-left: 25%;
   list-style: none;
+  /* IE9 */
   display: table;
   display: flex;
   height: 60px;
   width: 50%;
-  overflow: hidden;
   white-space: nowrap;
 }
 
 .header__menu li {
   position: relative;
   flex: 1;
+  /* IE9 */
   display: table-cell;
   text-align: center;
   height: 100%;
@@ -96,8 +97,6 @@
 .header__usernav {
   width: 25%;
   height: 100%;
-  float: right;
-  margin-top: -60px;
 
   position: relative;
   height: 100%;
