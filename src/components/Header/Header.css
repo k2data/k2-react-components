@@ -66,13 +66,13 @@
 .header__menu li::after {
   display: inline-block;
   position: absolute;
-  top: 33.333%;
+  top: 38.333%;
   left: 100%;
   content: '';
   width: 1px;
-  height: 20px;
+  height: 14px;
   background-color: #fff;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 .header__menu li:last-child::after {
   opacity: 0;
