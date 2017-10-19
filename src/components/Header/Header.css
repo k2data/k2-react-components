@@ -1,6 +1,7 @@
 .k2-header {
   height: 60px;
   background-color: #152D51;
+  overflow: hidden;
 }
 
 .k2-header__logo {
