@@ -3,21 +3,13 @@
   font-size: 14px;
 }
 
-.k2-light i,
 .k2-dark i {
   font-style: normal;
 }
 
-.k2-light h3,
 .k2-dark h3 {
   font-weight: normal;
   font-size: 14px;
-}
-.k2-dark span {
-  color: #fff;
-}
-.k2-light span {
-  color: #555555;
 }
 .k2-light {
   box-shadow: 2px 0 4px 0 rgba(0,0,0,0.05);

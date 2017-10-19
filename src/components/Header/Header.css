@@ -13,22 +13,20 @@
 
 .k2-header__logo {
   color: #fff;
+  position: relative;
 }
 
 .k2-header__logo .image-wrapper {
-  padding: 0px 5px;
-  margin-right: 5px;
-  height: 100%;
-  position: relative;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .k2-header__logo .image-wrapper img {
   display: block;
   height: 34px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .header__menu {
@@ -36,6 +34,7 @@
   position: relative;
   margin-left: 25%;
   list-style: none;
+  display: table;
   display: flex;
   height: 60px;
   width: 50%;
@@ -46,11 +45,10 @@
 .header__menu li {
   position: relative;
   flex: 1;
-  float: left;
-  height: 100%;
+  display: table-cell;
   text-align: center;
+  height: 100%;
   line-height: 60px;
-
   color: #fff;
   cursor: pointer;
 }
@@ -130,7 +128,6 @@
 }
 
 .header__usernav__separate {
-  position: absolute;
   top: 0;
   width: 10%;
   height: 100%;

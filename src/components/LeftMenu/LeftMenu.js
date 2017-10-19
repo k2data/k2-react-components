@@ -21,7 +21,7 @@ const LeftMenu = (props) => {
 
 LeftMenu.propTypes = {
   them: PropTypes.string,
-  children: PropTypes.element
+  children: PropTypes.array
 }
 
 const SubMenu = (props) => (
@@ -33,7 +33,7 @@ const SubMenu = (props) => (
 
 SubMenu.propTypes = {
   name: PropTypes.string,
-  children: PropTypes.element
+  children: PropTypes.array
 }
 
 const MenuItem = (props) => {

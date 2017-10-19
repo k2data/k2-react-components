@@ -25,11 +25,9 @@ class Header extends React.Component {
         >
           {
             logo && logo.src &&
-            <div className='image-wrapper'>
-              <a href={logo.href || ''}>
-                <img title={title || ''} alt={title || ''} src={logo.src} />
-              </a>
-            </div>
+            <a href={logo.href || ''} className='image-wrapper'>
+              <img title={title || ''} alt={title || ''} src={logo.src} />
+            </a>
           }
           {
             !logo && title &&

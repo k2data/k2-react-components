@@ -1,0 +1,91 @@
+.ag-fresh {
+  font-size: 12px;
+}
+
+.ag-fresh .ag-root {
+  border-color: transparent;
+}
+
+.ag-fresh .ag-menu {
+  border: 1px solid #E0E0E0;
+  border-radius: 3px;
+}
+
+.ag-fresh .ag-filter-body {
+  padding: 4px;
+}
+
+.ag-fresh .ag-header {
+  background: #F7FBFF;
+  border-bottom: 1px dashed rgba(0, 0, 0, .05);
+}
+
+.ag-fresh .ag-header-cell {
+  font-size: 14px;
+  padding: 2px 8px;
+}
+
+.ag-fresh .ag-header-cell-menu-button {
+}
+
+.ag-fresh .ag-ltr .ag-header-cell {
+  border-right-color: transparent;
+}
+
+.ag-fresh .ag-ltr .ag-header-cell::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - .8em);
+  right: -1px;
+  width: 1px;
+  height: 1.6em;
+  background-color: #E0E0E0
+}
+
+.ag-fresh .ag-row:hover,
+.ag-fresh .ag-row.ag-row-odd:hover {
+  background: #EBF4FF;
+}
+
+.ag-fresh .ag-row.ag-row-selected:hover {
+  background-color: #D8EAFF;
+}
+
+.ag-fresh .ag-row.ag-row-odd {
+  background: #F7FBFF;
+}
+
+.ag-fresh .ag-row.ag-row-selected {
+  background-color: #D8EAFF;
+}
+
+.ag-fresh .ag-row.ag-row-odd.ag-row-selected {
+  background-color: #D8EAFF;
+}
+
+.ag-fresh .ag-cell-not-inline-editing {
+  padding: 2px 8px;
+}
+
+.ag-fresh .ag-cell:focus,
+.ag-fresh .ag-filter-filter,
+.ag-fresh .ag-filter-select {
+  outline: none;
+}
+
+.ag-fresh .ag-ltr .ag-cell-no-focus {
+  border-right-color: transparent;
+  border-bottom: 1px dashed rgba(0, 0, 0, .05);
+}
+
+.ag-fresh.ag-cell-40 .ag-header-cell-label {
+  line-height: 36px;
+}
+
+.ag-fresh.ag-cell-40 .ag-header-cell-menu-button {
+  margin-top: 8.5px;
+}
+
+.ag-fresh.ag-cell-40 .ag-cell {
+  line-height: 34px;
+}

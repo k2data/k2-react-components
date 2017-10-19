@@ -8,6 +8,8 @@ import Header from './Header'
 import Share from './Share'
 import { SubMenu, MenuItem, LeftMenu } from './LeftMenu'
 import headerProps from './headerProps'
+import DataGrid from './DataGrid'
+
 let loading = false
 function share (val) {
   loading = true
@@ -27,15 +29,18 @@ storiesOf('Header', module)
   .add('default', () => <Header {...headerProps} />)
 
 storiesOf('LeftMenu', module)
-.add('light', () => (<LeftMenu><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))
-.add('dark', () => (<LeftMenu them='dark'><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))
+  .add('light', () => (<LeftMenu><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))
+  .add('dark', () => (<LeftMenu them='dark'><SubMenu name='一级菜单'> <MenuItem name='二级菜单' /> </SubMenu> </LeftMenu>))
 
 storiesOf('Share', module)
-  .add('default', () => <Share
+  .add('default', () => (<Share
     list={['javascript', 'Node', 'React', 'Vue']}
     share={(val) => { share(val) }}
     title='分享'
     type='primary'
     size='small'
     loading={loading}
-  />)
+  />))
+
+storiesOf('Data-Grid', module)
+  .add('default', () => <DataGrid />)
