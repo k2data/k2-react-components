@@ -60,9 +60,7 @@ class Header extends React.Component {
             <div className='header__usernav__name'>
               <span>{this.props.user.name}</span>
             </div>
-            <div className='header__usernav__separate'>
-              <span>|</span>
-            </div>
+            <div className='header__usernav__separate' />
             <div className='header__usernav__logout'>
               <span onClick={this.logout}>{this.props.user.logout.title}</span>
             </div>

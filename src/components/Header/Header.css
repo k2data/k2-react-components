@@ -64,13 +64,13 @@
 .header__menu li::after {
   display: inline-block;
   position: absolute;
-  top: 33.333%;
+  top: calc((60px - 14px) / 2);
   left: 100%;
   content: '';
   width: 1px;
-  height: 20px;
+  height: 14px;
   background-color: #fff;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 .header__menu li:last-child::after {
   opacity: 0;
@@ -132,12 +132,17 @@
   line-height: 60px;
   display: inline-block;
   text-align: center;
+  position: relative;
 }
 
-.header__usernav__separate span {
-  opacity: 0.3;
-  font-size: 14px;
-  color: #FFFFFF;
+.header__usernav__separate::after {
+  content: '';
+  opacity: 0.2;
+  height: 14px;
+  position: absolute;
+  top: calc((60px - 14px) / 2);
+  width: 1px;
+  background-color: #FFFFFF;
 }
 
 .header__usernav__logout {
