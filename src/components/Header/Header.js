@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 class Header extends React.Component {
   constructor (props) {
     super(props)
-
+    this.state = {
+      visible: false
+    }
     this.logout = this.logout.bind(this)
+    this.showSelect = this.showSelect.bind(this)
   }
-
   logout () {
     const { user } = this.props
     if (user && user.logout && typeof user.logout.callback === 'function') {
@@ -15,11 +17,21 @@ class Header extends React.Component {
     }
   }
 
+  showSelect () {
+    if (this.state.visible) {
+      this.header.style.overflow = 'hidden'
+      this.setState({ visible: false })
+    } else {
+      this.setState({ visible: true })
+      this.header.style.overflow = 'visible'
+    }
+  }
+
   render () {
     const { navList, logoData } = this.props
     const { logo, title, width, fontSize } = logoData
     return (
-      <header className='k2-header'>
+      <header className='k2-header' ref={(header) => { this.header = header }}>
         <div className='k2-header__logo'
           style={{ width: `${width || 200}px`, fontSize: `${fontSize || 30}px` }}
         >
@@ -36,36 +48,40 @@ class Header extends React.Component {
               </span>
           }
         </div>
-        <ul className='header__menu'>
-          {
-            navList && navList instanceof Array &&
-              this.props.navList.map((list, index) => {
-                return (
-                  <li key={list.name}>
-                    <a href={list.href}
-                      target='_blank'
-                      className={list.active ? 'activeA' : ''}
-                    >
-                      {list.name}
-                    </a>
+        <div className='header__select__wrapper'>
+          <ul className='header__menu'>
+            {
+              navList && navList instanceof Array &&
+                this.props.navList.map((list, index) => {
+                  return (
+                    <li key={list.name}>
+                      <a href={list.href}
+                        target='_blank'
+                        className={list.active ? 'activeA' : ''}
+                      >
+                        {list.name}
+                      </a>
 
-                  </li>
-                )
-              })
+                    </li>
+                  )
+                })
+            }
+          </ul>
+          {
+            this.props.user.name && this.props.user.name !== '' &&
+            <div className='header__usernav'>
+              <div className='header__usernav__name' onClick={this.showSelect}>
+                <span>{this.props.user.name}
+                  <span className='header__user__icon'>&nbsp;&nbsp;&lt;</span>
+                </span>
+              </div>
+              <div className='header__usernav__separate' />
+              <div className='header__usernav__logout'>
+                <span onClick={this.logout}>{this.props.user.logout.title}</span>
+              </div>
+            </div>
           }
-        </ul>
-        {
-          this.props.user.name && this.props.user.name !== '' &&
-          <div className='header__usernav'>
-            <div className='header__usernav__name'>
-              <span>{this.props.user.name}</span>
-            </div>
-            <div className='header__usernav__separate' />
-            <div className='header__usernav__logout'>
-              <span onClick={this.logout}>{this.props.user.logout.title}</span>
-            </div>
-          </div>
-        }
+        </div>
       </header>
     )
   }
