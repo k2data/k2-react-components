@@ -5,11 +5,12 @@ class Header extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      visible: false
+      visible: false,
     }
     this.logout = this.logout.bind(this)
     this.showSelect = this.showSelect.bind(this)
   }
+
   logout () {
     const { user } = this.props
     if (user && user.logout && typeof user.logout.callback === 'function') {
@@ -19,11 +20,17 @@ class Header extends React.Component {
 
   showSelect () {
     if (this.state.visible) {
-      this.header.style.overflow = 'hidden'
       this.setState({ visible: false })
+      this.header.style.overflow = 'hidden'
+      this.arrow.style.transformOrigin = 'center'
+      this.arrow.style.transform = 'rotate(-90deg)'
+      this.arrow.style.transition = 'all 0.2s linear'
     } else {
       this.setState({ visible: true })
       this.header.style.overflow = 'visible'
+      this.arrow.style.transformOrigin = 'center'
+      this.arrow.style.transform = 'rotate(90deg)'
+      this.arrow.style.transition = 'all 0.2s linear'
     }
   }
 
@@ -72,7 +79,9 @@ class Header extends React.Component {
             <div className='header__usernav'>
               <div className='header__usernav__name' onClick={this.showSelect}>
                 <span>{this.props.user.name}
-                  <span className='header__user__icon'>&nbsp;&nbsp;&lt;</span>
+                  <span
+                    ref={(arrow) => { this.arrow = arrow }}
+                    className='header__user__icon'>&lt;</span>
                 </span>
               </div>
               <div className='header__usernav__separate' />
