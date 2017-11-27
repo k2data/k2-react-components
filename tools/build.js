@@ -5,6 +5,7 @@ const path = require('path')
 const del = require('del')
 const rollup = require('rollup')
 const babel = require('rollup-plugin-babel')
+const image = require('rollup-plugin-image')
 const pkg = require('../package.json')
 const postcss = require('postcss')
 
@@ -41,7 +42,7 @@ function rollupBuild (format, name, input, file) {
   return promise.then(() => rollup.rollup({
     input,
     external: Object.keys(pkg.dependencies),
-    plugins: [babel(babelConfig)],
+    plugins: [babel(babelConfig), image()],
   }).then(bundle => bundle.write({
     file,
     format,

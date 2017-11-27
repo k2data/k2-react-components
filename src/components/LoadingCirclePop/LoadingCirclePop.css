@@ -1,0 +1,65 @@
+.loading--ripple-container
+{
+    position: relative;
+
+    width: 182px;
+    height: 182px;
+}
+
+.loading--ripple
+{
+    position: absolute;
+    z-index: 999;
+    top: calc(50% - 90px);
+    left: calc(50% - 90px);
+
+    opacity: .5;
+}
+
+.img
+{
+    position: absolute;
+    /*opacity: .5;*/
+    z-index: 9999;
+    top: calc(50% - 18.5px);
+    left: calc(50% - 18.5px);
+
+    width: 37px;
+    height: 37px;
+}
+
+.circle-1
+{
+    animation: 3s linear 0s infinite circle-in;
+
+    opacity: 0;
+}
+
+.circle-2
+{
+    animation: 3s linear 1.5s infinite circle-in;
+
+    opacity: 0;
+}
+
+@keyframes circle-in
+{
+    0%
+    {
+        transform: translate(50px, 50px) scale(0);
+
+        opacity: 1;
+    }
+    33%
+    {
+        transform: translate(22.5px, 22.5px) scale(.55);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translate(-5px, -5px) scale(1.1);
+
+        opacity: 0;
+    }
+}
