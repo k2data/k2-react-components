@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const itemStyle = {
+  position: 'relative',
+}
+
 const LeftMenu = (props) => {
   const lightThem = {
     background: '#FAFAFA',
@@ -13,7 +17,7 @@ const LeftMenu = (props) => {
   const them = props.them || 'light'
   const raperStyle = them === 'light' ? lightThem : darkThem
   return (
-    <div className={`k2-${them}`} style={raperStyle}>
+    <div className={`k2-${them}`} style={{...raperStyle, overflow: 'auto'}}>
       {props.children}
     </div>
   )
@@ -21,11 +25,11 @@ const LeftMenu = (props) => {
 
 LeftMenu.propTypes = {
   them: PropTypes.string,
-  children: PropTypes.array
+  children: PropTypes.array,
 }
 
 const SubMenu = (props) => (
-  <div>
+  <div style={itemStyle}>
     <div className={'menu_title'}>{props.name}</div>
     {props.children}
   </div>
@@ -33,12 +37,12 @@ const SubMenu = (props) => (
 
 SubMenu.propTypes = {
   name: PropTypes.string,
-  children: PropTypes.array
+  children: PropTypes.array,
 }
 
 const MenuItem = (props) => {
   return (
-    <div>
+    <div style={itemStyle}>
       {props.icon}
       <span
         className={'menulist_name'} >
@@ -50,7 +54,7 @@ const MenuItem = (props) => {
 
 MenuItem.propTypes = {
   icon: PropTypes.node,
-  name: PropTypes.string
+  name: PropTypes.string,
 }
 
 export { SubMenu, MenuItem, LeftMenu }
