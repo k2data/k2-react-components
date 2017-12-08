@@ -63,7 +63,7 @@ class Header extends React.Component {
                   return (
                     <li key={list.name}>
                       <a href={list.href}
-                        target='_blank'
+                        target={list.active ? '_self' : '_blank'}
                         className={list.active ? 'activeA' : ''}
                       >
                         {list.name}
